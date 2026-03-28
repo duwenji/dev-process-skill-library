@@ -1,0 +1,110 @@
+---
+name: incident-postmortem
+description: '障害や重大インシデントの事実、原因、判断、再発防止策を整理し、組織学習へ繋げる振り返りワークフロー。'
+argument-hint: '対象インシデント、発生日時、影響範囲、初動対応、既知の事実、未確定事項を記述してください。開発者が承認判断を行います。'
+user-invocable: true
+disable-model-invocation: false
+---
+
+# インシデント振り返り Skill（運用フレームワーク）
+
+## 利用する場面
+- 障害や重大インシデントの再発防止策を整理したい
+- 事実と推測を分けて原因を振り返りたい
+- 初動対応、検知、判断の改善点を残したい
+- 組織学習として横展開できる形にしたい
+
+## 対応の流れ（高レベル）
+
+```mermaid
+flowchart TD
+    classDef ai fill:#d0e8ff,stroke:#4a90d9,color:#000
+    classDef dev fill:#d0f0d0,stroke:#3d8b3d,color:#000
+    classDef gate fill:#fff0c0,stroke:#c8900a,color:#000,stroke-width:3px
+    classDef endNode fill:#e8e8e8,stroke:#888,color:#000
+
+    subgraph Ph1["Phase 1: 事実整理・時系列化"]
+        S1["段階1: 準備（記録と証跡の収集）"]
+        S2["段階2: 影響と時系列の詳細化"]
+        S3["段階3: 開発者がインシデント条件を正式入力"]
+        S4["段階4: AI が事実と判断を分析"]
+        S5["段階5: AI が検知から復旧の時系列フローを生成"]
+        S6["段階6: AI が原因仮説と論点を生成"]
+        S1 --> S2 --> S3 --> S4 --> S5 --> S6
+    end
+
+    subgraph Ph2["Phase 2: 原因整理・再発防止方針化"]
+        G1["⭐️段階7: 振り返り論点レビュー・決定<br/>ゲート条件 #1"]
+        S8["段階8: AI が再発防止案を作成"]
+        S9["段階9: 開発者が内容をレビュー・承認"]
+        G1 --> S8 --> S9
+    end
+
+    subgraph Ph3["Phase 3: アクション確認・共有準備"]
+        S10["段階10: AI が確認項目を生成"]
+        G2["⭐️段階11: 項目レビュー・承認<br/>ゲート条件 #2"]
+        S12["段階12: AI がアクションと共有先を整理"]
+        G3["⭐️段階13: 共有準備レビュー・承認<br/>ゲート条件 #3"]
+        S10 --> G2 --> S12 --> G3
+    end
+
+    subgraph Ph4["Phase 4: 報告"]
+        S14["段階14: AI が振り返り内容を報告"]
+    end
+
+    END(["✅ 完了"])
+
+    S6 --> G1
+    S9 --> S10
+    G3 --> S14
+    S14 --> END
+
+    class S1,S2,S4,S5,S6,S8,S10,S12,S14 ai
+    class S3,S9 dev
+    class G1,G2,G3 gate
+    class END endNode
+```
+
+## 実行モード（推奨: balance）
+| モード | 特徴 | 用途 |
+|--------|------|------|
+| strict | 事実、判断、組織要因、再発防止を広く扱う | 重大障害、監査対象 |
+| speed | 主要事実と即効性の高い対策に絞る | 軽微なインシデント |
+| balance | 学習と運用改善に必要な粒度を確保する | 標準的な障害振り返り |
+
+## Phase（段階）の概要
+### Phase 1: 事実整理・時系列化（段階1-6）
+### Phase 2: 原因整理・再発防止方針化（段階7-9）
+### Phase 3: アクション確認・共有準備（段階10-13）
+### Phase 4: 報告（段階14）
+
+## ゲート条件と承認フロー
+### 段階7: 振り返り論点決定ゲート
+判定条件:
+- 事実と推測が分かれているか
+- 時系列と影響が整理されているか
+- 原因仮説が比較可能か
+
+### 段階11: 項目承認ゲート
+判定条件:
+- 再発防止案が検知、予防、復旧の観点を含むか
+- 担当と期限を付けられるか
+- 共有対象が見えているか
+
+### 段階13: 共有準備承認ゲート
+判定条件:
+- 実行アクションが明確か
+- 教訓が一般化されているか
+- 機密情報の扱いが適切か
+
+## 記録・証跡
+- 各段階の内容を `AI改善/incident_postmortem_${DATE}.md` に append-only で記録する
+- 時系列、影響、原因仮説、再発防止策、承認者を明記する
+
+## 入力リファレンス
+- 正本: runbook.md
+- Phase 1 サブタスク: sub-skills/phase1-guideline-definition.md
+- Phase 2 サブタスク: sub-skills/phase2-execution-planning.md
+- Phase 3 サブタスク: sub-skills/phase3-feedback-and-adjustment.md
+- Phase 4 サブタスク: sub-skills/phase4-continuous-improvement.md
+- 記録テンプレート: assets/incident-postmortem-log-template.md
