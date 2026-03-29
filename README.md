@@ -68,109 +68,142 @@ Skill体系
 			- なし
 ```
 
-## 提案 Skills 一覧
+## 利用可能 Skills 一覧
 
-優先度は全社共通の基準で運用します。
+Skill体系マップの5カテゴリに基づき、現在利用可能な Skills を一覧化します。
 
-### 優先度 High
+運用で選びやすくするために、用途起点の列（利用トリガー、主な入力、主な成果物）を追加しています。カテゴリは1列目に配置し、同一カテゴリを縦方向にマージしています。
 
-| Skill名 | 目的 | 期待効果 |
-|---|---|---|
-| test-strategy-unified | 単体・結合・E2Eのテスト観点を統合管理 | 回帰不具合の削減、検証品質の安定化 |
-| requirements-refinement | 要件・受入条件・非機能要件の明確化 | 手戻り削減、開発着手の判断精度向上 |
-| architecture-decision-record | 設計判断をADR形式で記録 | 判断根拠の共有、保守性向上 |
-| release-readiness | リリース前チェックとロールバック計画の標準化 | 本番障害リスク低減 |
-| security-hardening | セキュリティ観点の設計・実装・検証チェック | 脆弱性混入の抑制 |
+<table>
+	<thead>
+		<tr>
+			<th>カテゴリ</th>
+			<th>Skill名</th>
+			<th>利用トリガー（いつ使うか）</th>
+			<th>主な入力</th>
+			<th>主な成果物</th>
+			<th>ステータス</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td rowspan="1">要件・計画</td>
+			<td>requirements-refinement</td>
+			<td>要件が曖昧、受入条件が不明確</td>
+			<td>課題背景、要求一覧、制約</td>
+			<td>要件定義、受入条件、非機能要件</td>
+			<td>利用可</td>
+		</tr>
+		<tr>
+			<td rowspan="5">設計・実装</td>
+			<td>feature-implementation-unified</td>
+			<td>新機能追加、仕様変更対応</td>
+			<td>ユーザーストーリー、既存仕様、影響範囲</td>
+			<td>実装計画、変更実装、検証結果</td>
+			<td>利用可</td>
+		</tr>
+		<tr>
+			<td>architecture-decision-record</td>
+			<td>設計方針の比較検討が必要</td>
+			<td>課題、候補案、制約、評価観点</td>
+			<td>ADR（判断理由、採用案、却下理由）</td>
+			<td>利用可</td>
+		</tr>
+		<tr>
+			<td>api-contract-design</td>
+			<td>API新規設計、互換性維持が必要</td>
+			<td>利用者要件、既存API、バージョン方針</td>
+			<td>API契約、互換性方針、変更ルール</td>
+			<td>利用可</td>
+		</tr>
+		<tr>
+			<td>refactoring-safety</td>
+			<td>リファクタ前の影響評価が必要</td>
+			<td>変更対象コード、依存関係、テスト状況</td>
+			<td>影響分析、段階的変更計画、回帰確認</td>
+			<td>利用可</td>
+		</tr>
+		<tr>
+			<td>code-review-assistant</td>
+			<td>レビュー品質を均一化したい</td>
+			<td>PR差分、設計意図、コーディング規約</td>
+			<td>レビュー観点チェック、指摘テンプレート</td>
+			<td>利用可</td>
+		</tr>
+		<tr>
+			<td rowspan="3">検証・品質</td>
+			<td>defect-repair-unified</td>
+			<td>本番/検証で不具合が発生</td>
+			<td>障害報告、再現手順、ログ、関連コミット</td>
+			<td>原因分析、修正実装、再発防止策</td>
+			<td>利用可</td>
+		</tr>
+		<tr>
+			<td>test-strategy-unified</td>
+			<td>テスト観点が不足・重複している</td>
+			<td>要件、設計情報、リスク一覧</td>
+			<td>テスト方針、観点マトリクス、実行計画</td>
+			<td>利用可</td>
+		</tr>
+		<tr>
+			<td>security-hardening</td>
+			<td>セキュリティ要件対応、脆弱性対策</td>
+			<td>脅威モデル、構成情報、依存ライブラリ</td>
+			<td>対策設計、実装チェック、検証記録</td>
+			<td>利用可</td>
+		</tr>
+		<tr>
+			<td rowspan="3">運用・リリース</td>
+			<td>release-readiness</td>
+			<td>リリース可否判定、直前確認</td>
+			<td>変更一覧、テスト結果、運用手順</td>
+			<td>リリース判定、Go/No-Go記録、ロールバック計画</td>
+			<td>利用可</td>
+		</tr>
+		<tr>
+			<td>observability-and-ops-readiness</td>
+			<td>監視不足、障害検知の遅れ</td>
+			<td>SLO、現行ログ/メトリクス、運用体制</td>
+			<td>監視設計、アラート定義、運用Runbook</td>
+			<td>利用可</td>
+		</tr>
+		<tr>
+			<td>performance-investigation</td>
+			<td>応答遅延、負荷増加、性能劣化</td>
+			<td>計測結果、再現条件、環境情報</td>
+			<td>ボトルネック特定、改善案、再計測結果</td>
+			<td>利用可</td>
+		</tr>
+		<tr>
+			<td rowspan="2">学習・改善</td>
+			<td>incident-postmortem</td>
+			<td>障害後の再発防止を定着したい</td>
+			<td>タイムライン、影響範囲、対応履歴</td>
+			<td>ポストモーテム、再発防止アクション</td>
+			<td>利用可</td>
+		</tr>
+		<tr>
+			<td>documentation-sync</td>
+			<td>実装更新に対し文書が遅延</td>
+			<td>変更差分、既存文書、公開対象</td>
+			<td>更新文書、差分サマリ、更新履歴</td>
+			<td>利用可</td>
+		</tr>
+	</tbody>
+</table>
 
-実装状況（2026-03-28 時点）:
+クイック選択（最短導線）:
 
-- 実装済み: test-strategy-unified, requirements-refinement, architecture-decision-record, release-readiness, security-hardening
-- 次の対象: api-contract-design, refactoring-safety, performance-investigation, observability-and-ops-readiness, code-review-assistant
+- まず要件を固める: requirements-refinement
+- 実装を進める: feature-implementation-unified
+- 不具合を直す: defect-repair-unified
+- テストを整備する: test-strategy-unified
+- リリース可否を判断する: release-readiness
 
-### 優先度 Medium
+分類ルール（運用）:
 
-| Skill名 | 目的 | 期待効果 |
-|---|---|---|
-| api-contract-design | API契約・エラー設計・互換性維持の標準化 | 連携不整合の削減 |
-| refactoring-safety | リファクタ時の影響分析と安全実行 | 品質維持しながら内部改善 |
-| performance-investigation | 計測主導の性能ボトルネック調査と改善 | 根拠のある性能改善 |
-| observability-and-ops-readiness | ログ・メトリクス・アラート運用の整備 | 障害検知と復旧の迅速化 |
-| code-review-assistant | レビュー観点をテンプレート化 | レビュー品質の平準化 |
-
-実装状況（2026-03-28 時点）:
-
-- 実装済み: api-contract-design, refactoring-safety, performance-investigation, observability-and-ops-readiness, code-review-assistant
-- 次の対象: incident-postmortem, documentation-sync
-
-### 優先度 Low
-
-| Skill名 | 目的 | 期待効果 |
-|---|---|---|
-| incident-postmortem | 障害振り返りと再発防止の標準化 | 組織学習の定着 |
-| documentation-sync | 実装変更に追従した文書更新フロー | ドキュメント陳腐化の防止 |
-
-実装状況（2026-03-28 時点）:
-
-- 実装済み: incident-postmortem, documentation-sync
-- 提案 Skill 12件すべて実装完了
-
-## 推奨導入順
-
-1. test-strategy-unified
-2. requirements-refinement
-3. architecture-decision-record
-4. release-readiness
-5. security-hardening
-6. api-contract-design
-7. refactoring-safety
-8. performance-investigation
-9. observability-and-ops-readiness
-10. code-review-assistant
-11. incident-postmortem
-12. documentation-sync
-
-## 優先度判定基準（全社共通）
-
-各 Skill は以下の5観点を 1 から 5 で評価し、合計点で優先度を判定します。
-
-- 影響度: 品質、納期、顧客影響への寄与
-- 発生頻度: 対象課題が発生する頻度
-- 緊急度: 早期導入の必要性
-- 実装容易性: 導入工数の小ささ
-- 依存関係: 他 Skill の前提となる度合い
-
-採点ルール:
-
-- 採点者: Owner と Reviewer（PM + QA）の合議
-- 採点タイミング: 新規登録時、四半期レビュー時、重大インシデント発生後
-- 記録先: 本 README の優先度一覧と運用ログ
-- 同点時の優先: 依存関係 > 影響度 > 緊急度
-
-判定目安:
-
-- High: 20点以上
-- Medium: 14点から19点
-- Low: 13点以下
-
-注記:
-
-- 全社共通運用を原則とし、個別プロダクトで優先度を変更しない
-- 例外適用時のみ、下記の「優先度例外運用」を適用する
-
-## 優先度例外運用
-
-以下のいずれかを満たす場合のみ、期限付きで例外を許可します。
-
-- 法令、監査、契約上の必須対応がある
-- P1 障害など、業務継続に直結する緊急事象がある
-- セキュリティインシデント対応で即時性が必要
-
-運用ルール:
-
-- 申請者: Owner
-- 承認者: Approver
-- 必須記録: 例外理由、適用期間、解除条件、影響範囲
-- 有効期限: 原則 30 日（延長は再承認必須）
+- 各 Skill は必ず1カテゴリに帰属する
+- 複数カテゴリに跨る場合は、主たる目的で判断する
 
 ## 役割と責任（RACI簡易版）
 
