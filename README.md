@@ -28,45 +28,6 @@
 | 運用・リリース | 監視、性能、リリース準備 | release-readiness, observability-and-ops-readiness, performance-investigation | なし |
 | 学習・改善 | 振り返りとドキュメント同期 | incident-postmortem, documentation-sync | なし |
 
-論理ツリー（カテゴリ別）:
-
-```text
-Skill体系
-	要件・計画
-		現在運用中
-			- requirements-refinement
-		提案
-			- なし
-	設計・実装
-		現在運用中
-			- feature-implementation-unified
-			- architecture-decision-record
-			- api-contract-design
-			- refactoring-safety
-			- code-review-assistant
-		提案
-			- なし
-	検証・品質
-		現在運用中
-			- defect-repair-unified
-			- test-strategy-unified
-			- security-hardening
-		提案
-			- なし
-	運用・リリース
-		現在運用中
-			- release-readiness
-			- performance-investigation
-			- observability-and-ops-readiness
-		提案
-			- なし
-	学習・改善
-		現在運用中
-			- incident-postmortem
-			- documentation-sync
-		提案
-			- なし
-```
 
 ## 利用可能 Skills 一覧
 
