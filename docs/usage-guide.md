@@ -245,5 +245,7 @@ A. [README.md の「優先度例外運用」](../README.md#優先度例外運用
 - [taxonomy.md](./taxonomy.md) — Skill 分類体系
 - [scoring-guide.md](./scoring-guide.md) — 優先度採点ガイド
 - [pilot-guide.md](./pilot-guide.md) — 試験導入ガイド
+- [quiz-sync-guide.md](./quiz-sync-guide.md) — spa-quiz-app のクイズ同期基準
+- [quiz-update-summary-2026-03-29.md](./quiz-update-summary-2026-03-29.md) — 2026-03-29 のクイズ反映サマリ
 - [../governance/exception-log.md](../governance/exception-log.md) — 例外運用ログ
 - [../README.md](../README.md) — ライブラリ全体概要
