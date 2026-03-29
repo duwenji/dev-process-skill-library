@@ -158,9 +158,16 @@ PR の説明欄には以下を記載します：
 ```
 （作業リポジトリ側）
 docs/skill-logs/
-  YYYY-MM-DD_<skill-name>_log.md    ← 実行ログ
-  YYYY-MM-DD_<skill-name>_output.md ← 出力物（報告書・ADR・テスト計画など）
+  <category>/                      ← スキルカテゴリ名（taxonomy と同じ5カテゴリ）
+    <skill-name>/                  ← スキルディレクトリ名
+      YYYY-MM-DD_log.md            ← 実行ログ
+      YYYY-MM-DD_output.md         ← 出力物（報告書・ADR・テスト計画など）
 ```
+
+例: `docs/skill-logs/design-and-implementation/api-contract-design/2026-03-29_log.md`
+
+フォルダはスキルを**初めて実行するとき**に作成する（事前に空フォルダを用意しない）。  
+`<category>` の値は [taxonomy.md](./taxonomy.md) の5カテゴリ名を使用する。
 
 ### ログの最小記録単位
 

@@ -160,5 +160,119 @@
 
 ---
 
+## 成果物の構造ベストプラクティス
+
+スキル実行時に生成される成果物（実行ログ・フェーズ出力物）の命名規則・保存場所・ファイル内構成を統一するためのガイドラインです。
+
+> **関連ドキュメント**: 保存手順の詳細は [docs/usage-guide.md Step 5](../../../docs/usage-guide.md) を参照。
+
+---
+
+### 用語定義
+
+| 用語 | 定義 | 例 |
+|------|------|----|
+| **成果物** (deliverable) | スキル実行全体を通じて最終的に提出・共有するドキュメント | API契約書、テスト計画書、ADR |
+| **出力物** (phase output) | 各フェーズ完了時に必須となる中間生成物。ゲート審査の対象 | Phase 1 調査レポート、差分サマリ |
+| **実行ログ** (execution log) | AI・開発者が各段階で記録するトレーサビリティ情報 | TRK-YYYY-MM-DD-NNN エントリ |
+
+---
+
+### 保存場所の規約
+
+成果物・実行ログは、**作業リポジトリ（スキルライブラリではなくプロジェクト側）** の以下の2階層ディレクトリに保存します。
+
+```
+docs/
+  skill-logs/
+    <category>/                      ← スキルカテゴリ名（taxonomy と同じ）
+      <skill-name>/                  ← スキルディレクトリ名
+        YYYY-MM-DD_log.md            ← 実行ログ
+        YYYY-MM-DD_output.md         ← 成果物（フェーズ出力物の集合体）
+```
+
+**`<category>` に使用できる値:**
+
+| カテゴリ名 | 対応するスキル例 |
+|-----------|----------------|
+| `requirements-and-planning` | requirements-refinement |
+| `design-and-implementation` | api-contract-design, feature-implementation-unified |
+| `verification-and-quality` | test-strategy-unified, security-hardening, defect-repair-unified |
+| `operations-and-release` | release-readiness, performance-investigation |
+| `learning-and-improvement` | incident-postmortem, documentation-sync |
+
+> **フォルダ作成タイミング**: スキルを**初めて実行するとき**に `<category>/<skill-name>/` を作成する。事前に空フォルダを用意する必要はない。  
+> **原則**: 実行ログは **append-only**。既存エントリを削除・上書きしてはならない。
+
+---
+
+### 命名規則
+
+| ファイル種別 | パターン | 例 |
+|------------|----------|----|
+| 実行ログ | `YYYY-MM-DD_log.md` | `2026-03-29_log.md` |
+| 成果物 | `YYYY-MM-DD_output.md` | `2026-03-29_output.md` |
+| 日付 | スキル実行を**開始した日付** | — |
+| 完全パス例 | `docs/skill-logs/<category>/<skill-name>/YYYY-MM-DD_log.md` | `docs/skill-logs/design-and-implementation/api-contract-design/2026-03-29_log.md` |
+
+---
+
+### ファイル内の必須構成
+
+#### 実行ログ (`_log.md`)
+
+```markdown
+## TRK-YYYY-MM-DD-NNN
+
+- 日時: YYYY-MM-DD HH:MM
+- 段階: Phase X / 段階 Y
+- 実施者: AI / 開発者
+- 内容: <実施内容>
+- 決定事項: <決定内容>
+- 承認ステータス: 未承認 / 承認済
+- 承認者:
+- 次アクション:
+```
+
+各ゲート承認（段階7, 11, 13）では `承認ステータス: 承認済` と `承認者:` を必ず記録する。
+
+#### 成果物サマリ (`_output.md`)
+
+```markdown
+## 実行概要
+
+- 日時: YYYY-MM-DD
+- 担当: @username
+- 使用 Skill: skills/<カテゴリ>/<skill-name>
+
+## 決定事項
+
+- ...
+
+## 未解決事項
+
+- ...
+
+## 次アクション
+
+- ...
+```
+
+---
+
+### フェーズ別最小出力物
+
+各フェーズ完了時に ✅ を埋めることで、ゲート通過の可否を判断する。  
+具体的な出力物チェックリストは [SUB-SKILLS-TEMPLATE.md](./SUB-SKILLS-TEMPLATE.md) の「Phase N 完了時の最小必須出力」セクションを参照。
+
+| フェーズ | 最小必須出力物（代表例） | ゲート |
+|---------|------------------------|--------|
+| Phase 1 | 調査・分析レポート、現状まとめ、対応案（3案以上） | — |
+| Phase 2 | 方針決定ドキュメント、変更ファイル一覧、差分サマリ | ゲート#1（段階7） |
+| Phase 3 | テスト項目承認記録、テスト実行結果レポート | ゲート#2（段階11）、ゲート#3（段階13） |
+| Phase 4 | 最終報告書、改善提案、ナレッジ登録 | — |
+
+---
+
 **共通テンプレート公開日**: 2026-03-28  
 **参照**: [PATTERN-SELECTION-GUIDE.md](./PATTERN-SELECTION-GUIDE.md) → [SKILL-template.md](./SKILL-template.md) → [SUB-SKILLS-TEMPLATE.md](./SUB-SKILLS-TEMPLATE.md)
