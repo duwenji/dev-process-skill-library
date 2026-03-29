@@ -76,7 +76,7 @@ flowchart TD
 
 ### Phase 1: 契約論点整理・候補化（段階1-6）
 - 段階3: 開発者が利用者、入出力、制約、互換性要件を入力
-- 段階4: AI が現行契約、利用側依存、変更影響を分析
+- 段階4: AI が現行契約、利用側依存、変更影響、データモデル対応を分析
 - 段階5: AI が入出力、例外、バージョニングのフローを可視化
 - 段階6: AI が複数の契約案を提示
 
@@ -85,7 +85,7 @@ flowchart TD
 
 ### Phase 2: 契約決定・仕様化（段階7-9）
 - 段階7: 開発者が契約案を決定
-- 段階8: AI がリクエスト、レスポンス、エラー、互換性方針を仕様化
+- 段階8: AI がリクエスト、レスポンス、エラー、互換性方針、データモデル対応表を仕様化
 - 段階9: 開発者が仕様をレビューし承認
 
 出力: API 契約書、変更方針、エラー表、互換性方針  
@@ -144,4 +144,7 @@ flowchart TD
 - Phase 2 サブタスク: sub-skills/phase2-contract-drafting.md
 - Phase 3 サブタスク: sub-skills/phase3-compatibility-validation.md
 - Phase 4 サブタスク: sub-skills/phase4-reporting.md
+- モデル設計成果物: ../data-model-design-unified/SKILL.md
+- ERD 作成ガイド: ../../shared-references/erd-best-practices.md
+- データ辞書テンプレート: ../../shared-templates/data-dictionary-template.md
 - 記録テンプレート: assets/api-contract-design-log-template.md

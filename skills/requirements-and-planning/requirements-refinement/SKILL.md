@@ -152,4 +152,5 @@ flowchart TD
 - Phase 2 サブタスク: sub-skills/phase2-specification.md
 - Phase 3 サブタスク: sub-skills/phase3-validation.md
 - Phase 4 サブタスク: sub-skills/phase4-reporting.md
+- 後続モデル設計: ../../design-and-implementation/data-model-design-unified/SKILL.md
 - 記録テンプレート: assets/requirements-refinement-log-template.md

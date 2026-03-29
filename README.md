@@ -23,7 +23,7 @@
 | カテゴリ | 目的 | 該当 Skill（現在運用中） | 該当 Skill（提案） |
 |---|---|---|---|
 | 要件・計画 | 要件定義、優先度判断、導入計画 | requirements-refinement | なし |
-| 設計・実装 | 設計判断、実装品質、契約設計 | feature-implementation-unified, architecture-decision-record, api-contract-design, refactoring-safety, code-review-assistant | なし |
+| 設計・実装 | 設計判断、実装品質、契約設計 | feature-implementation-unified, data-model-design-unified, architecture-decision-record, api-contract-design, refactoring-safety, code-review-assistant | なし |
 | 検証・品質 | テスト戦略、品質検証、セキュリティ検証 | defect-repair-unified, test-strategy-unified, security-hardening | なし |
 | 運用・リリース | 監視、性能、リリース準備 | release-readiness, observability-and-ops-readiness, performance-investigation | なし |
 | 学習・改善 | 振り返りとドキュメント同期 | incident-postmortem, documentation-sync | なし |
@@ -56,11 +56,18 @@ Skill体系マップの5カテゴリに基づき、現在利用可能な Skills 
 			<td>利用可</td>
 		</tr>
 		<tr>
-			<td rowspan="5">設計・実装</td>
+			<td rowspan="6">設計・実装</td>
 			<td>feature-implementation-unified</td>
 			<td>新機能追加、仕様変更対応</td>
 			<td>ユーザーストーリー、既存仕様、影響範囲</td>
 			<td>実装計画、変更実装、検証結果</td>
+			<td>利用可</td>
+		</tr>
+		<tr>
+			<td>data-model-design-unified</td>
+			<td>要件からデータモデルを先に固めたい</td>
+			<td>要件ID、エンティティ候補、データ制約、既存DB情報</td>
+			<td>ERD、データ辞書、DDL方針、移行計画</td>
 			<td>利用可</td>
 		</tr>
 		<tr>
@@ -156,6 +163,7 @@ Skill体系マップの5カテゴリに基づき、現在利用可能な Skills 
 クイック選択（最短導線）:
 
 - まず要件を固める: requirements-refinement
+- モデルを固める: data-model-design-unified
 - 実装を進める: feature-implementation-unified
 - 不具合を直す: defect-repair-unified
 - テストを整備する: test-strategy-unified
@@ -223,6 +231,7 @@ Skill体系マップの5カテゴリに基づき、現在利用可能な Skills 
 ## Skill 選択ガイド
 
 - 不具合起点の対応: defect-repair-unified
+- データモデル設計: data-model-design-unified
 - 新規要求、仕様変更: feature-implementation-unified
 - テスト方針の整備: test-strategy-unified
 - 性能劣化調査: performance-investigation
@@ -339,6 +348,11 @@ skills-for-software-development/
 			feature-implementation-unified/
 				SKILL.md
 				references/
+				sub-skills/
+				assets/
+			data-model-design-unified/
+				SKILL.md
+				runbook.md
 				sub-skills/
 				assets/
 			architecture-decision-record/

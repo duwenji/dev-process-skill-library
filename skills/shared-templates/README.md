@@ -9,6 +9,7 @@
 | [SKILL-template.md](./SKILL-template.md) | 新規スキルの SKILL.md テンプレート（カスタマイズ ポイント埋め込み） | スキル実装担当者 |
 | [PATTERN-SELECTION-GUIDE.md](./PATTERN-SELECTION-GUIDE.md) | 3パターン（調査・検証/意思決定・設計/運用手続き）の選択と customization checklist | スキル実装 PM |
 | [SUB-SKILLS-TEMPLATE.md](./SUB-SKILLS-TEMPLATE.md) | Phase 1～4 の sub-skills ファイル（phase1-*.md ～ phase4-*.md）テンプレート | スキル実装担当者 |
+| [data-dictionary-template.md](./data-dictionary-template.md) | 要件IDから属性・API・DDLへのトレーサビリティを残すデータ辞書テンプレート | 設計担当者 |
 
 ---
 

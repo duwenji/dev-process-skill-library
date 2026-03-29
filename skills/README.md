@@ -18,6 +18,7 @@
 - 旧配置（直下配置）: なし（移行完了）
 - 新配置（カテゴリ配下）:
   - design-and-implementation/feature-implementation-unified ✅
+  - design-and-implementation/data-model-design-unified ✅
   - design-and-implementation/architecture-decision-record ✅
   - design-and-implementation/api-contract-design ✅
   - design-and-implementation/refactoring-safety ✅
@@ -48,6 +49,6 @@
 
 - Phase 0: shared-templates/ を起点にテンプレートを決める
 - Phase A: requirements-refinement, architecture-decision-record, test-strategy-unified, security-hardening, release-readiness
-- Phase B: api-contract-design, refactoring-safety, code-review-assistant, performance-investigation, observability-and-ops-readiness
+- Phase B: data-model-design-unified, api-contract-design, refactoring-safety, code-review-assistant, performance-investigation, observability-and-ops-readiness
 - Phase C: incident-postmortem, documentation-sync
 - 全提案 Skill 実装: 完了

@@ -78,7 +78,7 @@ flowchart TD
 
 ### Phase 1: 要求整理・方式候補化（段階1-6）
 - 段階3: 開発者が要求を入力（title, 背景, スコープ, 非機能要件, 受入条件）
-- 段階4: AI が現行実装と仕様差分を調査（コード、DB、運用制約）
+- 段階4: AI が現行実装と仕様差分を調査（コード、DB、運用制約、既存モデル成果物）
 - 段階5: AI が方式候補ごとのフロー図を生成
 - 段階6: AI が方式案を3案以上提示（メリット/デメリット付き）
 
@@ -171,9 +171,12 @@ flowchart TD
 - Phase 2 サブタスク: sub-skills/phase2-design-implementation.md
 - Phase 3 サブタスク: sub-skills/phase3-validation.md
 - Phase 4 サブタスク: sub-skills/phase4-reporting.md
+- モデル設計成果物: ../data-model-design-unified/SKILL.md
 - 調査チェックリスト: ../../shared-references/investigation-checklist.md
 - テストケーステンプレート: ../../shared-references/testcase-template.md
 - フロー図作成ガイド: ../../shared-references/flowchart-best-practices.md
+- ERD 作成ガイド: ../../shared-references/erd-best-practices.md
+- データ辞書テンプレート: ../../shared-templates/data-dictionary-template.md
 - 記録テンプレート: assets/implementation-log-template.md
 
 ## 開始クイックパス

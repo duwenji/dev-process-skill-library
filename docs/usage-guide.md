@@ -68,6 +68,7 @@ git push -u origin main
 |---|---|
 | 不具合が発生した | `verification-and-quality/defect-repair-unified` |
 | 新機能・仕様変更の実装 | `design-and-implementation/feature-implementation-unified` |
+| 要件からデータモデルを設計したい | `design-and-implementation/data-model-design-unified` |
 | テスト方針を整備したい | `verification-and-quality/test-strategy-unified` |
 | 要件・受入条件が曖昧 | `requirements-and-planning/requirements-refinement` |
 | 設計判断を記録したい | `design-and-implementation/architecture-decision-record` |

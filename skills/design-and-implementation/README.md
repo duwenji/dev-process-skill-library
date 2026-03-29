@@ -11,6 +11,7 @@
 ## 対象 Skill
 
 - feature-implementation-unified（現在運用中）
+- data-model-design-unified（現在運用中）
 - architecture-decision-record（現在運用中）
 - api-contract-design（現在運用中）
 - refactoring-safety（現在運用中）
@@ -19,6 +20,7 @@
 ## 選択ガイド
 
 - 新規機能・仕様変更を進めたい: feature-implementation-unified
+- 要件からデータモデルを固めたい: data-model-design-unified
 - 設計判断を記録したい: architecture-decision-record
 - API 契約を明確化したい: api-contract-design
 - 安全にリファクタしたい: refactoring-safety
@@ -27,6 +29,7 @@
 ## 実装済み構成
 
 - feature-implementation-unified/
+- data-model-design-unified/
 - architecture-decision-record/
 - api-contract-design/
 - refactoring-safety/
