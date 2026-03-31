@@ -63,8 +63,8 @@
 ```markdown
 | TRK-001 | 正常系 | 全フィールド有効値で処理実行 | 
 | 前提: DB に有効なデータが存在 | 
-| 入力: OwnerName="太郎", RegNumber="ABC-123", ResidenceCode=100 | 
-| 期待結果: 車両情報が正常に処理される, ログに「処理成功」出力 | 
+| 入力: DisplayName="テストユーザー", RecordId="ID-001", CategoryCode=100 | 
+| 期待結果: データ項目が正常に処理される, ログに「処理成功」出力 | 
 | 実施方法: 自動（既存テスト利用可） | 
 | 備考: 回帰テスト対象 |
 ```
@@ -72,22 +72,22 @@
 **ユニットテスト（C#）例**:
 ```csharp
 [Test]
-public void ProcessVehicleData_ValidData_Success()
+public void ProcessDataRecord_ValidData_Success()
 {
     // Arrange
     var mockRecord = new Mock<IDataRecord>();
-    mockRecord.Setup(r => r["OWNER_NAME"]).Returns("太郎");
-    mockRecord.Setup(r => r["REG_NUMBER"]).Returns("ABC-123");
-    mockRecord.Setup(r => r["RESIDENCE_CODE"]).Returns(100);
+    mockRecord.Setup(r => r["DISPLAY_NAME"]).Returns("テストユーザー");
+    mockRecord.Setup(r => r["RECORD_ID"]).Returns("ID-001");
+    mockRecord.Setup(r => r["CATEGORY_CODE"]).Returns(100);
     
-    var processor = new VehicleProcessor(_mockLogger);
+    var processor = new DataProcessor(_mockLogger);
     
     // Act
-    var result = processor.ProcessVehicleData(mockRecord.Object);
+    var result = processor.ProcessDataRecord(mockRecord.Object);
     
     // Assert
     Assert.That(result.Status, Is.EqualTo(ProcessStatus.Success));
-    Assert.That(result.Vehicle.OwnerName, Is.EqualTo("太郎"));
+    Assert.That(result.Entry.DisplayName, Is.EqualTo("テストユーザー"));
 }
 ```
 
@@ -100,10 +100,10 @@ public void ProcessVehicleData_ValidData_Success()
 #### 例1: NULL 値テスト
 
 ```markdown
-| TRK-002 | 境界値 | OWNER_NAME が NULL の場合の処理 | 
-| 前提: DB の OWNER_NAME がNULL | 
-| 入力: OwnerName=NULL (DBNull), RegNumber="XYZ-789", ResidenceCode=50 | 
-| 期待結果: デフォルト値「不明」を適用、正常処理継続 | 
+| TRK-002 | 境界値 | DISPLAY_NAME が NULL の場合の処理 | 
+| 前提: DB の DISPLAY_NAME がNULL | 
+| 入力: DisplayName=NULL (DBNull), RecordId="ID-002", CategoryCode=50 | 
+| 期待結果: デフォルト値「(未設定)」を適用、正常処理継続 | 
 | 実施方法: 自動（新規テスト） | 
 | 備考: DataRecordExtensions.GetStringOrNull() の動作確認 |
 ```
@@ -111,21 +111,21 @@ public void ProcessVehicleData_ValidData_Success()
 **テストコード**:
 ```csharp
 [Test]
-public void ProcessVehicleData_NullOwnerName_ApplyDefault()
+public void ProcessDataRecord_NullDisplayName_ApplyDefault()
 {
     // Arrange
     var mockRecord = new Mock<IDataRecord>();
-    mockRecord.Setup(r => r["OWNER_NAME"]).Returns(DBNull.Value);
-    mockRecord.Setup(r => r["REG_NUMBER"]).Returns("XYZ-789");
-    mockRecord.Setup(r => r["RESIDENCE_CODE"]).Returns(50);
+    mockRecord.Setup(r => r["DISPLAY_NAME"]).Returns(DBNull.Value);
+    mockRecord.Setup(r => r["RECORD_ID"]).Returns("ID-002");
+    mockRecord.Setup(r => r["CATEGORY_CODE"]).Returns(50);
     
-    var processor = new VehicleProcessor(_mockLogger);
+    var processor = new DataProcessor(_mockLogger);
     
     // Act
-    var result = processor.ProcessVehicleData(mockRecord.Object);
+    var result = processor.ProcessDataRecord(mockRecord.Object);
     
     // Assert
-    Assert.That(result.Vehicle.OwnerName, Is.EqualTo("不明"));
+    Assert.That(result.Entry.DisplayName, Is.EqualTo("(未設定)"));
     Assert.That(result.Status, Is.EqualTo(ProcessStatus.Success));
 }
 ```
@@ -135,7 +135,7 @@ public void ProcessVehicleData_NullOwnerName_ApplyDefault()
 ```markdown
 | TRK-005 | 境界値 | 複数フィールドが NULL の場合の処理 | 
 | 前提: DB で複数列が NULL | 
-| 入力: OwnerName=NULL, RegNumber=NULL, ResidenceCode=0 | 
+| 入力: DisplayName=NULL, RecordId=NULL, CategoryCode=0 | 
 | 期待結果: 各フィールドにデフォルト値を適用、正常処理継続 | 
 | 実施方法: 自動（新規テスト） | 
 | 備考: 複合条件の検証 |
@@ -150,9 +150,9 @@ public void ProcessVehicleData_NullOwnerName_ApplyDefault()
 #### 例1: 型不一致エラー
 
 ```markdown
-| TRK-006 | 異常系 | RESIDENCE_CODE に文字列が入っている場合 | 
+| TRK-006 | 異常系 | CATEGORY_CODE に文字列が入っている場合 | 
 | 前提: 不正な型データが DB に挿入されている（想定外） | 
-| 入力: ResidenceCode="InvalidNumber" (文字列) | 
+| 入力: CategoryCode="InvalidNumber" (文字列) | 
 | 期待結果: InvalidOperationException を throw / ログに「型エラー」出力 | 
 | 実施方法: 自動（新規テスト） | 
 | 備考: GetInt32OrNull() の型チェック動作確認 |
@@ -161,20 +161,20 @@ public void ProcessVehicleData_NullOwnerName_ApplyDefault()
 **テストコード**:
 ```csharp
 [Test]
-public void ProcessVehicleData_InvalidResidenceCodeType_ThrowException()
+public void ProcessDataRecord_InvalidCategoryCodeType_ThrowException()
 {
     // Arrange
     var mockRecord = new Mock<IDataRecord>();
-    mockRecord.Setup(r => r["OWNER_NAME"]).Returns("太郎");
-    mockRecord.Setup(r => r["REG_NUMBER"]).Returns("ABC-123");
-    mockRecord.Setup(r => r["RESIDENCE_CODE"])
+    mockRecord.Setup(r => r["DISPLAY_NAME"]).Returns("テストユーザー");
+    mockRecord.Setup(r => r["RECORD_ID"]).Returns("ID-001");
+    mockRecord.Setup(r => r["CATEGORY_CODE"])
         .Throws(new InvalidOperationException("Cannot convert string to int"));
     
-    var processor = new VehicleProcessor(_mockLogger);
+    var processor = new DataProcessor(_mockLogger);
     
     // Act & Assert
     var ex = Assert.Throws<InvalidOperationException>(() => {
-        processor.ProcessVehicleData(mockRecord.Object);
+        processor.ProcessDataRecord(mockRecord.Object);
     });
     Assert.That(ex.Message, Contains.Substring("Cannot convert"));
 }
@@ -194,19 +194,19 @@ public void ProcessVehicleData_InvalidResidenceCodeType_ThrowException()
 **テストコード（ダミー実装）**:
 ```csharp
 [Test]
-public void ProcessVehicleData_DBConnectionError_HandleException()
+public void ProcessDataRecord_DBConnectionError_HandleException()
 {
     // Arrange
     var mockRecord = new Mock<IDataRecord>();
-    mockRecord.Setup(r => r["OWNER_NAME"])
+    mockRecord.Setup(r => r["DISPLAY_NAME"])
         .Throws(new SqlException("Connection timeout"));
     
     var mockLogger = new Mock<ILogger>();
-    var processor = new VehicleProcessor(mockLogger);
+    var processor = new DataProcessor(mockLogger);
     
     // Act & Assert
     var ex = Assert.Throws<SqlException>(() => {
-        processor.ProcessVehicleData(mockRecord.Object);
+        processor.ProcessDataRecord(mockRecord.Object);
     });
     
     // ログが正常に出力されたか確認
@@ -224,9 +224,9 @@ public void ProcessVehicleData_DBConnectionError_HandleException()
 複数のコンポーネント / プロセス間の連携を検証します。
 
 ```markdown
-| TRK-008 | 統合 | 複数の VR telegram を連続処理 | 
+| TRK-008 | 統合 | 複数の DS telegram を連続処理 | 
 | 前提: テスト環境で複数 telegram がキューに溜まっている | 
-| 入力: 100件の VR telegram を連続送信 | 
+| 入力: 100件の DS telegram を連続送信 | 
 | 期待結果: 全 telegram が独立に処理される、メモリリークなし、処理時間 <= 5秒 | 
 | 実施方法: 手動（ストレステスト） / 自動（ロード生成） | 
 | 備考: パフォーマンス観点の検証 |
@@ -240,8 +240,8 @@ public void ProcessVehicleData_DBConnectionError_HandleException()
 
 ```markdown
 | TRK-009 | 回帰 | 既存テストスイートの全実行 | 
-| 前提: ProcForEtgsTest.csproj に存在する全テスト | 
-| 入力: `dotnet test ProcForEtgsTest.csproj` | 
+| 前提: ProcDataSyncTest.csproj に存在する全テスト | 
+| 入力: `dotnet test ProcDataSyncTest.csproj` | 
 | 期待結果: 全テスト PASSED (既存42件 + 新規テスト) | 
 | 実施方法: 自動 | 
 | 備考: 改修による副作用がないことを確認 |
@@ -283,7 +283,7 @@ public void ProcessVehicleData_DBConnectionError_HandleException()
 
 **Day 1 - 自動テスト実行**:
 ```powershell
-dotnet test ProcForEtgsTest.csproj --verbosity=detailed
+dotnet test ProcDataSyncTest.csproj --verbosity=detailed
 # 期待: 9項目全PASSED, 処理時間 < 5分
 ```
 
@@ -311,16 +311,16 @@ public void TestMethodName_Condition_ExpectedBehavior()
     var mockRecord = new Mock<IDataRecord>();
     mockRecord.Setup(...).Returns(...);
     
-    var processor = new VehicleProcessor(_mockLogger);
+    var processor = new DataProcessor(_mockLogger);
     
     // ===== ACT (実行) =====
     // テスト対象メソッドを呼び出し
-    var result = processor.ProcessVehicleData(mockRecord.Object);
+    var result = processor.ProcessDataRecord(mockRecord.Object);
     
     // ===== ASSERT (検証) =====
     // 期待結果と実際の結果を比較
     Assert.That(result.Status, Is.EqualTo(ProcessStatus.Success));
-    Assert.That(result.Vehicle.OwnerName, Is.EqualTo("期待値"));
+    Assert.That(result.Entry.DisplayName, Is.EqualTo("期待値"));
 }
 ```
 
@@ -334,10 +334,10 @@ public void TestMethodName_Condition_ExpectedBehavior()
 Test[対象メソッド]_[条件]_[期待結果]
 
 例:
-- ProcessVehicleData_ValidData_Success
-- ProcessVehicleData_NullOwnerName_ApplyDefault
-- ProcessVehicleData_InvalidResidenceCodeType_ThrowException
-- ProcessVehicleData_DBConnectionError_HandleException
+- ProcessDataRecord_ValidData_Success
+- ProcessDataRecord_NullDisplayName_ApplyDefault
+- ProcessDataRecord_InvalidCategoryCodeType_ThrowException
+- ProcessDataRecord_DBConnectionError_HandleException
 ```
 
 ---

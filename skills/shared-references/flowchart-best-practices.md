@@ -41,7 +41,7 @@
 |----------|------------|------|-----|
 | **処理** | `[テキスト]` | 通常の処理ステップ | `[DB読取]` |
 | **判定** | `{テキスト}` | 条件分岐 Yes/No | `{NULL判定}` |
-| **データ** | `([テキスト])` | 入出力データ | `([VR Telegram])` |
+| **データ** | `([テキスト])` | 入出力データ | `([DS Telegram])` |
 | **開始/終了** | `([テキスト])` / `([終了])` | フロー始終 | `([開始])` |
 | **エラー** | `❌ テキスト` | 例外発生 | `❌ InvalidCastException` |
 | **結果** | `✓ テキスト` | 正常終了 | `✓ Result出力` |
@@ -74,12 +74,12 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    A["VR Telegram受信"]
+    A["DS Telegram受信"]
     B{Parse成功?}
     C["ログ出力<br/>skip"]
     D["DataRecord取得"]
     E["直接キャスト<br/>(string)dataRecord"]
-    F["❌ InvalidCastException<br/>OWNER_NAME=NULL時"]
+    F["❌ InvalidCastException<br/>DISPLAY_NAME=NULL時"]
     G["エラーログ出力"]
     H["プロセス異常終了"]
     
@@ -97,7 +97,7 @@ flowchart TD
 
 ### ポイント
 
-1. **エントリーポイント明示** — 「VR Telegram受信」から開始
+1. **エントリーポイント明示** — 「DS Telegram受信」から開始
 2. **分岐の可視化** — Parse成功/失敗 の分岐
 3. **問題箇所の強調** — ❌ マーク + 赤色で不具合点を明示
 4. **結果の表示** — 「プロセス異常終了」で終了状態を明確化
@@ -110,14 +110,14 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    A["VR Telegram受信"]
+    A["DS Telegram受信"]
     B{Parse成功?}
     C["ログ出力<br/>skip"]
     D["DataRecord取得"]
     E["DataRecordExtensions<br/>使用"]
     F["GetStringOrNull()<br/>で読取"]
     G{NULL?}
-    H["デフォルト値<br/>を適用<br/>eg: '不明'"]
+    H["デフォルト値<br/>を適用<br/>eg: '(未設定)'"]
     I["✓ 正常処理"]
     J["Result出力"]
     
@@ -349,8 +349,8 @@ flowchart TD
 flowchart_[対象モジュール]_[対応前or対応后].md
 
 例:
-flowchart_ProcForEtgs_before.md
-flowchart_ProcForEtgs_after_plan1.md
+flowchart_ProcDataSync_before.md
+flowchart_ProcDataSync_after_plan1.md
 ```
 
 ### 参照関係

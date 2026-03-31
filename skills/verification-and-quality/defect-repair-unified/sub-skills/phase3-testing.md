@@ -41,7 +41,7 @@ Phase 3 では、改修点を網羅したテストチェック項目を生成し
 3. **実施可能性** — 自動テスト / 手動テスト / ダミー実装 を分類
 
 **改修点の回想** (段階8から):
-- ProcessVehicleData() メソッドで DataRecordExtensions を使用
+- ProcessDataRecord() メソッドで DataRecordExtensions を使用
 - NULL値時に既定値を適用
 - 新規テストケース追加
 
@@ -52,12 +52,12 @@ Phase 3 では、改修点を網羅したテストチェック項目を生成し
 - 既存テストケースで大部分カバー
 
 #### 境界値
-- NULL: OWNER_NAME=NULL, REG_NUMBER=NULL, RESIDENCE_CODE=NULL（各単独/組合わせ）
-- 空文字列: OWNER_NAME="", REG_NUMBER=""
-- 最大値/最小値: RESIDENCE_CODE の min/max
+- NULL: DISPLAY_NAME=NULL, RECORD_ID=NULL, CATEGORY_CODE=NULL（各単独/組合わせ）
+- 空文字列: DISPLAY_NAME="", RECORD_ID=""
+- 最大値/最小値: CATEGORY_CODE の min/max
 
 #### 異常系
-- 型不一致: RESIDENCE_CODE に文字列が入っている
+- 型不一致: CATEGORY_CODE に文字列が入っている
 - DB接続エラー: DB接続失敗時の例外ハンドリング
 
 **チェック項目表**:
@@ -68,14 +68,14 @@ Phase 3 では、改修点を網羅したテストチェック項目を生成し
 
 | TRK | 分類 | テスト項目 | 実施方法 | 期待結果 | 備考 |
 |-----|------|----------|--------|--------|------|
-| TRK-001 | 正常系 | 全フィールド有効値で処理実行 | 自動（ユニットテスト） | 車両情報を正常に処理 | 既存テスト ProcessVehicleData_ValidInput() |
-| TRK-002 | 境界値 | OWNER_NAME = NULL で処理実行 | 自動（新規テスト） | 既定値「不明」を適用、正常処理継続 | DataRecordExtensions.GetStringOrNull() の動作確認 |
-| TRK-003 | 境界値 | REG_NUMBER = NULL で処理実行 | 自動（新規テスト） | 既定値「」を適用、正常処理継続 | 前後の処理で影響がないこと確認 |
-| TRK-004 | 境界値 | RESIDENCE_CODE = NULL で処理実行 | 自動（新規テスト） | 既定値 0 を適用、正常処理継続 | 商域コード用の適切な既定値の確認 |
-| TRK-005 | 境界値 | OWNER_NAME, REG_NUMBER 両方 NULL | 自動（新規テスト） | 両既定値を適用、正常処理継続 | 複合NULL条件の確認 |
-| TRK-006 | 異常系 | RESIDENCE_CODE に文字列が入っている場合 | 自動（新規テスト） | Exception ハンドリング、ログ出力 | GetInt32OrNull() で型チェック実施 |
+| TRK-001 | 正常系 | 全フィールド有効値で処理実行 | 自動（ユニットテスト） | データ項目を正常に処理 | 既存テスト ProcessDataRecord_ValidInput() |
+| TRK-002 | 境界値 | DISPLAY_NAME = NULL で処理実行 | 自動（新規テスト） | 既定値「(未設定)」を適用、正常処理継続 | DataRecordExtensions.GetStringOrNull() の動作確認 |
+| TRK-003 | 境界値 | RECORD_ID = NULL で処理実行 | 自動（新規テスト） | 既定値「」を適用、正常処理継続 | 前後の処理で影響がないこと確認 |
+| TRK-004 | 境界値 | CATEGORY_CODE = NULL で処理実行 | 自動（新規テスト） | 既定値 0 を適用、正常処理継続 | 商域コード用の適切な既定値の確認 |
+| TRK-005 | 境界値 | DISPLAY_NAME, RECORD_ID 両方 NULL | 自動（新規テスト） | 両既定値を適用、正常処理継続 | 複合NULL条件の確認 |
+| TRK-006 | 異常系 | CATEGORY_CODE に文字列が入っている場合 | 自動（新規テスト） | Exception ハンドリング、ログ出力 | GetInt32OrNull() で型チェック実施 |
 | TRK-007 | 異常系 | DB接続エラー時の Exception ハンドリング | ダミー実装 | エラーログ出力、上位への例外伝播 | Mock DataRecord で SqlException を投出 |
-| TRK-008 | 統合 | 複数台の VR telegram 連続処理 | 手動/自動 | 各telegram が独立に処理される、メモリリークなし | ストレステスト的観点 |
+| TRK-008 | 統合 | 複数台の DS telegram 連続処理 | 手動/自動 | 各telegram が独立に処理される、メモリリークなし | ストレステスト的観点 |
 | TRK-009 | 正常系 | 既存ユニットテスト群全実行（回帰避止） | 自動 | 全テスト合格（既存テスト影響なし） | 回帰テスト |
 
 ### ダミー実装対象
@@ -88,7 +88,7 @@ Phase 3 では、改修点を網羅したテストチェック項目を生成し
 
 1. **自動テスト** (段階12前半)
    - ユニットテスト: Visual Studio / dotnet test で実行
-   - コマンド: `dotnet test ProcForEtgsTest.csproj`
+   - コマンド: `dotnet test ProcDataSyncTest.csproj`
    - 期待: 全テスト合格 (9項目のうち自動7項目 + 既存回帰テスト)
 
 2. **ダミー実装テスト** (段階12中盤)
@@ -103,38 +103,38 @@ Phase 3 では、改修点を網羅したテストチェック項目を生成し
 #### 自動テスト (Moq, NUnit例)
 \`\`\`csharp
 [Test]
-public void ProcessVehicleData_NullOwnerName()
+public void ProcessDataRecord_NullDisplayName()
 {
     // Arrange
     var mockRecord = new Mock<IDataRecord>();
-    mockRecord.Setup(r => r.GetOrdinal("OWNER_NAME")).Returns(0);
-    mockRecord.Setup(r => r["OWNER_NAME"]).Returns(DBNull.Value);
-    mockRecord.Setup(r => r["REG_NUMBER"]).Returns("ABC123");
-    mockRecord.Setup(r => r["RESIDENCE_CODE"]).Returns(100);
+    mockRecord.Setup(r => r.GetOrdinal("DISPLAY_NAME")).Returns(0);
+    mockRecord.Setup(r => r["DISPLAY_NAME"]).Returns(DBNull.Value);
+    mockRecord.Setup(r => r["RECORD_ID"]).Returns("ID001");
+    mockRecord.Setup(r => r["CATEGORY_CODE"]).Returns(100);
     
-    var processor = new VehicleProcessor(_mockLogger);
+    var processor = new DataProcessor(_mockLogger);
     
     // Act
-    processor.ProcessVehicleData(mockRecord.Object);
+    processor.ProcessDataRecord(mockRecord.Object);
     
     // Assert
-    Assert.That(processor.LastProcessedVehicle.OwnerName, Is.EqualTo("不明"));
+    Assert.That(processor.LastProcessedEntry.DisplayName, Is.EqualTo("(未設定)"));
 }
 \`\`\`
 
 #### ダミー実装テスト
 \`\`\`csharp
 [Test]
-public void ProcessVehicleData_DBConnectionError()
+public void ProcessDataRecord_DBConnectionError()
 {
     // Arrange
     var mockRecord = new Mock<IDataRecord>();
-    mockRecord.Setup(r => r["OWNER_NAME"]).Throws(new SqlException(...));
+    mockRecord.Setup(r => r["DISPLAY_NAME"]).Throws(new SqlException(...));
     
-    var processor = new VehicleProcessor(_mockLogger);
+    var processor = new DataProcessor(_mockLogger);
     
     // Act & Assert
-    Assert.That(() => processor.ProcessVehicleData(mockRecord.Object), 
+    Assert.That(() => processor.ProcessDataRecord(mockRecord.Object), 
         Throws.TypeOf<SqlException>());
     
     _mockLogger.Verify(l => l.Error(It.IsAny<string>()), Times.Once);
@@ -177,7 +177,7 @@ public void ProcessVehicleData_DBConnectionError()
 #### テスト実施方法の実現可能性
 
 **自動テスト (7項目)**:
-- ✓ ユニットテスト環境あり（ProcForEtgsTest.csproj）
+- ✓ ユニットテスト環境あり（ProcDataSyncTest.csproj）
 - ✓ Moq/NUnit 使用可能（既存テストと同技術スタック）
 - ✓ 実施時間: 1分以内
 
@@ -209,7 +209,7 @@ public void ProcessVehicleData_DBConnectionError()
 
 **条件・制約**: 
 - 自動テスト実行環境（Visual Studio 2022 or dotnet CLI）の確認
-- Mock ライブラリ（Moq）が ProcForEtgsTest.csproj に参照されていることを確認
+- Mock ライブラリ（Moq）が ProcDataSyncTest.csproj に参照されていることを確認
 
 **承認日時**: 2026-03-27 17:00:00
 **承認者**: [開発者名]
@@ -230,17 +230,17 @@ public void ProcessVehicleData_DBConnectionError()
 
 #### 1. 自動テスト実行
 ```powershell
-cd ProcForEtgsTest
-dotnet test ProcForEtgsTest.csproj --verbosity detailed
+cd ProcDataSyncTest
+dotnet test ProcDataSyncTest.csproj --verbosity detailed
 
 # 期待出力例:
-# Testing: ProcForEtgsTest
-# TRK-001: ProcessVehicleData_ValidInput ... PASSED
-# TRK-002: ProcessVehicleData_NullOwnerName ... PASSED
-# TRK-003: ProcessVehicleData_NullRegNumber ... PASSED
-# TRK-004: ProcessVehicleData_NullResidenceCode ... PASSED
-# TRK-005: ProcessVehicleData_BothNullFields ... PASSED
-# TRK-006: ProcessVehicleData_InvalidResidenceCodeType ... PASSED
+# Testing: ProcDataSyncTest
+# TRK-001: ProcessDataRecord_ValidInput ... PASSED
+# TRK-002: ProcessDataRecord_NullDisplayName ... PASSED
+# TRK-003: ProcessDataRecord_NullRecordId ... PASSED
+# TRK-004: ProcessDataRecord_NullCategoryCode ... PASSED
+# TRK-005: ProcessDataRecord_BothNullFields ... PASSED
+# TRK-006: ProcessDataRecord_InvalidCategoryCodeType ... PASSED
 # TRK-009: Regression Test Suite ... PASSED (42 tests)
 # 
 # Test Run Successful.
@@ -249,14 +249,14 @@ dotnet test ProcForEtgsTest.csproj --verbosity detailed
 
 #### 2. ビルド確認
 ```powershell
-dotnet build ProcForEtgs.csproj
+dotnet build ProcDataSync.csproj
 # Expected: Build succeeded. (Warning count: 0)
 ```
 
 #### 3. 静的チェック
 ```powershell
 # StyleCop / Code Analyzers
-dotnet build ProcForEtgs.csproj /p:EnforceCodeStyleInBuild=true
+dotnet build ProcDataSync.csproj /p:EnforceCodeStyleInBuild=true
 # Expected: No code style violations
 ```
 
@@ -264,7 +264,7 @@ dotnet build ProcForEtgs.csproj /p:EnforceCodeStyleInBuild=true
 ```
 TRK-007: DB接続エラー時の処理
 - Mock を使用して SqlException を投出
-- ProcessVehicleData() が exception を catch して、ログ出力するか確認
+- ProcessDataRecord() が exception を catch して、ログ出力するか確認
 - Result: ✓ PASSED
 ```
 
@@ -294,7 +294,7 @@ TRK-007: DB接続エラー時の処理
 
 ### ビルド確認結果
 
-**プロジェクト**: ProcForEtgs.csproj, ProcForEtgsTest.csproj
+**プロジェクト**: ProcDataSync.csproj, ProcDataSyncTest.csproj
 
 **ビルド結果**: ✓ 成功
 
@@ -311,19 +311,19 @@ TRK-007: DB接続エラー時の処理
 **テストコード**:
 \`\`\`csharp
 [Test]
-public void ProcessVehicleData_DBConnectionError()
+public void ProcessDataRecord_DBConnectionError()
 {
     // Arrange
     var mockRecord = new Mock<IDataRecord>();
     // SqlException を投出する設定
-    mockRecord.Setup(r => r["OWNER_NAME"])
+    mockRecord.Setup(r => r["DISPLAY_NAME"])
         .Throws(new SqlException("Connection failed"));
     
-    var processor = new VehicleProcessor(_mockLogger);
+    var processor = new DataProcessor(_mockLogger);
     
     // Act & Assert
     var ex = Assert.Throws<SqlException>(() => {
-        processor.ProcessVehicleData(mockRecord.Object);
+        processor.ProcessDataRecord(mockRecord.Object);
     });
     
     // ログ出力を確認

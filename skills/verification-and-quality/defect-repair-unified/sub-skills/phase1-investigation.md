@@ -22,24 +22,24 @@ Phase 1 では、不具合の原因を調査し、複数の対応案を検討决
 ## 段階1: 準備（初期情報収集）（2026-03-27 14:00:00）
 
 ### 対象プロジェクト
-- ProcForEtgs（メイン処理）
-- ProcForEtgsTest（テスト）
-- LibEtgsCommon（共通ライブラリ）
+- ProcDataSync（メイン処理）
+- ProcDataSyncTest（テスト）
+- LibDataCommon（共通ライブラリ）
 
 ### 環境情報
 - TargetFramework: net8.0-windows
 - 依存: Npgsql, Newtonsoft.Json, LibComMng
 
 ### DB スキーマ
-- テーブル: VEHICLE_REGISTRATION
-- 対象列: REG_NUMBER (NOT NULL), OWNER_NAME (NULL可), ...
+- テーブル: DATA_RECORD
+- 対象列: RECORD_ID (NOT NULL), DISPLAY_NAME (NULL可), ...
 
 ### テスト有無
-- ✓ ProcForEtgsTest.csproj 存在
-- テストクラス: VehicleRegistrationProcessorTest
+- ✓ ProcDataSyncTest.csproj 存在
+- テストクラス: DataRecordProcessorTest
 
 ### ログ保管
-- Path: logs/ProcForEtgs/
+- Path: logs/ProcDataSync/
 - 形式: NLog (*.log)
 
 **次: 不具合入力待機**
@@ -70,17 +70,17 @@ Phase 1 では、不具合の原因を調査し、複数の対応案を検討决
 
 ### 症状
 - Error: InvalidCastException
-- Location: LibEtgsCommon.cs, line 142, method ProcessVehicleData()
+- Location: LibDataCommon.cs, line 142, method ProcessDataRecord()
 - Message: "Unable to cast object of type 'System.DBNull' to type 'System.String'."
 
 ### 発生条件
-- VR (VEHICLE_REGISTRATION) telegram 受信時
-- OWNER_NAME フィールドが NULL の場合
+- DS (DATA_SYNC) telegram 受信時
+- DISPLAY_NAME フィールドが NULL の場合
 - 100% 再現可能
 
 ### 影響範囲
-- 主: ProcForEtgs プロセス
-- 副: SkdGraspRoute（VR情報に依存） への影響あり
+- 主: ProcDataSync プロセス
+- 副: SkdDataRoute（DS情報に依存） への影響あり
 
 ### 環境
 - 本番環境で発生
@@ -134,26 +134,26 @@ Phase 1 では、不具合の原因を調査し、複数の対応案を検討决
 **AI の作業フロー** （優先順）:
 
 #### 1. ログ解析
-- Stack trace から `ProcessVehicleData()` method を特定
+- Stack trace から `ProcessDataRecord()` method を特定
 - DB アクセス（SELECT）の行番号特定
 - DBNull → キャスト が原因である可能性を確認
 
 #### 2. 実装ファイル確認
 ```csharp
 // Before（問題あり）
-string ownerName = (string)dataRecord["OWNER_NAME"];  // DBNullでException
+string displayName = (string)dataRecord["DISPLAY_NAME"];  // DBNullでException
 ```
 
 #### 3. DDL 確認
 ```sql
 -- Schema確認
-COLUMN OWNER_NAME VARCHAR(100) NULL
+COLUMN DISPLAY_NAME VARCHAR(100) NULL
 ```
 
 #### 4. 仮説立案
 - **仮説1（確度高）**: DBNull 起因のキャスト例外
-  - 根拠: OWNER_NAME は NULL可、直接キャストを実施、stack traceで当該行が示される
-  - 検証方法: DBラムダで OWNER_NAME=NULL の VR を送信、同じException が発生するか確認
+  - 根拠: DISPLAY_NAME は NULL可、直接キャストを実施、stack traceで当該行が示される
+  - 検証方法: DBラムダで DISPLAY_NAME=NULL の DS telegram を送信、同じException が発生するか確認
 
 - **仮説2（確度中）**: NULL チェックの漏れ
   - 根拠: DataRecordExtensions を使用していない可能性
@@ -176,13 +176,13 @@ COLUMN OWNER_NAME VARCHAR(100) NULL
 
 #### 候補1: DBNull 起因のキャスト例外（確度: 高）
 **根拠**:
-- Stack trace: LibEtgsCommon.cs:142 の `(string)dataRecord["OWNER_NAME"]` が指摘
-- DDL: OWNER_NAME は NULL可カラム
+- Stack trace: LibDataCommon.cs:142 の `(string)dataRecord["DISPLAY_NAME"]` が指摘
+- DDL: DISPLAY_NAME は NULL可カラム
 - 実装: 直接キャストで NULL チェックなし
 
 **検証方法**:
-1. ダムデータ DB に OWNER_NAME=NULL のレコード挿入
-2. VR telegram 送信
+1. ダムデータ DB に DISPLAY_NAME=NULL のレコード挿入
+2. DS telegram 送信
 3. 同じException が再現できるか確認
 
 **対応可能性**: ✓ 高（DataRecordExtensions 置換で対応可）
@@ -225,12 +225,12 @@ COLUMN OWNER_NAME VARCHAR(100) NULL
 #### フロー設計（対応前フロー）
 ```mermaid
 flowchart TD
-    A[VR Telegram受信]
+    A[DS Telegram受信]
     B{Parse成功?}
     C[ログ出力 skip]
     D[DataRecord取得]
     E{直接キャストを実行}
-    F["❌ InvalidCastException<br/>OWNER_NAME=NULL時"]
+    F["❌ InvalidCastException<br/>DISPLAY_NAME=NULL時"]
     G[正常処理]
     H[Result出力]
 
@@ -246,7 +246,7 @@ flowchart TD
 #### フロー設計（対応後フロー案）
 ```mermaid
 flowchart TD
-    A[VR Telegram受信]
+    A[DS Telegram受信]
     B{Parse成功?}
     C[ログ出力 skip]
     D[DataRecord取得]
@@ -307,13 +307,13 @@ flowchart TD
 
 ### 対応案 1: DataRecordExtensions置換（推奨）
 **概要**:
-直接キャスト（`(string)dataRecord["OWNER_NAME"]`）を、DataRecordExtensions メソッド 
-（`dataRecord.GetStringOrNull("OWNER_NAME")`）に置換。NULL時はnullを返す。
+直接キャスト（`(string)dataRecord["DISPLAY_NAME"]`）を、DataRecordExtensions メソッド 
+（`dataRecord.GetStringOrNull("DISPLAY_NAME")`）に置換。NULL時はnullを返す。
 
 **実装方法**:
-- 変更対象: LibEtgsCommon.cs, ProcessVehicleData() method, line 142
-- Before: `string ownerName = (string)dataRecord["OWNER_NAME"];`
-- After: `string ownerName = dataRecord.GetStringOrNull("OWNER_NAME") ?? "";`
+- 変更対象: LibDataCommon.cs, ProcessDataRecord() method, line 142
+- Before: `string displayName = (string)dataRecord["DISPLAY_NAME"];`
+- After: `string displayName = dataRecord.GetStringOrNull("DISPLAY_NAME") ?? "";`
 - 影響範囲: 当メソッド内の同パターン全箇所（推定3-5箇所）
 
 **メリット**:
@@ -323,12 +323,12 @@ flowchart TD
 ✓ DataRecordExtensions は信頼されたパターン
 
 **デメリット**:
-✗ OWNER_NAME=NULL 時の業務規則確認が必要
+✗ DISPLAY_NAME=NULL 時の業務規則確認が必要
   (現在のデフォルト値がが妥当か検証)
 
 **テスト対象**:
-- ProcessVehicleData_NullOwnerName (新規テスト)
-- ProcessVehicleData_ValidData (既存テスト, 回帰確認)
+- ProcessDataRecord_NullDisplayName (新規テスト)
+- ProcessDataRecord_ValidData (既存テスト, 回帰確認)
 
 **推定工数**: 2時間（実装1h + テスト1h）
 
@@ -339,7 +339,7 @@ flowchart TD
 DB読取前に NULL チェック層を追加。全アクセス ポイントで NULL 判定。
 
 **実装方法**:
-- 変更対象: LibEtgsCommon.cs の ProcessVehicleData() + ValidateDataRecord() 新規メソッド
+- 変更対象: LibDataCommon.cs の ProcessDataRecord() + ValidateDataRecord() 新規メソッド
 - ValidateDataRecord() で全列の NULL判定を事前実施
 - 不正データはログ出力 + skip
 
@@ -354,7 +354,7 @@ DB読取前に NULL チェック層を追加。全アクセス ポイントで N
 
 **テスト対象**:
 - ValidateDataRecord_AllNullPatterns (新規テスト複数)
-- ProcessVehicleData_* (既存テスト全て再検証)
+- ProcessDataRecord_* (既存テスト全て再検証)
 
 **推定工数**: 4時間（実装2h + テスト2h）
 
@@ -362,11 +362,11 @@ DB読取前に NULL チェック層を追加。全アクセス ポイントで N
 
 ### 対応案 3: DB側での既定値設定（DB設計見直し）
 **概要**:
-OWNER_NAME カラムを NOT NULL に変更、DB側でデフォルト値を設定。
+DISPLAY_NAME カラムを NOT NULL に変更、DB側でデフォルト値を設定。
 アプリは NULL チェック不要に。
 
 **実装方法**:
-- DB DDL 変更: OWNER_NAME VARCHAR(100) NOT NULL DEFAULT '不明'
+- DB DDL 変更: DISPLAY_NAME VARCHAR(100) NOT NULL DEFAULT '(未設定)'
 - Application: NULL チェック削除（既存コード）
 
 **メリット**:
@@ -400,7 +400,7 @@ OWNER_NAME カラムを NOT NULL に変更、DB側でデフォルト値を設定
 
 **推奨**: 対応案1（DataRecordExtensions置換）
 - 最小規模で問題解決
-- プロジェクトの既存パターン（invalid-cast-exception-defectsSkill）と一致
+- プロジェクトの既存パターン（null-safety-pattern）と一致
 - 本番展開リスク最小
 
 **次: 段階7（開発者による対応案決定）へ進む**
