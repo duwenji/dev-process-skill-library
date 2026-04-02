@@ -10,6 +10,8 @@
 | [PATTERN-SELECTION-GUIDE.md](./PATTERN-SELECTION-GUIDE.md) | 3パターン（調査・検証/意思決定・設計/運用手続き）の選択と customization checklist | スキル実装 PM |
 | [SUB-SKILLS-TEMPLATE.md](./SUB-SKILLS-TEMPLATE.md) | Phase 1～4 の sub-skills ファイル（phase1-*.md ～ phase4-*.md）テンプレート | スキル実装担当者 |
 | [data-dictionary-template.md](./data-dictionary-template.md) | 要件IDから属性・API・DDLへのトレーサビリティを残すデータ辞書テンプレート | 設計担当者 |
+| [test-case-csv-template.md](./test-case-csv-template.md) | テストチェック項目を CSV で管理・共有し、Excel で確認するためのテンプレート | テスト実施担当者 |
+| [../shared-references/test-check-aggregation-template.md](../shared-references/test-check-aggregation-template.md) | テストチェック項目と実施状況（ステータス/実施方法/分類）の集計テンプレート | 開発者、レビュアー |
 
 ---
 
