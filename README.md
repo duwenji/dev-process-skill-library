@@ -6,6 +6,8 @@
 
 > 🔁 クイズ同期時の更新基準は [docs/quiz-sync-guide.md](docs/quiz-sync-guide.md) を参照してください。
 
+> 🤝 **関連シリーズ:** このライブラリは `GitHub Copilot` 専用ではありませんが、Copilot 導入・運用を扱う教材群の **補完シリーズ** として併用できます。導入戦略は [GitHub Copilot Adoption Framework](https://github.com/duwenji/github-copilot-adoption-framework) も参照してください。
+
 ## 対象読者
 
 - 開発者
