@@ -2,7 +2,7 @@
 
 ソフトウェア開発向けの再利用可能な Skill セットを管理するためのリポジトリです。
 
-> 💡 ブラウザで https://duwenji.github.io/spa-quiz-app/ を開くと、この教材をクイズ形式で学習できます。
+> 💡 ブラウザで https://duwenji.github.io/spa-quiz-app/ を開くと、関連トピックをクイズ形式で復習できます。
 
 > 🔁 クイズ同期時の更新基準は [docs/quiz-sync-guide.md](docs/quiz-sync-guide.md) を参照してください。
 
