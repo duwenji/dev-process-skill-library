@@ -1,5 +1,8 @@
 # 優先度採点ガイド
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../skills/shared-references/glossary.md](../skills/shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 各 Skill を5観点で 1〜5 点評価し、合計点で優先度を判定します。
 
 ## 採点観点

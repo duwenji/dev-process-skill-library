@@ -8,6 +8,9 @@ disable-model-invocation: false
 
 # 新規機能・機能変更対応Skill（統合フレームワーク）
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../../shared-references/glossary.md](../../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 ## 利用する場面
 - C# / .NET アプリケーションで新規機能を追加したい
 - 既存機能の仕様変更を、段階的に安全に進めたい

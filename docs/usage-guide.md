@@ -48,9 +48,11 @@ git push -u origin main
 | ロール | GitHub 権限 | 対象 |
 |---|---|---|
 | Owner / Maintainer | Write | 開発リード、プロセス担当 |
-| Reviewer | Write | PM、QA |
+| Reviewer | Write | [PM](../skills/shared-references/glossary.md#pm)、[QA](../skills/shared-references/glossary.md#qa) |
 | Approver | Admin または別承認フロー | 開発マネージャー |
 | 参照のみ | Read | チームメンバー全員 |
+
+略語定義（RACI, KPI, PM, QA など）は [../skills/shared-references/glossary.md](../skills/shared-references/glossary.md) の「略語・日本語対応表」を参照してください。
 
 ### 1-3. チームへの周知
 

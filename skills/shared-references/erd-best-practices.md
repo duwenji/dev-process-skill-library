@@ -1,5 +1,8 @@
 # ERD 作成ガイドライン（ERD Best Practices）
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [glossary.md](glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 本ガイドは、データモデル設計時に使用する ERD（Entity Relationship Diagram）の作成基準です。
 
 ## 利用方法

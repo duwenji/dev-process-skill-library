@@ -1,5 +1,8 @@
 # data-model-design-unified Runbook
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../../shared-references/glossary.md](../../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 ## 目的
 要件から概念モデル、論理モデル、物理モデルを一貫して設計し、実装に渡せる形で確定する詳細手順書です。
 

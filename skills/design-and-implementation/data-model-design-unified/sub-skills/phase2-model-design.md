@@ -1,5 +1,8 @@
 # Phase 2: 論理/物理モデル決定
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../../../shared-references/glossary.md](../../../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 ## 目的
 採用したモデル案を、実装可能な論理モデル・物理モデルへ具体化する。
 

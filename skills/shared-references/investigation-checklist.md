@@ -1,5 +1,8 @@
 # 調査チェックリスト（Investigation Checklist）
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [glossary.md](glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 本チェックリストは、Phase 1「調査・分析・対応案決定」（段階1-6）で使用する検査項目テンプレートです。
 
 ## 利用方法

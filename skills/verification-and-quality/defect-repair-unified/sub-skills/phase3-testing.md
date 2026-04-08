@@ -1,5 +1,8 @@
 # Phase 3 Sub-Skill: テスト・チェック（段階10-13）
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../../../shared-references/glossary.md](../../../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 ## 概要
 Phase 3 では、改修点を網羅したテストチェック項目を生成し、開発者の承認を得た上で実施、結果を記録します。
 

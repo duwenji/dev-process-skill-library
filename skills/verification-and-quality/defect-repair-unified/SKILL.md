@@ -8,6 +8,9 @@ disable-model-invocation: false
 
 # 汎用不具合対応Skill（統合フレームワーク）
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../../shared-references/glossary.md](../../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 ## 利用する場面
 - C# / .NET アプリケーションの機能不具合が発生し、原因から対応、テストまでを体系的に進めたい
 - DB系・IPC系・パフォーマンス系・ビジネスロジック系など、あらゆる不具合カテゴリに対応したい

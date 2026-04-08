@@ -1,5 +1,8 @@
 # Phase 1 Sub-Skill: 調査・分析・対応案決定（段階1-6）
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../../../shared-references/glossary.md](../../../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 ## 概要
 Phase 1 では、不具合の原因を調査し、複数の対応案を検討决定する最初の段階です。開発者との協力により、調査結果から対応案まで、論理的に進める必要があります。
 

@@ -12,9 +12,9 @@
 
 | クイズセクション | 主な一次ソース | 反映先ファイル | 更新時の確認点 |
 |---|---|---|---|
-| 概論・運用導入 | README.md, docs/usage-guide.md, docs/taxonomy.md | spa-quiz-app/src/data/dev-process-skill-library/intro-overview.json | 対象読者、目的、Skill 選択、全体フロー、RACI、KPI、例外運用が反映されているか |
+| 概論・運用導入 | README.md, docs/usage-guide.md, docs/taxonomy.md | spa-quiz-app/src/data/dev-process-skill-library/intro-overview.json | 対象読者、目的、Skill 選択、全体フロー、[RACI](../skills/shared-references/glossary.md#raci)、[KPI](../skills/shared-references/glossary.md#kpi)、例外運用が反映されているか |
 | 要件・計画 | skills/requirements-and-planning/README.md, requirements-refinement/SKILL.md | spa-quiz-app/src/data/dev-process-skill-library/requirements-planning.json | 要件明確化、受入条件、非機能要件、スコープ境界、承認ゲートが最新か |
-| 設計・実装 | skills/design-and-implementation/README.md, 各 Skill の SKILL.md と runbook.md | spa-quiz-app/src/data/dev-process-skill-library/design-implementation.json | 方式案比較、データモデル、ADR、API 契約、レビュー観点、リファクタリング安全性が最新か |
+| 設計・実装 | skills/design-and-implementation/README.md, 各 Skill の SKILL.md と runbook.md | spa-quiz-app/src/data/dev-process-skill-library/design-implementation.json | 方式案比較、データモデル、[ADR](../skills/shared-references/glossary.md#adr)、API 契約、レビュー観点、リファクタリング安全性が最新か |
 | 検証・品質 | skills/verification-and-quality/README.md, 各 Skill の SKILL.md と runbook.md | spa-quiz-app/src/data/dev-process-skill-library/verification-quality.json | テスト層の役割、影響分析、残余リスク、セキュリティ観点が最新か |
 | 運用・リリース | skills/operations-and-release/README.md, 各 Skill の SKILL.md と runbook.md | spa-quiz-app/src/data/dev-process-skill-library/operations-release.json | リリース判定、監視、ロールバック、性能調査、例外管理が最新か |
 | 学習・改善 | skills/learning-and-improvement/README.md, 各 Skill の SKILL.md と runbook.md, .github/copilot/skills/known-how-ingestion/SKILL.md | spa-quiz-app/src/data/dev-process-skill-library/learning-improvement.json | 事実と推測の分離、再発防止、文書同期、ノウハウ取り込み、継続改善が最新か |
@@ -50,7 +50,7 @@
 
 | セクション | 設問ID範囲 | 主な一次ソース | 重点確認ポイント |
 |---|---|---|---|
-| 概論・運用導入 | 1-12 | README.md, docs/usage-guide.md, docs/taxonomy.md | 全体フロー、RACI、承認記録、KPI、例外運用 |
+| 概論・運用導入 | 1-12 | README.md, docs/usage-guide.md, docs/taxonomy.md | 全体フロー、[RACI](../skills/shared-references/glossary.md#raci)、承認記録、[KPI](../skills/shared-references/glossary.md#kpi)、例外運用 |
 | 要件・計画 | 1-10 | skills/requirements-and-planning/requirements-refinement/SKILL.md | 段階4-6、段階7/11/13 ゲート、未確定事項管理 |
 | 設計・実装 | 1-20 | feature-implementation-unified/SKILL.md, data-model-design-unified/SKILL.md, architecture-decision-record/SKILL.md, api-contract-design/SKILL.md, refactoring-safety/SKILL.md, code-review-assistant/SKILL.md | 方式案比較、ERD と制約、ADR、契約互換性、レビュー基準 |
 | 検証・品質 | 1-16 | defect-repair-unified/SKILL.md, test-strategy-unified/SKILL.md, security-hardening/SKILL.md | 影響分析、層別テスト戦略、残余リスク、セキュリティ検証 |

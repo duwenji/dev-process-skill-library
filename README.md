@@ -11,8 +11,10 @@
 ## 対象読者
 
 - 開発者
-- PM（プロジェクトマネージャー）
-- 品質保証（QA）
+- PM（プロジェクトマネージャー、[PM](skills/shared-references/glossary.md#pm)）
+- 品質保証（QA、[QA](skills/shared-references/glossary.md#qa)）
+
+省略用語の一覧は [skills/shared-references/glossary.md](skills/shared-references/glossary.md) の「略語・日本語対応表」を参照してください。
 
 ## 目的
 
@@ -71,14 +73,14 @@ Skill体系マップの5カテゴリに基づき、現在利用可能な Skills 
 			<td>data-model-design-unified</td>
 			<td>要件からデータモデルを先に固めたい</td>
 			<td>要件ID、エンティティ候補、データ制約、既存DB情報</td>
-			<td>ERD、データ辞書、DDL方針、移行計画</td>
+			<td>ERD、データ辞書、[DDL](skills/shared-references/glossary.md#ddl)方針、移行計画</td>
 			<td>利用可</td>
 		</tr>
 		<tr>
 			<td>architecture-decision-record</td>
 			<td>設計方針の比較検討が必要</td>
 			<td>課題、候補案、制約、評価観点</td>
-			<td>ADR（判断理由、採用案、却下理由）</td>
+			<td>[ADR](skills/shared-references/glossary.md#adr)（判断理由、採用案、却下理由）</td>
 			<td>利用可</td>
 		</tr>
 		<tr>
@@ -135,7 +137,7 @@ Skill体系マップの5カテゴリに基づき、現在利用可能な Skills 
 		<tr>
 			<td>observability-and-ops-readiness</td>
 			<td>監視不足、障害検知の遅れ</td>
-			<td>SLO、現行ログ/メトリクス、運用体制</td>
+			<td>[SLO](skills/shared-references/glossary.md#slo)、現行ログ/メトリクス、運用体制</td>
 			<td>監視設計、アラート定義、運用Runbook</td>
 			<td>利用可</td>
 		</tr>
@@ -178,7 +180,7 @@ Skill体系マップの5カテゴリに基づき、現在利用可能な Skills 
 - 各 Skill は必ず1カテゴリに帰属する
 - 複数カテゴリに跨る場合は、主たる目的で判断する
 
-## 役割と責任（RACI簡易版）
+## 役割と責任（[RACI](skills/shared-references/glossary.md#raci)簡易版）
 
 - Owner: Skill の内容設計と更新責任
 - Reviewer: 実務妥当性と運用整合性のレビュー
@@ -210,6 +212,8 @@ Skill体系マップの5カテゴリに基づき、現在利用可能な Skills 
 
 ## KPI（導入効果測定）
 
+用語定義は [KPI](skills/shared-references/glossary.md#kpi) を参照してください。
+
 - 不具合再発率
 - レビュー指摘密度（件数/PR）
 - 要件確定から実装完了までのリードタイム
@@ -230,7 +234,7 @@ Skill体系マップの5カテゴリに基づき、現在利用可能な Skills 
 - 比較期間: 導入後 1 か月、3 か月
 - 判定: KPI 改善率と現場フィードバックを合わせて評価
 - 集計責任: Maintainer
-- レビュー責任: Reviewer（PM + QA）
+- レビュー責任: Reviewer（[PM](skills/shared-references/glossary.md#pm) + [QA](skills/shared-references/glossary.md#qa)）
 
 ## Skill 選択ガイド
 
@@ -268,7 +272,7 @@ Skill体系マップの5カテゴリに基づき、現在利用可能な Skills 
 ### 3) 証跡管理ルール
 
 - 実行ログは append-only で記録し、既存履歴を削除・上書きしない
-- 例外事項は識別子（例: TRK / EX）で紐付け、追跡可能性を担保する
+- 例外事項は識別子（例: [TRK](skills/shared-references/glossary.md#trk) / [EX](skills/shared-references/glossary.md#ex)）で紐付け、追跡可能性を担保する
 - 段階完了時に、要約・決定事項・未解決事項を残す
 
 ### 4) 役割分担の原則
@@ -279,7 +283,7 @@ Skill体系マップの5カテゴリに基づき、現在利用可能な Skills 
 
 ### 5) 参照優先順位（競合時）
 
-- 実装実体（ソースコード、設定、DDL）
+- 実装実体（ソースコード、設定、[DDL](skills/shared-references/glossary.md#ddl)）
 - 各 Skill の runbook
 - 各 Skill の SKILL.md
 - 実行ログ

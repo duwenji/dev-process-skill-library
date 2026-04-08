@@ -8,6 +8,9 @@ disable-model-invocation: false
 
 # 観測可能性・運用準備 Skill（運用フレームワーク）
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../../shared-references/glossary.md](../../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 ## 利用する場面
 - 障害を早く検知できる状態にしたい
 - ログ、メトリクス、アラートの不足を整理したい

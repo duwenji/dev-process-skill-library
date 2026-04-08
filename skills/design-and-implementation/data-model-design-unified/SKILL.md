@@ -8,6 +8,9 @@ disable-model-invocation: false
 
 # データモデル設計 Skill（統合フレームワーク）
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../../shared-references/glossary.md](../../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 ## 利用する場面
 - 要件からデータ構造を設計し、実装前に合意したい
 - エンティティ、関係、制約を明確化したい

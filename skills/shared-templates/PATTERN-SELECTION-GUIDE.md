@@ -1,5 +1,8 @@
 # Skill Pattern Selection Guide
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../shared-references/glossary.md](../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 新規スキルを実装する際に、既存パターンから選択して customization する手順です。
 
 ## 3つの実装パターン

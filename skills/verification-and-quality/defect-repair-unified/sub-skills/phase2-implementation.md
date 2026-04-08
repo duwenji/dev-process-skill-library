@@ -1,5 +1,8 @@
 # Phase 2 Sub-Skill: 実装決定・実施（段階7-9）
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../../../shared-references/glossary.md](../../../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 ## 概要
 Phase 2 では、開発者が対応案を決定し、AIがその案に基づいてソースコードを実装、その後開発者がコード品質をレビューします。
 

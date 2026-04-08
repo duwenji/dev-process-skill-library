@@ -1,5 +1,8 @@
 # テストケース CSV テンプレート
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../shared-references/glossary.md](../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 本テンプレートは、Markdown正本のテストチェック項目を CSV 化し、Excel で確認・更新するための標準フォーマットです。
 
 ## 運用方針

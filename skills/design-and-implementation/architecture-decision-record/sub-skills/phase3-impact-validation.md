@@ -1,5 +1,8 @@
 # Phase 3: 影響確認・採否整理
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../../../shared-references/glossary.md](../../../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 ## 目的
 ADR の影響範囲と追従タスクを整理し、見直し条件を残す。
 

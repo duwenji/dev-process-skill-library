@@ -1,5 +1,8 @@
 # Phase 3: 実行準備・検証確認
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../../../shared-references/glossary.md](../../../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 ## 目的
 実行前提、データ準備、環境制約、証跡の取り方を確定する。
 

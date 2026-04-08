@@ -1,5 +1,8 @@
 # shared-templates
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../shared-references/glossary.md](../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 このディレクトリは、全14スキルの実装を支援するための共通テンプレートと設計ガイドです。
 
 ## ファイル一覧

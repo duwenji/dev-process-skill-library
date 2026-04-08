@@ -1,5 +1,8 @@
 # Phase 4: 報告
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../../../shared-references/glossary.md](../../../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 ## 目的
 確定したデータモデルと移行方針を、後続の API 設計・実装へ引き継げる形で報告する。
 

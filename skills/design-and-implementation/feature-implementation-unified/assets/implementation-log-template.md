@@ -1,5 +1,8 @@
 # 実装ログテンプレート（Implementation Log Template）
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../../../shared-references/glossary.md](../../../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 本テンプレートは、新規機能・機能変更対応の監査最小セットを定義します。
 
 ## ログファイル命名規則

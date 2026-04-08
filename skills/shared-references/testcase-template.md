@@ -1,5 +1,8 @@
 # テストケーステンプレート（Test Case Template）
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [glossary.md](glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 本テンプレートは、Phase 3「テスト・チェック」（段階10-13）で使用するテストケース記載フォーマットです。
 
 ## 利用方法

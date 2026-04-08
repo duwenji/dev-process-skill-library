@@ -1,5 +1,8 @@
 # Phase 4 Sub-Skill: 報告（段階14）
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../../../shared-references/glossary.md](../../../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 ## 概要
 Phase 4 では、14段階全体にわたる改修内容・テスト結果・品質判定をまとめて最終報告書を作成します。
 

@@ -6,6 +6,7 @@
 - `skills/`
 - `templates/`
 - `governance/`
+- `skills/shared-references/glossary.md`（略語・用語の正本）
 
 ## Recommended navigation
 1. `README.md` で全体像を確認

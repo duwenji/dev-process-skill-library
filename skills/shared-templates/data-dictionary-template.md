@@ -1,5 +1,8 @@
 # Data Dictionary Template
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../shared-references/glossary.md](../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 ## ドキュメント情報
 | 項目 | 内容 |
 |------|------|

@@ -1,5 +1,8 @@
 # Phase 1 Sub-Skill: 要求整理・方式候補化（段階1-6）
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../../../shared-references/glossary.md](../../../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 ## 概要
 Phase 1では、要求を明確化し、現行との差分を分析して方式案を提示します。
 

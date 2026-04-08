@@ -8,6 +8,9 @@ disable-model-invocation: false
 
 # ADR Skill（統合フレームワーク）
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../../shared-references/glossary.md](../../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 ## 利用する場面
 - 設計判断の理由を将来追跡できる形で残したい
 - 複数案の比較を明確にしたい

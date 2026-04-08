@@ -7,6 +7,9 @@ created: 2026-03-27
 
 # 不具合対応 Runbook（詳細手順・判定基準）
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../../shared-references/glossary.md](../../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 ## はじめに
 
 このRunbookは「汎用不具合対応Skill（統合フレームワーク）」の正本です。14段階にわたる不具合対応の詳細手順、判定基準、記録項目を定義します。

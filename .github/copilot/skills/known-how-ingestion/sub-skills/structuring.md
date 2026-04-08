@@ -1,5 +1,8 @@
 # Structuring: 構造化
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../../../../../skills/shared-references/glossary.md](../../../../../skills/shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 ## 目的
 
 Intake で収集した知識を、標準化成果物へ変換できる形に分解・分類し、操作種別（新規 / 改善 / マージ / 削除）を決定する。

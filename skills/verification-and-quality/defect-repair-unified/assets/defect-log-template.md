@@ -1,5 +1,8 @@
 # デフェクトログテンプレート（Defect Log Template）
 
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../../../shared-references/glossary.md](../../../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+
+
 本テンプレートは、不具合対応全体の監査最小セット（記録に必須の項目）を定義します。
 
 ## 利用方法
