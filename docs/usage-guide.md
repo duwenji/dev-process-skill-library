@@ -152,7 +152,8 @@ PR の説明欄には以下を記載します：
 
 ## Step 5: ログ・出力物を残す
 
-実行ログは append-only で記録し、既存履歴を削除・上書きしません。
+実行ログは append-only で記録し、既存履歴の削除・上書きは禁止します。  
+詳細は [glossary.md](/skills/shared-references/glossary.md#append-only) の用語定義を参照してください。
 
 ### 推奨ファイル配置
 
