@@ -2,9 +2,11 @@
 
 ソフトウェア開発向けの再利用可能な Skill セットを管理するためのリポジトリです。
 
-> 💡 ブラウザで https://duwenji.github.io/spa-quiz-app/ を開くと、この教材をクイズ形式で学習できます。
+> 💡 ブラウザで https://duwenji.github.io/spa-quiz-app/ を開くと、関連トピックをクイズ形式で復習できます。
 
 > 🔁 クイズ同期時の更新基準は [docs/quiz-sync-guide.md](docs/quiz-sync-guide.md) を参照してください。
+
+> 🤝 **関連シリーズ:** このライブラリは `GitHub Copilot` 専用ではありませんが、Copilot 導入・運用を扱う教材群の **補完シリーズ** として併用できます。導入戦略は [GitHub Copilot Adoption Framework](https://github.com/duwenji/github-copilot-adoption-framework) も参照してください。
 
 ## 対象読者
 
