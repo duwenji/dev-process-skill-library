@@ -3,7 +3,7 @@
 # Skill運用・設計ガイド（自リポジトリ用）
 
 > **本ファイルはこのリポジトリ固有のSkill運用・設計ガイドです。**
-> 一般ユーザ・他プロジェクト向けSkillテンプレートは skills/060_shared-templates/SKILL-template.md を参照してください。
+> 一般ユーザ・他プロジェクト向けSkillテンプレートは skills/shared-templates/SKILL-template.md を参照してください。
 > 用途・参照先の違いはREADME.mdにも明記しています。
 
 ## 1. Skillカテゴリ選択（必須）

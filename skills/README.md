@@ -12,6 +12,12 @@
 - verification-and-quality: 検証・品質
 - operations-and-release: 運用・リリース
 - learning-and-improvement: 学習・改善
+- development-method: 開発方法論
+
+## 共有資産
+
+- shared-templates: 共通テンプレート
+- shared-references: 共通参照
 
 ## 現在の移行ステータス
 
@@ -32,7 +38,8 @@
   - operations-and-release/observability-and-ops-readiness ✅
   - learning-and-improvement/incident-postmortem ✅
   - learning-and-improvement/documentation-sync ✅
-  - カテゴリ別 README: 全5カテゴリ作成済み ✅
+  - development-method/010_ddd-ai-responsibility ✅
+  - カテゴリ別 README: 全6カテゴリ作成済み ✅
   - SKILL.md frontmatter を skill schema 準拠へ統一: 済み ✅
   - docs/, governance/, templates/ 新設: 済み ✅
   - shared-templates/ 配下の共通テンプレート整備: 済み ✅
