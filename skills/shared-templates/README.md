@@ -9,9 +9,9 @@
 
 | ファイル | 目的 | 対象者 |
 |---------|------|--------|
-| [SKILL-template.md](./SKILL-template.md) | 新規スキルの SKILL.md テンプレート（カスタマイズ ポイント埋め込み） | スキル実装担当者 |
+| [SKILL.md](./skill/SKILL.md) | 新規スキルの SKILL.md テンプレート（カスタマイズ ポイント埋め込み） | スキル実装担当者 |
 | [PATTERN-SELECTION-GUIDE.md](./PATTERN-SELECTION-GUIDE.md) | 3パターン（調査・検証/意思決定・設計/運用手続き）の選択と customization checklist | スキル実装 PM |
-| [SUB-SKILLS-TEMPLATE.md](./SUB-SKILLS-TEMPLATE.md) | Phase 1～4 の sub-skills ファイル（phase1-*.md ～ phase4-*.md）テンプレート | スキル実装担当者 |
+| [sub-skills.md](./skill/sub-skills.md) | Phase 1～4 の sub-skills ファイル（phase1-*.md ～ phase4-*.md）テンプレート | スキル実装担当者 |
 | [data-dictionary-template.md](./data-dictionary-template.md) | 要件IDから属性・API・DDLへのトレーサビリティを残すデータ辞書テンプレート | 設計担当者 |
 | [test-case-csv-template.md](./test-case-csv-template.md) | テストチェック項目を CSV で管理・共有し、Excel で確認するためのテンプレート | テスト実施担当者 |
 | [../shared-references/test-check-aggregation-template.md](../shared-references/test-check-aggregation-template.md) | テストチェック項目と実施状況（ステータス/実施方法/分類）の集計テンプレート | 開発者、レビュアー |
@@ -26,13 +26,13 @@
 3. Customization Checklist を参照し、必須項目を把握
 
 ### Step 2: SKILL.md テンプレートの fill-in
-1. [SKILL-template.md](./SKILL-template.md) をコピーして、スキルディレクトリに配置
+1. [SKILL.md](./skill/SKILL.md) をコピーして、スキルディレクトリに配置
 2. frontmatter を埋める（name, description, argument-hint等）
 3. 各 Phase のタイトル・段階説明を、選択パターンに合わせて customization
 4. ゲート条件#1, #2, #3 を明確に記述
 
 ### Step 3: Sub-skills ファイルの作成
-1. [SUB-SKILLS-TEMPLATE.md](./SUB-SKILLS-TEMPLATE.md) を参照
+1. [sub-skills.md](./skill/sub-skills.md) を参照
 2. phase1-[KEY].md, phase2-[KEY].md, phase3-[KEY].md, phase4-reporting.md を作成
 3. 各フェーズの目的・実施段階・出力物を記述
 
@@ -170,7 +170,7 @@
 
 スキル実行時に生成される成果物（実行ログ・フェーズ出力物）の命名規則・保存場所・ファイル内構成を統一するためのガイドラインです。
 
-> **関連ドキュメント**: 保存手順の詳細は [docs/usage-guide.md Step 5](../../../docs/usage-guide.md) を参照。
+> **関連ドキュメント**: 保存手順の詳細は [README の「使い方ガイド（統合版）」](../../../README.md) を参照。
 
 ---
 
@@ -269,7 +269,7 @@ docs/
 ### フェーズ別最小出力物
 
 各フェーズ完了時に ✅ を埋めることで、ゲート通過の可否を判断する。  
-具体的な出力物チェックリストは [SUB-SKILLS-TEMPLATE.md](./SUB-SKILLS-TEMPLATE.md) の「Phase N 完了時の最小必須出力」セクションを参照。
+具体的な出力物チェックリストは [sub-skills.md](./skill/sub-skills.md) の「Phase N 完了時の最小必須出力」セクションを参照。
 
 | フェーズ | 最小必須出力物（代表例） | ゲート |
 |---------|------------------------|--------|
@@ -281,4 +281,4 @@ docs/
 ---
 
 **共通テンプレート公開日**: 2026-03-28  
-**参照**: [PATTERN-SELECTION-GUIDE.md](./PATTERN-SELECTION-GUIDE.md) → [SKILL-template.md](./SKILL-template.md) → [SUB-SKILLS-TEMPLATE.md](./SUB-SKILLS-TEMPLATE.md)
+**参照**: [PATTERN-SELECTION-GUIDE.md](./PATTERN-SELECTION-GUIDE.md) → [SKILL.md](./skill/SKILL.md) → [sub-skills.md](./skill/sub-skills.md)

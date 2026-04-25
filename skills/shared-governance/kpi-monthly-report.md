@@ -1,6 +1,6 @@
 # KPI 月次レポート
 
-省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../skills/shared-references/glossary.md](../skills/shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
+省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../shared-references/glossary.md](../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
 
 
 月次で KPI を計測し記録します。

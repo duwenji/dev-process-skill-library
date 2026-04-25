@@ -1,7 +1,7 @@
 # 優先度例外運用ログ
 
 優先度例外を適用した場合はこのファイルに記録します。
-識別子 `EX` の用語定義は [../skills/shared-references/glossary.md#ex](../skills/shared-references/glossary.md#ex) を参照してください。
+識別子 `EX` の用語定義は [../shared-references/glossary.md#ex](../shared-references/glossary.md#ex) を参照してください。
 
 ## 記録フォーマット
 

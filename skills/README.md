@@ -41,7 +41,7 @@
   - development-method/010_ddd-ai-responsibility ✅
   - カテゴリ別 README: 全6カテゴリ作成済み ✅
   - SKILL.md frontmatter を skill schema 準拠へ統一: 済み ✅
-  - docs/, governance/, templates/ 新設: 済み ✅
+  - ガイド類の README 集約、shared-governance/, shared-templates/ 整備: 済み ✅
   - shared-templates/ 配下の共通テンプレート整備: 済み ✅
   - shared-references/ 配下の共通参照整備: 済み ✅
 

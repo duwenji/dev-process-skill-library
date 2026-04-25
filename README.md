@@ -4,7 +4,7 @@
 
 > 💡 ブラウザで https://duwenji.github.io/spa-quiz-app/ を開くと、関連トピックをクイズ形式で復習できます。
 
-> 🔁 クイズ同期時の更新基準は [docs/quiz-sync-guide.md](docs/quiz-sync-guide.md) を参照してください。
+> 🔁 クイズ同期時の更新基準は、この README の「クイズ同期ガイド（統合版）」を参照してください。
 
 > 🤝 **関連シリーズ:** このライブラリは `GitHub Copilot` 専用ではありませんが、Copilot 導入・運用を扱う教材群の **補完シリーズ** として併用できます。導入戦略は [GitHub Copilot Adoption Framework](https://github.com/duwenji/github-copilot-adoption-framework) も参照してください。
 
@@ -17,10 +17,90 @@
 省略用語の一覧は [skills/shared-references/glossary.md](skills/shared-references/glossary.md) の「略語・日本語対応表」を参照してください。
 
 ## 目的
-
 - 開発作業を標準化し、品質のばらつきを抑える
 - 調査・実装・検証・報告の抜け漏れを減らす
 - 承認ゲートと証跡管理を一貫した形で運用する
+
+## 使い方ガイド（統合版）
+
+### 全体フロー
+
+1. リポジトリをチームへ配布する
+2. 開発タスクに合う Skill を選ぶ
+3. SKILL.md を読んでフェーズを実行する
+4. 承認ゲートを通過させる
+5. ログ・出力物を残す
+6. 改善点があれば Skill 更新を申請する
+
+### 配布と導入
+
+- 組織運用を前提に、GitHub リポジトリをチームへ共有する
+- Owner / Reviewer / Approver / 参照者の権限を明確化する
+- 初回は Pilot 導入対象 Skill を限定し、小さく検証する
+
+### Skill 実行と承認
+
+- 各 Skill の `SKILL.md` を正本として順番に実行する
+- 承認ゲートは `未承認 / 承認済` の2値で管理する
+- 承認記録は「日時 / 判断者 / 根拠」を最小単位として残す
+
+### ログ保存規約
+
+- 実行ログは append-only で記録する
+- 推奨保存先（作業リポジトリ側）:
+	- `docs/skill-logs/<category>/<skill-name>/YYYY-MM-DD_log.md`
+	- `docs/skill-logs/<category>/<skill-name>/YYYY-MM-DD_output.md`
+
+### FAQ（要約）
+
+- どの Skill から始めるか: `requirements-refinement` と `test-strategy-unified` を優先
+- 複数 Skill の同時実行: 非推奨。上流から順次適用
+- 追加手順が必要な場合: Issue で Skill 追記を申請
+
+## クイック参照（統合版）
+
+| 目的 | 参照先 |
+|---|---|
+| Skill の全体像を知る | 本 README の「Skill 体系マップ」 |
+| 個別 Skill を確認する | `skills/` |
+| チーム導入の型を見る | `skills/shared-governance/` |
+| テンプレートを再利用する | `skills/shared-templates/` |
+| クイズ同期ルールを確認する | 本 README の「クイズ同期ガイド（統合版）」 |
+
+## 公開手順（統合版）
+
+1. `skills/` / `skills/shared-templates/` / `skills/shared-governance/` を更新する
+2. README の導線と説明を最新化する
+3. 本 README の「クイズ同期ガイド（統合版）」に従って同期対象を確認する
+4. 本 README の「検証チェックリスト（統合版）」で最終確認する
+5. レビュー後に公開する
+
+## 検証チェックリスト（統合版）
+
+- [ ] `README.md` から主要ディレクトリへ移動できる
+- [ ] `skills/` の説明と実体が一致している
+- [ ] `skills/shared-templates/` と `skills/shared-governance/` の導線が分かりやすい
+- [ ] 関連教材との位置づけ説明が最新である
+- [ ] README 内の運用ガイド導線が最新である
+
+## コントリビューションガイド（統合版）
+
+改善提案や Skill 追加は歓迎します。
+
+基本方針:
+
+- 再利用しやすいプロセス知識を優先する
+- 具体的な利用トリガーと成果物を明記する
+- 大きな変更は `Issue` で背景を共有してから進める
+
+推奨フロー:
+
+1. `Issue` を作成する
+2. branch を切る
+3. `skills/` / `skills/shared-templates/` / `skills/shared-governance/` を更新する
+4. `README.md` と関連資料を更新する
+5. `README.md` の「検証チェックリスト（統合版）」を確認する
+6. `Pull Request` を作成する
 
 ## Skill 体系マップ
 
@@ -236,6 +316,56 @@ Skill体系マップの5カテゴリに基づき、現在利用可能な Skills 
 - 集計責任: Maintainer
 - レビュー責任: Reviewer（[PM](skills/shared-references/glossary.md#pm) + [QA](skills/shared-references/glossary.md#qa)）
 
+## 優先度採点ガイド（統合版）
+
+各 Skill を 5 観点で 1〜5 点評価し、合計点で優先度を判定します。
+
+| 観点 | 説明 |
+|---|---|
+| 影響度 | 品質、納期、顧客影響への寄与 |
+| 発生頻度 | 対象課題が発生する頻度 |
+| 緊急度 | 早期導入の必要性 |
+| 実装容易性 | 導入工数の小ささ |
+| 依存関係 | 他 Skill の前提となる度合い |
+
+判定基準:
+
+- High: 20 点以上
+- Medium: 14〜19 点
+- Low: 13 点以下
+
+採点ルール:
+
+- 採点者: Owner と Reviewer（PM + QA）の合議
+- 採点タイミング: 新規登録時、四半期レビュー時、重大インシデント後
+- 同点時の優先: 依存関係 > 影響度 > 緊急度
+- 採点記録先: `README.md`, `skills/shared-governance/quarterly-review-log.md`
+
+## クイズ同期ガイド（統合版）
+
+dev-process-skill-library の更新を spa-quiz-app に反映する際の基準です。
+
+一次ソースと反映先（要約）:
+
+| クイズセクション | 主な一次ソース | 反映先ファイル |
+|---|---|---|
+| 概論・運用導入 | README（対象読者、目的、全体フロー、RACI、KPI、例外運用） | `spa-quiz-app/src/data/dev-process-skill-library/intro-overview.json` |
+| 要件・計画 | requirements-and-planning 配下 Skill | `spa-quiz-app/src/data/dev-process-skill-library/requirements-planning.json` |
+| 設計・実装 | design-and-implementation 配下 Skill | `spa-quiz-app/src/data/dev-process-skill-library/design-implementation.json` |
+| 検証・品質 | verification-and-quality 配下 Skill | `spa-quiz-app/src/data/dev-process-skill-library/verification-quality.json` |
+| 運用・リリース | operations-and-release 配下 Skill | `spa-quiz-app/src/data/dev-process-skill-library/operations-release.json` |
+| 学習・改善 | learning-and-improvement 配下 Skill | `spa-quiz-app/src/data/dev-process-skill-library/learning-improvement.json` |
+
+更新手順:
+
+1. 一次ソース更新ファイルを抽出する
+2. 影響するクイズセクションを特定する
+3. 対象 JSON を更新する
+4. 問数変更時は metadata の `totalQuestions` と `questionCount` を更新する
+5. セクション変更時は quizSets 定義を更新する
+6. `validate:quiz`, `validate:metadata`, `validate:all` を実行する
+7. `sync-data`, `build` を実行して表示確認する
+
 ## Skill 選択ガイド
 
 - 不具合起点の対応: defect-repair-unified
@@ -329,21 +459,17 @@ Skill体系マップの5カテゴリに基づき、現在利用可能な Skills 
 ```text
 skills-for-software-development/
 	README.md
-	docs/
-		taxonomy.md
-		scoring-guide.md
-		pilot-guide.md
-	governance/
-		exception-log.md
-		quarterly-review-log.md
-		kpi-monthly-report.md
-	templates/
-		skill/
-			SKILL.template.md
-			runbook.template.md
-			checklist.template.md
-			log.template.md
 	skills/
+		shared-governance/
+			exception-log.md
+			quarterly-review-log.md
+			kpi-monthly-report.md
+		shared-templates/
+				skill/
+					SKILL.md
+					runbook.md
+					checklist.md
+					log.md
 		README.md
 		requirements-and-planning/
 			README.md
@@ -428,13 +554,13 @@ skills-for-software-development/
 - 各 Skill フォルダには `SKILL.md` を必須とし、必要に応じて `references/`, `sub-skills/`, `assets/` を配置する
 - カテゴリは親ディレクトリで管理し、`SKILL.md` のフロントマターには含めない
 - カテゴリ配下の `README.md` には、配下 Skill 一覧と選択ガイドのみを記載する
-- 全社共通ルール、採点、例外記録は `governance/` に集約する
-- 横断説明資料は `docs/` に集約し、ルート `README.md` には要約のみを残す
-- 新規 Skill 追加時は `templates/skill` のテンプレートを起点に作成する
+- 全社共通ルール、採点、例外記録は `skills/shared-governance/` に集約する
+- 横断説明資料はルート `README.md` に集約する
+- 新規 Skill 追加時は `skills/shared-templates/skill/` のテンプレートを起点に作成する
 
 移行ステップ:
 
-1. docs, governance, templates を新設
+1. `skills/shared-templates/` と `skills/shared-governance/` を整備する
 2. skills 配下に 5 カテゴリフォルダとカテゴリ別 README.md を新設する
 3. 既存 Skill を該当カテゴリへ移設し、Skill フォルダ名を `kebab-case` で統一する
 4. 全 `SKILL.md` を skill schema 準拠の frontmatter に統一する

@@ -1,7 +1,7 @@
 # <Skill 名> 実行ログ
 
 このファイルは append-only で記録します。既存履歴の削除・上書きは禁止です。
-識別子 `TRK` の用語定義は [../../skills/shared-references/glossary.md#trk](../../skills/shared-references/glossary.md#trk) を参照してください。
+識別子 `TRK` の用語定義は [../shared-references/glossary.md#trk](../shared-references/glossary.md#trk) を参照してください。
 
 ## ログ記録フォーマット
 
