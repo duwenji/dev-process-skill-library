@@ -147,10 +147,11 @@ flowchart TD
 - スコープ、非スコープ、制約、受入条件、承認者を明記する
 
 ## 入力リファレンス
+
 - 正本: runbook.md
 - Phase 1 サブタスク: sub-skills/phase1-refinement.md
 - Phase 2 サブタスク: sub-skills/phase2-specification.md
 - Phase 3 サブタスク: sub-skills/phase3-validation.md
 - Phase 4 サブタスク: sub-skills/phase4-reporting.md
-- 後続モデル設計: ../../design-and-implementation/data-model-design-unified/SKILL.md
+- 後続モデル設計: ../../020_design-and-implementation/040_data-model-design-unified/SKILL.md
 - 記録テンプレート: assets/requirements-refinement-log-template.md

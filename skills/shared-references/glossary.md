@@ -21,7 +21,7 @@
 
 ### Runbook（ラ ンブック）
 **定義**：Skill の各 Phase ごとに提供される、実行手順と判定基準を記した詳細ガイド。  
-**ファイル例**：`skills/design-and-implementation/feature-implementation-unified/phase1-investigation.md`  
+**ファイル例**：`skills/020_design-and-implementation/050_feature-implementation-unified/sub-skills/phase1-investigation.md`  
 **日本語での説明例**：「runbook に記載された判定ポイントを確認して Phase を進行させます」  
 
 ### Sub-Skills（サブスキル）

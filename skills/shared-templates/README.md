@@ -3,7 +3,7 @@
 省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../shared-references/glossary.md](../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
 
 
-このディレクトリは、全14スキルの実装を支援するための共通テンプレートと設計ガイドです。
+このディレクトリは、全16スキルの実装を支援するための共通テンプレートと設計ガイドです。
 
 ## ファイル一覧
 
@@ -56,21 +56,21 @@
 ### 既存テンプレートの参照
 
 #### feature-implementation-unified から学ぶ
-- Path: `skills/design-and-implementation/feature-implementation-unified/`
+- Path: `skills/020_design-and-implementation/050_feature-implementation-unified/`
 - Pattern: **パターン B**（意思決定・設計型）の標準例
 - 参照すべき file:
-  - [SKILL.md](../design-and-implementation/feature-implementation-unified/SKILL.md) - フロー定義
-  - [sub-skills/](../design-and-implementation/feature-implementation-unified/sub-skills/) - Phase ごと詳細
-  - [assets/implementation-log-template.md](../design-and-implementation/feature-implementation-unified/assets/implementation-log-template.md) - 実行ログ形式
+  - [SKILL.md](../020_design-and-implementation/050_feature-implementation-unified/SKILL.md) - フロー定義
+  - [sub-skills/](../020_design-and-implementation/050_feature-implementation-unified/sub-skills/) - Phase ごと詳細
+  - [assets/implementation-log-template.md](../020_design-and-implementation/050_feature-implementation-unified/assets/implementation-log-template.md) - 実行ログ形式
 
 #### defect-repair-unified から学ぶ
-- Path: `skills/verification-and-quality/defect-repair-unified/`
+- Path: `skills/030_verification-and-quality/010_defect-repair-unified/`
 - Pattern: **パターン A**（調査・検証型）の標準例
 - 参照すべき file:
-  - [SKILL.md](../verification-and-quality/defect-repair-unified/SKILL.md) - フロー定義
-  - [sub-skills/](../verification-and-quality/defect-repair-unified/sub-skills/) - Phase ごと詳細
-  - [assets/defect-log-template.md](../verification-and-quality/defect-repair-unified/assets/defect-log-template.md) - 実行ログ形式
-  - [remediation-runbook.md](../verification-and-quality/defect-repair-unified/remediation-runbook.md) - 詳細手順
+  - [SKILL.md](../030_verification-and-quality/010_defect-repair-unified/SKILL.md) - フロー定義
+  - [sub-skills/](../030_verification-and-quality/010_defect-repair-unified/sub-skills/) - Phase ごと詳細
+  - [assets/defect-log-template.md](../030_verification-and-quality/010_defect-repair-unified/assets/defect-log-template.md) - 実行ログ形式
+  - [remediation-runbook.md](../030_verification-and-quality/010_defect-repair-unified/remediation-runbook.md) - 詳細手順
 
 ---
 

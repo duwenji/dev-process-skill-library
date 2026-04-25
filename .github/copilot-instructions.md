@@ -13,6 +13,7 @@
 - 検証・品質（verification-and-quality）
 - 運用・リリース（operations-and-release）
 - 学習・改善（learning-and-improvement）
+- 開発方法論（development-method）
 
 ## 2. Skill命名規則（必須）
 - フォルダ名・Skill名はkebab-case
@@ -32,7 +33,7 @@
 - 用途に応じて使い分けてください
 
 ## 5. 必須項目リスト（#sym:Skill生成時に必ず含める）
-- カテゴリ（上記5つから選択）
+- カテゴリ（上記6つから選択）
 - name（kebab-case）
 - description（1文・トリガーワード含む）
 - argument-hint（初期入力指示）

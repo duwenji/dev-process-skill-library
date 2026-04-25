@@ -140,7 +140,7 @@ SKILL.md のカテゴリ判定ルールに従い配置先を提案します。
 AI が以下を出力します。
 
 - 成果物の本文（SKILL.md / runbook / チェックリスト / FAQ）
-- 配置先パス（例: `skills/learning-and-improvement/xxx/SKILL.md`）
+- 配置先パス（例: `skills/050_learning-and-improvement/xxx/SKILL.md`）
 - `skills/README.md` および該当カテゴリ `README.md` への追記案
 - 実行ログ記録（`AI改善/known_how_ingestion_${DATE}.md` に append）
 
