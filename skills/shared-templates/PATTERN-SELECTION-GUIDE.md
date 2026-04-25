@@ -2,7 +2,6 @@
 
 省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../shared-references/glossary.md](../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
 
-
 新規スキルを実装する際に、既存パターンから選択して customization する手順です。
 
 ## 3つの実装パターン
@@ -10,6 +9,7 @@
 ### パターン A: 調査・検証型（defect-repair-unified をベース）
 
 **特徴**:
+
 - 問題や課題の「原因調査」「分析」 → 「複数案検討」 → 「実装」 → 「テスト・検証」のフロー
 - Phase 1: 調査・分析・対応案決定
 - Phase 2: 実装決定・実施（ゲート#1で案を決定）
@@ -17,6 +17,7 @@
 - Phase 4: 報告
 
 **対象スキル**:
+
 - test-strategy-unified
 - security-hardening
 - performance-investigation
@@ -27,6 +28,7 @@
 **phase4 名前**: reporting
 
 **特有の出力物**:
+
 - 調査報告書（原因、該当箇所）
 - チェック項目リスト
 - テスト結果レポート
@@ -36,6 +38,7 @@
 ### パターン B: 意思決定・設計型（feature-implementation-unified をベース）
 
 **特徴**:
+
 - 要件・要求の「整理」「分析」 → 「実装方針決定」 → 「実装」 → 「検証」のフロー
 - Phase 1: 要件整理・方式候補化
 - Phase 2: 設計決定・実装（ゲート#1で方針を決定）
@@ -43,6 +46,7 @@
 - Phase 4: 報告
 
 **対象スキル**:
+
 - requirements-refinement
 - architecture-decision-record
 - api-contract-design
@@ -55,6 +59,7 @@
 **phase4 名前**: reporting
 
 **特有の出力物**:
+
 - 要件整理シート or ADR ドキュメント
 - 複数の実装方針案（メリット/デメリット）
 - 検証項目リスト
@@ -65,6 +70,7 @@
 ### パターン C: 運用手続き型（新規パターン）
 
 **特徴**:
+
 - ガイドライン・チェックリスト化 → 実施 → フィードバック → 改善の運用継続フロー
 - Phase 1: ガイドライン準備・基準明確化
 - Phase 2: 実施計画・最初の試行（ゲート#1で方針確認）
@@ -72,6 +78,7 @@
 - Phase 4: 改善まとめ・次シーズンへの引き継ぎ
 
 **対象スキル**:
+
 - code-review-assistant
 - observability-and-ops-readiness
 - incident-postmortem
@@ -83,6 +90,7 @@
 **phase4 名前**: continuous-improvement
 
 **特有の出力物**:
+
 - チェックリスト or テンプレート
 - 運用手順書
 - 改善提案書
@@ -92,7 +100,7 @@
 
 ## パターン選択フロー
 
-```
+```text
 スキルの目的は?
 
   ├─ [問題/障害/脆弱性の原因を調査し、対策を試行検証したい]
@@ -122,6 +130,7 @@
 ### Phase タイトル・段階説明
 
 **パターン A** の場合:
+
 - [ ] Phase 1: 調査・分析・対応案決定
   - [ ] S1-S6 の段階説明を埋める
   - [ ] Phase 1 概要説明を調査/分析に特化させる
@@ -141,6 +150,7 @@
   - [ ] phase4-reporting.md を作成
 
 **パターン B** の場合:
+
 - [ ] Phase 1: 要件整理・方式候補化
   - [ ] S1-S6 の段階説明を埋める
   - [ ] S3: 開発者が要件入力
@@ -161,6 +171,7 @@
   - [ ] phase4-reporting.md を作成
 
 **パターン C** の場合:
+
 - [ ] Phase 1: ガイドライン準備・基準明確化
   - [ ] S1-S6 の段階説明をガイドラインとチェックリスト中心に埋める
   - [ ] phase1-preparation.md or phase1-guideline-definition.md を作成
@@ -192,9 +203,10 @@
 
 ### リファレンス・アセット
 
-- [ ] runbook.md または remediation-runbook.md を作成（詳細手順）
+- [ ] runbook.md を作成（詳細手順）
 - [ ] assets/[SKILL_NAME]-log-template.md を作成（実行ログテンプレート）
 - [ ] references/ 配下の共通ファイルを確認:
+
   - [ ] flowchart-best-practices.md
   - [ ] investigation-checklist.md
   - [ ] testcase-template.md
@@ -255,7 +267,7 @@ Gate_1_Condition_C: 対策案が既知のセキュリティベストプラクテ
 - [ ] references/, assets/ が最低限整備されている（flowchart, checklist, template, log-template）
 - [ ] 運用ルール セクションが記述されている
 - [ ] 完了条件が明確である
-- [ ] runbook.md または remediation-runbook.md が作成されている
+- [ ] runbook.md が作成されている
 
 ---
 

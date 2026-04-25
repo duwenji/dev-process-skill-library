@@ -22,6 +22,12 @@
 
 ## 実装済み構成
 
-- defect-repair-unified/
-- test-strategy-unified/
-- security-hardening/
+- 010_defect-repair-unified/
+- 020_security-hardening/
+- 030_test-strategy-unified/
+
+## 品質検証
+
+- Skill を追加・更新した場合は [../VALIDATION_CHECKLIST.md](../VALIDATION_CHECKLIST.md) を実施する
+- 判定は Pass / Fail の2値で記録する
+- Fail は修正 PR に紐付けて再判定する

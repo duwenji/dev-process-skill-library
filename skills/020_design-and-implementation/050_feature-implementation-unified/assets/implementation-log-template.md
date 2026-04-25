@@ -8,8 +8,8 @@
 ## ログファイル命名規則
 
 ```text
-AI改善/feature_implementation_${DATE}.md
-例: AI改善/feature_implementation_20260327.md
+docs/skill-logs/feature_implementation_${DATE}.md
+例: docs/skill-logs/feature_implementation_20260327.md
 ```
 
 ## Append-Only運用ルール

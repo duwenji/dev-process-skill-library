@@ -143,7 +143,7 @@ flowchart TD
 - 変更理由を記録に残す
 
 ## 記録・証跡
-- 各段階の内容を `AI改善/requirements_refinement_${DATE}.md` に append-only で記録する
+- 各段階の内容を `docs/skill-logs/requirements_refinement_${DATE}.md` に append-only で記録する
 - スコープ、非スコープ、制約、受入条件、承認者を明記する
 
 ## 入力リファレンス

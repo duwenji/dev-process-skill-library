@@ -101,7 +101,7 @@ flowchart TD
 - 引き継ぎ可能な内容か
 
 ## 記録・証跡
-- 各段階の内容を `AI改善/observability_ops_${DATE}.md` に append-only で記録する
+- 各段階の内容を `docs/skill-logs/observability_ops_${DATE}.md` に append-only で記録する
 - 検知対象、アラート条件、初動手順、例外、承認者を明記する
 
 ## 入力リファレンス

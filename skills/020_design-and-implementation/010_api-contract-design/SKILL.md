@@ -135,7 +135,7 @@ flowchart TD
 承認後: 段階14へ進行可能
 
 ## 記録・証跡
-- 各段階の内容を `AI改善/api_contract_design_${DATE}.md` に append-only で記録する
+- 各段階の内容を `docs/skill-logs/api_contract_design_${DATE}.md` に append-only で記録する
 - 利用者、契約案、互換性方針、承認者を明記する
 
 ## 入力リファレンス

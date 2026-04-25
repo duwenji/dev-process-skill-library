@@ -24,6 +24,12 @@
 
 ## 実装済み構成
 
-- incident-postmortem/
-- documentation-sync/
-- （known-how-ingestion は .github/copilot/skills/known-how-ingestion/ に配置）
+- 010_documentation-sync/
+- 020_incident-postmortem/
+- 030_known-how-ingestion/
+
+## 品質検証
+
+- Skill を追加・更新した場合は [../VALIDATION_CHECKLIST.md](../VALIDATION_CHECKLIST.md) を実施する
+- 判定は Pass / Fail の2値で記録する
+- Fail は修正 PR に紐付けて再判定する

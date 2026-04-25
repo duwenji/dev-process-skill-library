@@ -140,7 +140,7 @@ flowchart TD
 承認後: 段階14へ進行可能
 
 ## 記録・証跡
-- 各段階の内容を `AI改善/adr_${DATE}.md` に append-only で記録する
+- 各段階の内容を `docs/skill-logs/adr_${DATE}.md` に append-only で記録する
 - 採用案、却下案、根拠、影響範囲、承認者を明記する
 
 ## 入力リファレンス

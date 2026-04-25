@@ -98,7 +98,7 @@ flowchart TD
 - 改善案比較ができるか
 
 ## 記録・証跡
-- 各段階の内容を `AI改善/performance_investigation_${DATE}.md` に append-only で記録する
+- 各段階の内容を `docs/skill-logs/performance_investigation_${DATE}.md` に append-only で記録する
 - 症状、目標値、仮説、計測方法、承認者を明記する
 
 ## 入力リファレンス

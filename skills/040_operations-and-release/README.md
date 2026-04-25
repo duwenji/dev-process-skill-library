@@ -22,6 +22,12 @@
 
 ## 実装済み構成
 
-- release-readiness/
-- performance-investigation/
-- observability-and-ops-readiness/
+- 010_observability-and-ops-readiness/
+- 020_performance-investigation/
+- 030_release-readiness/
+
+## 品質検証
+
+- Skill を追加・更新した場合は [../VALIDATION_CHECKLIST.md](../VALIDATION_CHECKLIST.md) を実施する
+- 判定は Pass / Fail の2値で記録する
+- Fail は修正 PR に紐付けて再判定する

@@ -1,5 +1,7 @@
 # Sub-Skills テンプレート ガイド
 
+<!-- markdownlint-disable MD022 MD024 MD025 MD031 MD032 MD040 MD053 MD058 MD060 -->
+
 各 Skill 配下の `sub-skills/` ディレクトリに配置する Phase ごとの詳細手順ファイルの構造を定義します。
 
 ---
@@ -612,3 +614,5 @@ skills/[カテゴリ]/[スキル名]/sub-skills/
 ---
 
 **テンプレート作成日**: 2026-03-28
+
+<!-- markdownlint-enable MD022 MD024 MD025 MD031 MD032 MD040 MD053 MD058 MD060 -->

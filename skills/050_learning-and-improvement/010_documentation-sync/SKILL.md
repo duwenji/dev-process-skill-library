@@ -98,7 +98,7 @@ flowchart TD
 - 読者にとって十分な更新になっているか
 
 ## 記録・証跡
-- 各段階の内容を `AI改善/documentation_sync_${DATE}.md` に append-only で記録する
+- 各段階の内容を `docs/skill-logs/documentation_sync_${DATE}.md` に append-only で記録する
 - 対象文書、更新優先度、例外、承認者を明記する
 
 ## 入力リファレンス

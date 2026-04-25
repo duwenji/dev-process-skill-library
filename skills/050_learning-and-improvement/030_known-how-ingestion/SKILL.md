@@ -1,7 +1,7 @@
 ---
 name: known-how-ingestion
-description: 'ユーザがチャットで話した暗黙知（ノウハウ、判断基準、失敗事例、手順）を構造化・標準化し、開発プロセス標準化 Skill ライブラリへ取り込むワークフロー。知識共有、ノウハウ蓄積、暗黙知の形式知化、Skill 新規追加、既存 Skill 改善、Skill マージ、Skill 廃止を扱う。'
-argument-hint: '共有したいノウハウの概要（背景、課題、対処方法、対象領域、再利用したい範囲）を自由に記述してください。AI が構造化・分類・標準化を支援します。承認はユーザが行います。'
+description: 'チャットで共有された暗黙知を構造化し、Skill の新規追加・改善・統合・廃止判断へ反映したいときに使うナレッジ取り込みワークフロー。'
+argument-hint: '[必須] 背景, 課題, 対処方法, 対象領域。[推奨] 再利用範囲, 成功/失敗パターン, 機密区分, 既存Skillとの関係。承認主体はユーザです。'
 user-invocable: true
 disable-model-invocation: false
 ---
@@ -15,6 +15,15 @@ disable-model-invocation: false
 - 既存 Skill の改善点に気づいた
 - 複数の Skill を統合・整理したい
 - 陳腐化した Skill を廃止・整理したい
+
+## 実行モード（推奨: balance）
+選択基準（共通）: [../../shared-references/execution-mode-guide.md](../../shared-references/execution-mode-guide.md)
+
+| モード | 特徴 | 用途 |
+|--------|------|------|
+| strict | 証跡を最大化し、重複検出と影響判定を厳密に行う | 全社展開前の標準化、監査対象ナレッジ |
+| speed | 最小必須の構造化と承認ポイントのみを実施する | 小規模なノウハウ追記、緊急共有 |
+| balance | 追跡可能性と実務速度のバランスを取る | 通常のナレッジ取り込み |
 
 ## ワークフロー概要
 
@@ -118,7 +127,7 @@ flowchart TD
 
 ## 記録・証跡
 
-- 実行ログは `AI改善/known_how_ingestion_${DATE}.md` に append-only で記録する
+- 実行ログは `docs/skill-logs/known_how_ingestion_${DATE}.md` に append-only で記録する
 - 承認ポイントごとに日時・承認者・判断根拠を記録する
 - 機密区分「記録不可」の内容はログに残さない
 

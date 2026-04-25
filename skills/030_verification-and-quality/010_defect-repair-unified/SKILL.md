@@ -1,7 +1,7 @@
 ---
 name: defect-repair-unified
-description: 'あらゆる不具合タイプに対応する統合的なAI改修ワークフロー。開発者協力のもと、調査・対応案決定・実装・テスト・報告の14段階をPhase化して管理し、明示的なゲート条件と承認フローで品質を確保します。'
-argument-hint: '不具合内容（title, 症状, 影響範囲など）を記述してください。開発者のみで承認・判断を行います。'
+description: '機能不具合の原因調査から対応案決定・改修・検証・報告までを一貫管理したいときに使う、開発者承認ゲート付きの統合ワークフロー。'
+argument-hint: '[必須] title, 症状, 影響範囲。[推奨] 発生条件, 環境情報, 再現手順, 関連ログ/チケット。承認主体は開発者です。'
 user-invocable: true
 disable-model-invocation: false
 ---
@@ -71,6 +71,8 @@ flowchart TD
 > **凡例**: 🔵 AI 担当  ／  🟢 開発者 担当  ／  🟡⭐️ ゲート条件（開発者承認必須）
 
 ## 実行モード（推奨: balance）
+選択基準（共通）: [../../shared-references/execution-mode-guide.md](../../shared-references/execution-mode-guide.md)
+
 | モード | 特徴 | 用途 |
 |--------|------|------|
 | **strict** | 証跡最大化。探索・再探索を広範に、記録粒度を高い | クリティカルな不具合、監査対象改修 |
@@ -153,7 +155,7 @@ flowchart TD
 - ログファイルすべての決定に対して、承認ステータスを記録する
 
 ### 3. 記録・証跡
-- 各段階の作業内容・決定事項を `AI改善/defect_repair_${CATEGORY}_${DATE}.md` に **append-only** で記録
+- 各段階の作業内容・決定事項を `docs/skill-logs/defect_repair_${CATEGORY}_${DATE}.md` に **append-only** で記録
 - TRK (Tracking ID) または EX (Exception ID) で関連事項を関連付ける
 - 日時・段階・決定者（開発者）・判定根拠を明示
 - 段階完了時のサマリを記録テンプレートに従って記載
@@ -165,14 +167,14 @@ flowchart TD
 
 ### 5. 参照優先順位（競合時の優先度）
 ```
-実装ファイル（csproj/DDL/ログ等） ＞ remediation-runbook.md ＞ SKILL.md ＞ 実行ログ
+実装ファイル（csproj/DDL/ログ等） ＞ runbook.md ＞ SKILL.md ＞ 実行ログ
 ```
 - SKILL.md とrunbook 記載が不一致の場合は **runbook を正とする**
 - 実行ログは履歴媒体であり、手順の正本として扱わない
 - 例外判定が必要な場合は、実装ファイルと runbook の両者で根拠を確認
 
 ## 入力リファレンス
-- 正本（詳細手順・判定基準）: remediation-runbook.md
+- 正本（詳細手順・判定基準）: runbook.md
 - Phase 1 サブタスク: sub-skills/phase1-investigation.md
 - Phase 2 サブタスク: sub-skills/phase2-implementation.md
 - Phase 3 サブタスク: sub-skills/phase3-testing.md
@@ -187,7 +189,7 @@ flowchart TD
 ### 初回利用時
 1. 本 SKILL.md の「対応の流れ」「Phase」「ゲート条件」を確認
 2. 不具合内容を記述（段階3）
-3. remediation-runbook.md の「段階4: 原因調査」を参照して AI が調査を開始
+3. runbook.md の「段階4: 原因調査」を参照して AI が調査を開始
 
 ### 2回目以降の利用
 1. 不具合内容を記述
@@ -205,7 +207,7 @@ flowchart TD
 
 ## 完了条件
 - 段階7, 11, 13 のゲート条件をすべて満たしている
-- 全段階の実行ログがテンプレート形式で `AI改善/` に記録されている
+- 全段階の実行ログがテンプレート形式で `docs/skill-logs/` に記録されている
 - テスト結果で不合格項目がない、または承認・例外記録済み
 - 最終報告書が作成されている
 - 決定・判定根拠がすべて追跡可能である

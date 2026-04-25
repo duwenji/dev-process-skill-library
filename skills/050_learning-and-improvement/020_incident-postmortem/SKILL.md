@@ -98,7 +98,7 @@ flowchart TD
 - 機密情報の扱いが適切か
 
 ## 記録・証跡
-- 各段階の内容を `AI改善/incident_postmortem_${DATE}.md` に append-only で記録する
+- 各段階の内容を `docs/skill-logs/incident_postmortem_${DATE}.md` に append-only で記録する
 - 時系列、影響、原因仮説、再発防止策、承認者を明記する
 
 ## 入力リファレンス

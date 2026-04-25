@@ -138,7 +138,7 @@ flowchart TD
 承認後: 段階14へ進行可能
 
 ## 記録・証跡
-- 各段階の内容を `AI改善/data_model_design_${DATE}.md` に append-only で記録する
+- 各段階の内容を `docs/skill-logs/data_model_design_${DATE}.md` に append-only で記録する
 - 要件ID、モデル案、制約、承認者、決定理由を明記する
 
 ## 入力リファレンス

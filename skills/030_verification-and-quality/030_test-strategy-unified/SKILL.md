@@ -149,7 +149,7 @@ flowchart TD
 - 差戻し: 前段階の再分析が必要
 
 ### 3. 記録・証跡
-- 各段階の作業内容と決定事項を `AI改善/test_strategy_${DATE}.md` に append-only で記録する
+- 各段階の作業内容と決定事項を `docs/skill-logs/test_strategy_${DATE}.md` に append-only で記録する
 - テスト層、対象機能、リスク、承認者を明記する
 - 追加、削除した観点は理由を残す
 

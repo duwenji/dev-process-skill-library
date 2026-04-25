@@ -1,5 +1,5 @@
 ---
-name: [SKILL_NAME_kebab_case]
+name: 'skill'
 description: '[簡潔な説明（日本語1文）]'
 argument-hint: '[ユーザーが入力する初期情報の指示（日本語）]'
 user-invocable: true
@@ -7,6 +7,12 @@ disable-model-invocation: false
 ---
 
 # [スキル日本語名]（統合フレームワーク）
+
+## 共通ルールの参照先
+
+- skills 配下で共通化する運用ルールの正本は [../copilot-instructions.md](../copilot-instructions.md)
+- このファイルは SKILL.md のひな形であり、共通ルールそのものを定義する場所ではない
+- リポジトリ最小ルールを確認したい場合のみ [../../../.github/copilot-instructions.md](../../../.github/copilot-instructions.md) を参照する
 
 ## 利用する場面
 
@@ -73,7 +79,7 @@ flowchart TD
 - 🟢 開発者 担当 = 開発者による重要な入力・判定が必須なステップ
 - 🟡⭐️ ゲート条件（開発者承認必須）= 進行判定ポイント
 
-詳細は [glossary.md](/skills/shared-references/glossary.md) を参照してください。
+詳細は [glossary.md](../../shared-references/glossary.md) を参照してください。
 
 ## 実行モード（推奨: balance）
 
@@ -177,7 +183,7 @@ flowchart TD
 
 ### 3. 記録・証跡
 
-- 各段階の作業内容・決定事項を `AI改善/[SKILL_CATEGORY]_${DATE}.md` に **append-only** で記録
+- 各段階の作業内容・決定事項を `docs/skill-logs/[SKILL_CATEGORY]_${DATE}.md` に **append-only** で記録
 - 日時・段階・決定者・判定根拠を明示
 - 段階完了時のサマリを記録テンプレートに従って記載
 
@@ -185,6 +191,7 @@ flowchart TD
 
 - **決定権**: 開発者のみ。AIが独断で方針を変更しない
 - **文書修正**: 誤記を除き、既存記録の削除・上書きを行わない（history 保持）
+- **共通ルール変更**: 保存先、命名、参照優先順位などの共通事項を変える場合は `skills/shared-templates/copilot-instructions.md` も更新対象に含める
 
 ### 5. 参照優先順位（競合時）
 
@@ -198,15 +205,12 @@ flowchart TD
 
 ## 入力リファレンス
 
-- **正本（詳細手順・判定基準）**: [runbook-name.md](./[runbook-name.md](runbook-name))
-- **Phase 1 サブタスク**: [phase1-[PHASE_1_KEY].md](./sub-skills/phase1-[PHASE_1_KEY].md)
-- **Phase 2 サブタスク**: [phase2-[PHASE_2_KEY].md](./sub-skills/phase2-[PHASE_2_KEY].md)
-- **Phase 3 サブタスク**: [phase3-[PHASE_3_KEY].md](./sub-skills/phase3-[PHASE_3_KEY].md)
-- **Phase 4 サブタスク**: [phase4-reporting.md](./sub-skills/phase4-reporting.md)
+- **正本（詳細手順・判定基準）**: [runbook.md](./runbook.md)
+- **Phase サブタスク雛形**: [sub-skills.md](./sub-skills.md)
 - **チェックリスト（共通）**: ../../shared-references/investigation-checklist.md
 - **テストケーステンプレート（共通）**: ../../shared-references/testcase-template.md
 - **フロー図ガイド（共通）**: ../../shared-references/flowchart-best-practices.md
-- **記録テンプレート**: [[SKILL_NAME]-log-template.md](./assets/[SKILL_NAME]-log-template.md)
+- **記録テンプレート（命名例）**: `assets/[SKILL_NAME]-log-template.md`
 
 ## 開始クイックパス
 
@@ -225,7 +229,7 @@ flowchart TD
 ## 完了条件
 
 - 段階7, 11, 13 のゲート条件をすべて満たしている
-- 全段階の実行ログがテンプレート形式で `AI改善/` に記録されている
+- 全段階の実行ログがテンプレート形式で `docs/skill-logs/` に記録されている
 - 結果で不合格項目がない、または承認・例外記録済み
 - 最終報告書が作成されている
 - 決定・判定根拠がすべて追跡可能である

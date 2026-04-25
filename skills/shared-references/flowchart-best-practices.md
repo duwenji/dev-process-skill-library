@@ -341,7 +341,7 @@ flowchart TD
 
 ### ファイル形式
 - **Markdown コード ブロック内**に `mermaid` 言語タグで記載
-- **AI改善/ ログファイル**に embed、または **separate markdown ファイル**として保管
+- **docs/skill-logs/ ログファイル**に embed、または **separate markdown ファイル**として保管
 
 ### 命名規則
 
@@ -358,7 +358,7 @@ flowchart_ProcDataSync_after_plan1.md
 ```
 Phase 1 Sub-Skill (phase1-investigation.md)
   └─> 段階5 で 対応前フロー + 対応後フロー(複数案) を生成
-  └─> AI改善/ ログ に embed
+  └─> docs/skill-logs/ ログ に embed
 ```
 
 ---

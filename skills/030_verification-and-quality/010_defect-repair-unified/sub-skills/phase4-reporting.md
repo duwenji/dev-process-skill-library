@@ -2,11 +2,12 @@
 
 省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../../../shared-references/glossary.md](../../../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
 
-
 ## 概要
+
 Phase 4 では、14段階全体にわたる改修内容・テスト結果・品質判定をまとめて最終報告書を作成します。
 
 ## 責務
+
 - **AI**: 最終報告書の作成、全 Phase の成果到取
 
 ## 段階14: AI が対応状況をまとめて報告
@@ -348,7 +349,7 @@ public void ProcessDataRecord_NullDisplayName()
 
 #### 7. Lessons Learned
 
-```markdown
+````markdown
 ## Lessons Learned
 
 ### 成功ポイント
@@ -388,6 +389,7 @@ public void ProcessDataRecord_NullDisplayName()
 ### 本改修で確立されたベストプラクティス
 
 #### パターン 1: DataRecordExtensions 置換による NULL判定強化
+
 ```csharp
 // Before（DBNull時Exception）
 string value = (string)dataRecord["COLUMN"];
@@ -395,16 +397,19 @@ string value = (string)dataRecord["COLUMN"];
 // After（推奨パターン）
 string value = dataRecord.GetStringOrNull("COLUMN") ?? "デフォルト値";
 ```
+
 - **活用範囲**: DB読取を行う全 Proc / Lib
 - **効果**: InvalidCastException の根絶
 - **運用**: 次のコード検査で「直接キャスト」を検出 → 本パターンで置換
 
 #### パターン 2: ダミー実装による DB接続エラーテスト
+
 ```csharp
 // Mock で SqlException を投出
 var mockRecord = new Mock<IDataRecord>();
 mockRecord.Setup(...).Throws(new SqlException(...));
 ```
+
 - **活用範囲**: DB処理を含む全メソッドのテスト
 - **効果**: テスト環境非依存で堅牢性検証が可能
 - **運用**: 統合テストの補完手段として推奨
@@ -414,11 +419,11 @@ mockRecord.Setup(...).Throws(new SqlException(...));
 ### 再発防止策
 
 | 不具合傾向 | 防止策 | 運用責務 |
-|----------|--------|---------|
+| --- | --- | --- |
 | **DBNull 起因キャスト例外** | DataRecordExtensions 必須化 | コード検査ツール導入 |
 | **NULL判定の漏れ** | テンプレート化 + チェックリスト | コードレビュー実施 |
 | **関数複雑化による保守負荷** | メソッド分割、単体テスト拡充 | アーキテクチャレビュー |
-```
+````
 
 #### 8. 参考資料・ログ
 
@@ -426,14 +431,14 @@ mockRecord.Setup(...).Throws(new SqlException(...));
 ## 参考資料・ログ記録
 
 ### 実行ログファイル
-- **ログファイル名**: `AI改善/defect_repair_DB_20260327.md`
+- **ログファイル名**: `docs/skill-logs/defect_repair_DB_20260327.md`
 - **内容**: 段階1-14の実施内容、決定事項、ゲート条件の判定結果を記録
 - **形式**: Markdown（append-only）
-- **保存場所**: プロジェクトルート > AI改善/
+- **保存場所**: プロジェクトルート > docs/skill-logs/
 
 ### 関連ドキュメント
 - **Skill**: [defect-repair-unified SKILL.md](../SKILL.md)
-- **Runbook**: [remediation-runbook.md](../remediation-runbook.md)
+- **Runbook**: [runbook.md](../runbook.md)
 - **Phase 1 Sub-Skill**: [phase1-investigation.md](../sub-skills/phase1-investigation.md)
 - **Phase 3 テスト結果**: [phase3-testing.md](../sub-skills/phase3-testing.md) 内の実施結果
 

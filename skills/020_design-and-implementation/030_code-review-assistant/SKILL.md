@@ -98,7 +98,7 @@ flowchart TD
 - 次回改善に繋がるか
 
 ## 記録・証跡
-- 各段階の内容を `AI改善/code_review_assistant_${DATE}.md` に append-only で記録する
+- 各段階の内容を `docs/skill-logs/code_review_assistant_${DATE}.md` に append-only で記録する
 - 重点観点、差戻し基準、例外、承認者を明記する
 
 ## 入力リファレンス

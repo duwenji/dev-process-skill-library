@@ -3,8 +3,7 @@
 このファイルは、開発プロセス標準化 Skill ライブラリに関する説明を集約した詳細ガイドです。
 ルート README はディレクトリ導線、電子書籍生成導線、クイズ同期ガイドを担い、運用詳細は本書に統合します。
 
-> 💡 ブラウザで https://duwenji.github.io/spa-quiz-app/ を開くと、関連トピックをクイズ形式で復習できます。
-
+> 💡 ブラウザで [https://duwenji.github.io/spa-quiz-app/](https://duwenji.github.io/spa-quiz-app/) を開くと、関連トピックをクイズ形式で復習できます。
 > 🤝 このライブラリは GitHub Copilot 専用ではありませんが、Copilot 導入・運用教材の補完シリーズとして併用できます。
 
 ## 対象読者
@@ -20,6 +19,13 @@
 - 開発作業を標準化し、品質のばらつきを抑える
 - 調査・実装・検証・報告の抜け漏れを減らす
 - 承認ゲートと証跡管理を一貫した形で運用する
+
+## skills配下の運用ルール
+
+- この README が対象とするのは、このリポジトリの skills 配下にある Skill 資材です
+- skills 配下で共通利用する Copilot 運用ルールは shared-templates/copilot-instructions.md に集約します
+- shared-templates/copilot-instructions.md は共通ルールと新規作成用テンプレートを兼ねます
+- .github/copilot-instructions.md はリポジトリ最小ルールのみを記載し、詳細説明は skills 配下へ寄せます
 
 ## 使い方ガイド（統合版）
 
@@ -49,12 +55,12 @@
 全体を以下の6カテゴリで管理します。新規 Skill 追加時は、必ずどれかのカテゴリに紐づけます。
 
 | カテゴリ | 目的 | 該当 Skill（現在運用中） |
-|---|---|---|
+| --- | --- | --- |
 | 要件・計画 | 要件定義、優先度判断、導入計画 | requirements-refinement |
 | 設計・実装 | 設計判断、実装品質、契約設計 | feature-implementation-unified, data-model-design-unified, architecture-decision-record, api-contract-design, refactoring-safety, code-review-assistant |
 | 検証・品質 | テスト戦略、品質検証、セキュリティ検証 | defect-repair-unified, test-strategy-unified, security-hardening |
 | 運用・リリース | 監視、性能、リリース準備 | release-readiness, observability-and-ops-readiness, performance-investigation |
-| 学習・改善 | 振り返りとドキュメント同期 | incident-postmortem, documentation-sync |
+| 学習・改善 | 振り返り・同期・ノウハウ蓄積 | incident-postmortem, documentation-sync, known-how-ingestion |
 | 開発方法論 | 設計・実装・運用を横断する方法論の標準化 | ddd-ai-responsibility |
 
 ## 利用可能 Skills 一覧（カテゴリ別）
@@ -88,6 +94,7 @@
 
 - incident-postmortem
 - documentation-sync
+- known-how-ingestion
 
 ### 開発方法論
 
@@ -101,7 +108,23 @@
 - 不具合を直す: defect-repair-unified
 - テストを整備する: test-strategy-unified
 - リリース可否を判断する: release-readiness
+- ノウハウをライブラリへ取り込む: known-how-ingestion
 - DDD と AI の責任分担を定義する: ddd-ai-responsibility
+
+更新担当者向け最短導線:
+
+1. 対象 Skill を更新する
+2. shared-templates/copilot-instructions.md に影響する共通ルール変更か確認する
+3. [VALIDATION_CHECKLIST.md](VALIDATION_CHECKLIST.md) で Pass / Fail 判定する
+4. Fail を修正して再判定し、カテゴリ README と本 README へ反映する
+
+## 品質検証
+
+Skill を追加・更新した場合は、必ず [VALIDATION_CHECKLIST.md](VALIDATION_CHECKLIST.md) を実施してください。
+
+- 判定は Pass / Fail の2値で記録する
+- Fail は修正PRに紐付けて再判定する
+- 一時的な例外は `shared-governance/exception-log.md` に EX 採番で記録する
 
 ## 役割と責任（RACI 簡易版）
 
@@ -132,7 +155,7 @@
 各 Skill を 5 観点で 1〜5 点評価し、合計点で優先度を判定します。
 
 | 観点 | 説明 |
-|---|---|
+| --- | --- |
 | 影響度 | 品質、納期、顧客影響への寄与 |
 | 発生頻度 | 対象課題が発生する頻度 |
 | 緊急度 | 早期導入の必要性 |
@@ -189,7 +212,7 @@
 論理ツリー（カテゴリ別）と実体構成を一致させるため、skills 配下を「カテゴリ -> Skill」の2階層で管理します。
 
 | カテゴリ（論理） | フォルダ名（物理） |
-|---|---|
+| --- | --- |
 | 要件・計画 | 010_requirements-and-planning |
 | 設計・実装 | 020_design-and-implementation |
 | 検証・品質 | 030_verification-and-quality |

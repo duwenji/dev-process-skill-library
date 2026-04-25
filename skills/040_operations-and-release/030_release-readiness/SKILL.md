@@ -137,7 +137,7 @@ flowchart TD
 承認後: 段階14へ進行可能
 
 ## 記録・証跡
-- 各段階の内容を `AI改善/release_readiness_${DATE}.md` に append-only で記録する
+- 各段階の内容を `docs/skill-logs/release_readiness_${DATE}.md` に append-only で記録する
 - リリース対象、依存先、例外、承認者、ロールバック条件を明記する
 
 ## 入力リファレンス

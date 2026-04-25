@@ -2,9 +2,9 @@
 
 # Skill運用・設計ガイド（自リポジトリ用）
 
-> **本ファイルはこのリポジトリ固有のSkill運用・設計ガイドです。**
-> 一般ユーザ・他プロジェクト向けSkillテンプレートは skills/shared-templates/skill/SKILL.md を参照してください。
-> 用途・参照先の違いはREADME.mdにも明記しています。
+> 本ファイルは、このリポジトリで最低限守る Copilot ルールの入口です。
+> skills 配下で使う共通ルールの正本は skills/shared-templates/copilot-instructions.md を参照してください。
+> 一般ユーザ・他プロジェクト向けの雛形は skills/shared-templates/copilot-instructions.md と skills/shared-templates/skill/SKILL.md を参照してください。
 
 ## 1. Skillカテゴリ選択（必須）
 以下から1つ選択：
@@ -27,6 +27,11 @@
 - 役割分担：方針決定・最終承認は人間、AIは調査・補助のみ
 - 検証観点：正常系/境界値/異常系/回帰を基本セット
 - 完了条件：全承認ゲート通過・必須出力物テンプレート準拠
+
+## 3.1 共通ルールの参照先
+- skills 配下で共通化する運用ルールは skills/shared-templates/copilot-instructions.md を正本とする
+- このファイルには、カテゴリ選択、命名、最小限の設計原則だけを記載する
+- 新規文書作成時のひな形は skills/shared-templates/copilot-instructions.md を使用する
 
 ## 4. Skillテンプレート参照
 - .github/SKILL-template.md … このリポジトリ固有のSkillテンプレート（自リポジトリ用・独自運用ルール反映）

@@ -8,7 +8,7 @@
 ## 利用方法
 - **対象**: 段階10「AI がチェック項目を生成」で、統一的なテストケース仕様書を作成
 - **出力形式**: Markdown テーブル + CSV（Excel確認用） + C# コード例
-- **記録方法**: Phase 3 Sub-Skill および AI改善/ ログに記入
+- **記録方法**: Phase 3 Sub-Skill および docs/skill-logs/ ログに記入
 
 ---
 

@@ -149,7 +149,7 @@ flowchart TD
 - 例外承認: 期限付きで受容
 
 ### 3. 記録・証跡
-- 各段階の内容を `AI改善/security_hardening_${DATE}.md` に append-only で記録する
+- 各段階の内容を `docs/skill-logs/security_hardening_${DATE}.md` に append-only で記録する
 - 対策の対象資産、脅威、採用理由、例外理由を明記する
 - 受容した残余リスクは期限と再確認条件を残す
 

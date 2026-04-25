@@ -19,3 +19,9 @@
 ## 実装済み構成
 
 - 010_ddd-ai-responsibility/
+
+## 品質検証
+
+- Skill を追加・更新した場合は [../VALIDATION_CHECKLIST.md](../VALIDATION_CHECKLIST.md) を実施する
+- 判定は Pass / Fail の2値で記録する
+- Fail は修正 PR に紐付けて再判定する

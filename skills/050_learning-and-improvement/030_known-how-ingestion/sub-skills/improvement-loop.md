@@ -23,5 +23,5 @@
 
 1. 廃止対象 Skill フォルダを `skills/_archived/YYYY-MM/` へ移動する
 2. 元の配置先 README から Skill エントリを削除する
-3. 削除理由を `AI改善/known_how_ingestion_${DATE}.md` に append-only で記録する
+3. 削除理由を `docs/skill-logs/known_how_ingestion_${DATE}.md` に append-only で記録する
 4. 廃止に伴い影響を受ける他 Skill がある場合は改善候補バックログへ追加する

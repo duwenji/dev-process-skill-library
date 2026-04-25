@@ -28,9 +28,15 @@
 
 ## 実装済み構成
 
-- feature-implementation-unified/
-- data-model-design-unified/
-- architecture-decision-record/
-- api-contract-design/
-- refactoring-safety/
-- code-review-assistant/
+- 010_api-contract-design/
+- 020_architecture-decision-record/
+- 030_code-review-assistant/
+- 040_data-model-design-unified/
+- 050_feature-implementation-unified/
+- 060_refactoring-safety/
+
+## 品質検証
+
+- Skill を追加・更新した場合は [../VALIDATION_CHECKLIST.md](../VALIDATION_CHECKLIST.md) を実施する
+- 判定は Pass / Fail の2値で記録する
+- Fail は修正 PR に紐付けて再判定する

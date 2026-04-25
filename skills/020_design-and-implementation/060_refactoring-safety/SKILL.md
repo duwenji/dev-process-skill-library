@@ -113,7 +113,7 @@ flowchart TD
 - 小さな単位で実施可能か
 
 ## 記録・証跡
-- 各段階の内容を `AI改善/refactoring_safety_${DATE}.md` に append-only で記録する
+- 各段階の内容を `docs/skill-logs/refactoring_safety_${DATE}.md` に append-only で記録する
 - 分割単位、保証手段、戻し方、承認者を明記する
 
 ## 入力リファレンス

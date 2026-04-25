@@ -6,7 +6,7 @@
 本テンプレートは、不具合対応全体の監査最小セット（記録に必須の項目）を定義します。
 
 ## 利用方法
-- **対象**: 全14段階の実施内容を記録（AI改善/ ログファイルに append-only で記入）
+- **対象**: 全14段階の実施内容を記録（docs/skill-logs/ ログファイルに append-only で記入）
 - **出力形式**: Markdown
 - **記録基準**: 段階完了ごと、かつ重要な決定ポイント（ゲート条件）で記録
 - **参照優先順位**: 本テンプレート > individual Phase logs
@@ -16,11 +16,11 @@
 ## ログファイル基本構成
 
 ```
-AI改善/defect_repair_${CATEGORY}_${DATE}.md
+docs/skill-logs/defect_repair_${CATEGORY}_${DATE}.md
 
 例:
-AI改善/defect_repair_DB_20260327.md
-AI改善/defect_repair_IPC_20260325.md
+docs/skill-logs/defect_repair_DB_20260327.md
+docs/skill-logs/defect_repair_IPC_20260325.md
 ```
 
 ### ファイル名規則

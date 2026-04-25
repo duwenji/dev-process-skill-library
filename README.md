@@ -29,7 +29,7 @@
 ## ディレクトリ説明（統合）
 
 | パス | 役割 |
-|---|---|
+| --- | --- |
 | `skills/` | Skill 本体、カテゴリ別 README、共有ガバナンス、共有テンプレート、共有参照を管理する中核ディレクトリ |
 | `skills/010_requirements-and-planning/` | 要件・計画カテゴリの Skill 群 |
 | `skills/020_design-and-implementation/` | 設計・実装カテゴリの Skill 群 |
@@ -45,6 +45,7 @@
 ## 利用導線
 
 - Skill 全体の運用ルールを確認する: [skills/README.md](skills/README.md)
+- Copilot 運用の共通ルールを確認する: [skills/shared-templates/copilot-instructions.md](skills/shared-templates/copilot-instructions.md)
 - カテゴリ単位で Skill を選ぶ: `skills/*/README.md`
 - 新規 Skill を追加する: `skills/shared-templates/skill/`
 - 用語を確認する: `skills/shared-references/glossary.md`
@@ -54,7 +55,7 @@
 dev-process-skill-library の更新を spa-quiz-app に反映する際の基準です。
 
 | クイズセクション | 主な一次ソース | 反映先ファイル |
-|---|---|---|
+| --- | --- | --- |
 | 概論・運用導入 | [skills/README.md](skills/README.md)（対象読者、目的、全体フロー、RACI、KPI、共通運用） | `spa-quiz-app/src/data/dev-process-skill-library/intro-overview.json` |
 | 要件・計画 | 010_requirements-and-planning 配下 Skill | `spa-quiz-app/src/data/dev-process-skill-library/requirements-planning.json` |
 | 設計・実装 | 020_design-and-implementation 配下 Skill | `spa-quiz-app/src/data/dev-process-skill-library/design-implementation.json` |

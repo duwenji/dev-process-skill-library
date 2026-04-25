@@ -507,7 +507,7 @@ public void ProcessDataRecord_DBConnectionError()
 - [ ] 合格率 100% か
 
 ### ログ記録
-- [ ] 段階10-13 全実施内容が AI改善/ ログに記録されているか
+- [ ] 段階10-13 全実施内容が docs/skill-logs/ ログに記録されているか
 - [ ] ゲート条件（段階11, 13）の判定結果が明示されているか
 - [ ] テスト結果の詳細（各TRK のPASS/FAIL）が記録されているか
 

@@ -1,7 +1,7 @@
 ---
 name: feature-implementation-unified
-description: '新規機能対応・機能変更を対象に、要件整理から方式決定、実装、検証、報告までを段階化して管理する統合ワークフロー。開発者承認ゲートを維持し、証跡を追跡可能に保つ。'
-argument-hint: '要求内容（title, 背景, スコープ, 非機能要件, 受入条件）を記述してください。開発者のみで承認・判断を行います。'
+description: '新規機能や仕様変更で、要件整理から方式決定・実装・検証・報告までを一貫管理したいときに使う、開発者承認ゲート付きの統合ワークフロー。'
+argument-hint: '[必須] title, 背景, スコープ, 受入条件。[推奨] 非機能要件, 制約, 関連仕様/リンク, 既知リスク。承認主体は開発者です。'
 user-invocable: true
 disable-model-invocation: false
 ---
@@ -71,6 +71,8 @@ flowchart TD
 > **凡例**: 🔵 AI 担当  ／  🟢 開発者 担当  ／  🟡⭐️ ゲート条件（開発者承認必須）
 
 ## 実行モード（推奨: balance）
+選択基準（共通）: [../../shared-references/execution-mode-guide.md](../../shared-references/execution-mode-guide.md)
+
 | モード | 特徴 | 用途 |
 |--------|------|------|
 | strict | 証跡最大化。要求妥当性・影響分析を広範に実施 | クリティカル機能、監査対象改修 |
@@ -152,7 +154,7 @@ flowchart TD
 - すべての決定に承認ステータスを記録する
 
 ### 3. 記録・証跡
-- 各段階の作業内容と決定事項を `AI改善/feature_implementation_${DATE}.md` に append-only で記録
+- 各段階の作業内容と決定事項を `docs/skill-logs/feature_implementation_${DATE}.md` に append-only で記録
 - TRK または EX で関連事項を紐付ける
 - 日時、段階、決定者、判定根拠を明示する
 
@@ -163,13 +165,13 @@ flowchart TD
 
 ### 5. 参照優先順位（競合時）
 ```
-実装ファイル（csproj/DDL/ログ等） ＞ remediation-runbook.md ＞ SKILL.md ＞ 実行ログ
+実装ファイル（csproj/DDL/ログ等） ＞ runbook.md ＞ SKILL.md ＞ 実行ログ
 ```
 - SKILL.md と runbook が不一致なら runbook を正とする
 - 実行ログは履歴媒体であり、手順の正本として扱わない
 
 ## 入力リファレンス
-- 正本（詳細手順・判定基準）: references/remediation-runbook.md
+- 正本（詳細手順・判定基準）: runbook.md
 - Phase 1 サブタスク: sub-skills/phase1-discovery.md
 - Phase 2 サブタスク: sub-skills/phase2-design-implementation.md
 - Phase 3 サブタスク: sub-skills/phase3-validation.md
@@ -200,7 +202,7 @@ flowchart TD
 
 ## 完了条件
 - 段階7、11、13のゲート条件をすべて満たす
-- 全段階ログがテンプレート形式で AI改善 配下に記録されている
+- 全段階ログがテンプレート形式で docs/skill-logs 配下に記録されている
 - 検証で不合格項目がない、または承認済み例外として記録されている
 - 最終報告書が作成済みで、判定根拠が追跡可能
 
