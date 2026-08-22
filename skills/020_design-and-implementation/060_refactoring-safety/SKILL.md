@@ -144,6 +144,7 @@ flowchart TD
 - 変更順と戻し方が明確で承認されている
 - 差分リスクと保証手段が管理されている
 - 最終報告書が作成済みで、判定根拠が追跡可能
+- 成果物文書が refactoring-plan-document-template.md の必須章（文書情報／目的・背景／対応元ID／方針・決定事項／未決事項・リスク／関連ドキュメント）を満たしている
 
 ## 記録・証跡
 - 各段階の内容を `docs/skill-logs/refactoring_safety_${DATE}.md` に append-only で記録する
@@ -164,3 +165,5 @@ flowchart TD
 - Phase 3 サブタスク: sub-skills/phase3-safety-validation.md
 - Phase 4 サブタスク: sub-skills/phase4-reporting.md
 - 記録テンプレート: assets/refactoring-safety-log-template.md
+- 成果物文書テンプレート: ../../shared-templates/document-templates/refactoring-plan-document-template.md
+- トレーサビリティID規約: ../../shared-references/traceability-id-convention.md（本Skillは `RFC-xxx`）
