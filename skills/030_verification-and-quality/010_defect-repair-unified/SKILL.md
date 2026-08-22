@@ -77,7 +77,7 @@ flowchart TD
     G3 --> S14
     S14 --> END
 
-    class S1,S2,S4,S5,S6,S8,S12,S14 ai
+    class S1,S2,S4,S5,S6,S8,S10,S12,S14 ai
     class S3,S9 dev
     class G1,G2,G3 gate
     class END endNode

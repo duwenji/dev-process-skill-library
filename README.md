@@ -88,6 +88,7 @@ dev-process-skill-library の更新を spa-quiz-app に反映する際の基準�
 | 検証・品質 | 030_verification-and-quality 配下 Skill | `spa-quiz-app/src/data/dev-process-skill-library/verification-quality.json` |
 | 運用・リリース | 040_operations-and-release 配下 Skill | `spa-quiz-app/src/data/dev-process-skill-library/operations-release.json` |
 | 学習・改善 | 050_learning-and-improvement 配下 Skill | `spa-quiz-app/src/data/dev-process-skill-library/learning-improvement.json` |
+| 開発方法論 | 060_development-method 配下 Skill | 未着手（クイズ化する場合は `development-method.json` を新設し、本表と `spa-quiz-app` 側の quizSets 定義に追加する） |
 
 更新手順:
 

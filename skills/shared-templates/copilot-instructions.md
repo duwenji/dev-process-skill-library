@@ -32,7 +32,7 @@ Copilot Instructions（copilot-instructions.md）は、リポジトリや Skill 
 ## skills配下で共通化する項目
 
 - 対象スコープ: このリポジトリの skills 配下資材と、それを利用する作業リポジトリ側の運用手順
-- 実行ログ保存先: docs/skill-logs/<category>/<skill-name>/
+- 実行ログ保存先: docs/skill-logs/<skill_name>_${DATE}.md（例: docs/skill-logs/test_strategy_20260327.md）
 - 参照優先順位: 実装実体 > runbook.md > SKILL.md > 実行ログ
 - 命名規約: カテゴリは番号付き、Skill 名は kebab-case、runbook は runbook.md 固定
 - 役割分担: 方針決定と最終承認は人間、AI は調査・整理・下書きを担当

@@ -19,15 +19,15 @@
 **使用例**：`Phase 1: Investigation（調査）`, `Phase 2: Design（設計）`  
 **日本語での説明例**：「Phase 2 では複数の実装案を提示します」  
 
-### Runbook（ラ ンブック）
-**定義**：Skill の各 Phase ごとに提供される、実行手順と判定基準を記した詳細ガイド。  
-**ファイル例**：`skills/020_design-and-implementation/050_feature-implementation-unified/sub-skills/phase1-investigation.md`  
+### Runbook（ランブック）
+**定義**：Skill 全体（Phase 1〜4 すべて）を対象に、実行手順と判定基準を記した詳細ガイド。SKILL.md より詳細で、SKILL.md と内容が食い違う場合はこちらを正とする。  
+**ファイル例**：`skills/020_design-and-implementation/050_feature-implementation-unified/runbook.md`  
 **日本語での説明例**：「runbook に記載された判定ポイントを確認して Phase を進行させます」  
 
 ### Sub-Skills（サブスキル）
-**定義**：Skill の一部項目（例：テスト戦略の特定パターン）に特化した補助テンプレート。  
-**使用例**：`test-strategy-unified` の Sub-Skill として `unit-test-patterns.md`  
-**日本語での説明例**：「このタスクに適用する Sub-Skill を選択してください」  
+**定義**：Skill の各 Phase（1〜4）に対応する実体ファイル。Phase ごとの目的・実施段階・出力物を記述する。  
+**使用例**：`test-strategy-unified` の Sub-Skill として `sub-skills/phase1-assessment.md`, `phase2-test-design.md`, `phase3-readiness.md`, `phase4-reporting.md`  
+**日本語での説明例**：「このタスクに適用する Sub-Skill（Phase ファイル）を確認してください」  
 
 ---
 

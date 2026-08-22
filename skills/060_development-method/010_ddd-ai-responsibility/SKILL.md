@@ -106,6 +106,8 @@ disable-model-invocation: false
 ## 入力リファレンス
 
 - 正本: [runbook.md](./runbook.md)
+- 成果物文書テンプレートについて: 本Skill単体の成果物文書は持たない。実行結果は前提/セットで使うスキル（architecture-decision-record, data-model-design-unified, feature-implementation-unified 等）の成果物文書に反映する
+- 構造例外の位置づけ: [shared-templates/PATTERN-SELECTION-GUIDE.md](../../shared-templates/PATTERN-SELECTION-GUIDE.md) の「パターン外: 構造例外」参照
 
 ## 完了条件
 

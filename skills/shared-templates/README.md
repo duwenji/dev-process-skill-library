@@ -2,7 +2,7 @@
 
 省略用語（RACI, KPI, ADR, DDL, SLO, QA, PM, TRK, EX）は [../shared-references/glossary.md](../shared-references/glossary.md) の『略語・日本語対応表』を参照してください。
 
-このディレクトリは、全16スキルの実装を支援するための共通テンプレートと設計ガイドです。
+このディレクトリは、skills 配下の各スキル実装を支援するための共通テンプレートと設計ガイドです。スキル総数はカテゴリ追加に伴い変動するため、最新の一覧は [skills/README.md](../README.md) の「利用可能 Skills 一覧」を正とします。
 
 共通運用ルールと copilot-instructions.md のひな形は [copilot-instructions.md](./copilot-instructions.md) に集約しています。
 
@@ -158,7 +158,7 @@
 - [ ] assets/, references/ が整備されている
 - [ ] runbook.md またはそれに相当する詳細手順書が作成されている
 - [ ] [カテゴリ]/README.md に新規スキルが追記されている
-- [ ] [トップレベル README.md](../../../README.md) の「現在運用中」/「提案」に記載されている
+- [ ] 対象カテゴリの `README.md`（例: `skills/020_design-and-implementation/README.md`）の Skill 一覧に「現在運用中」として記載されている
 
 ---
 
@@ -176,7 +176,7 @@
 
 **Q: パターン A/B 以外に新しいパターンを追加したい場合は?**
 
-- A: 既存の2パターンで 12/14 スキルをカバーできます。パターン C（運用手続き型）も追加済み。新規パターンが必要な場合は、対応するスキルと共に提案してください。
+- A: 既存の3パターンで標準形スキル15件すべてをカバーできます。標準形に当てはまらない場合は、まず [PATTERN-SELECTION-GUIDE.md](./PATTERN-SELECTION-GUIDE.md) の「パターン外: 構造例外」を確認してください（known-how-ingestion, ddd-ai-responsibility が該当）。新規パターンが必要な場合は、対応するスキルと共に提案してください。
 
 **Q: sub-skills の 4ファイルを分割せず、SKILL.md に統合することはできるか?**
 
@@ -196,7 +196,7 @@
 
 スキル実行時に生成される成果物（実行ログ・フェーズ出力物）の命名規則・保存場所・ファイル内構成を統一するためのガイドラインです。
 
-> **関連ドキュメント**: 保存手順の詳細は [README の「使い方ガイド（統合版）」](../../../README.md) を参照。
+> **関連ドキュメント**: 保存手順の詳細は [skills/README.md の「使い方ガイド（統合版）」](../README.md) を参照。
 
 ---
 
@@ -212,28 +212,17 @@
 
 ### 保存場所の規約
 
-成果物・実行ログは、**作業リポジトリ（スキルライブラリではなくプロジェクト側）** の以下の2階層ディレクトリに保存します。
+実行ログは、**作業リポジトリ（スキルライブラリではなくプロジェクト側）** の `docs/skill-logs/` 直下に、スキルごとに1ファイルで保存します。
 
 ```text
 docs/
   skill-logs/
-    <category>/                      ← スキルカテゴリ名（taxonomy と同じ）
-      <skill-name>/                  ← スキルディレクトリ名
-        YYYY-MM-DD_log.md            ← 実行ログ
-        YYYY-MM-DD_output.md         ← 成果物（フェーズ出力物の集合体）
+    <skill_name>_${DATE}.md          ← 実行ログ（スキル単位・追記型）
 ```
 
-**`<category>` に使用できる値:**
+`<skill_name>` はスキルフォルダ名（kebab-case）を snake_case に変換した文字列です。`${DATE}` の書式や複数対象を区別するための追加セグメント（例: `${CATEGORY}`）は各 Skill の SKILL.md「記録・証跡」節が確定名を持ちます（例: `docs/skill-logs/defect_repair_${CATEGORY}_${DATE}.md`、`docs/skill-logs/test_strategy_${DATE}.md`）。
 
-| カテゴリ名 | 対応するスキル例 |
-| --- | --- |
-| `requirements-and-planning` | requirements-refinement |
-| `design-and-implementation` | api-contract-design, feature-implementation-unified |
-| `verification-and-quality` | test-strategy-unified, security-hardening, defect-repair-unified |
-| `operations-and-release` | release-readiness, performance-investigation |
-| `learning-and-improvement` | incident-postmortem, documentation-sync |
-
-> **フォルダ作成タイミング**: スキルを**初めて実行するとき**に `<category>/<skill-name>/` を作成する。事前に空フォルダを用意する必要はない。  
+> **ファイル作成タイミング**: スキルを**初めて実行するとき**に対象ファイルを作成する。事前に空ファイルを用意する必要はない。  
 > **原則**: 実行ログは **append-only**。既存エントリを削除・上書きしてはならない。
 
 ---
@@ -242,53 +231,54 @@ docs/
 
 | ファイル種別 | パターン | 例 |
 | --- | --- | --- |
-| 実行ログ | `YYYY-MM-DD_log.md` | `2026-03-29_log.md` |
-| 成果物 | `YYYY-MM-DD_output.md` | `2026-03-29_output.md` |
-| 日付 | スキル実行を**開始した日付** | — |
-| 完全パス例 | `docs/skill-logs/<category>/<skill-name>/YYYY-MM-DD_log.md` | `docs/skill-logs/design-and-implementation/api-contract-design/2026-03-29_log.md` |
+| 実行ログ | `<skill_name>_${DATE}.md` | `defect_repair_DB_20260327.md` |
+| 日付 | スキル実行を**開始した日付**（`YYYYMMDD`） | — |
+| 完全パス例 | `docs/skill-logs/<skill_name>_${DATE}.md` | `docs/skill-logs/api_contract_design_20260329.md` |
 
 ---
 
 ### ファイル内の必須構成
 
-#### 実行ログ (`_log.md`)
+実行ログは1ファイルにヘッダ情報＋段階ごとの記録＋ゲート判定記録を集約します（別ファイルへの分離は行わない）。具体的な構成は各 Skill の `assets/<skill-name>-log-template.md` を正としますが、共通の最小セットは以下の通りです。
 
 ```markdown
-## TRK-YYYY-MM-DD-NNN
+# <Skill名> ログ（YYYY-MM-DD）
 
-- 日時: YYYY-MM-DD HH:MM
-- 段階: Phase X / 段階 Y
-- 実施者: AI / 開発者
-- 内容: <実施内容>
-- 決定事項: <決定内容>
-- 承認ステータス: 未承認 / 承認済
-- 承認者:
-- 次アクション:
+## 基本情報
+| 項目 | 内容 |
+|------|------|
+| 対象 | |
+| 開始日時 | |
+| 担当 | |
+| ステータス | |
+
+## 段階X: [名称]（YYYY-MM-DD HH:mm:ss +09:00）
+
+### 実施内容
+- 
+
+### 判定根拠
+- 
+
+### 承認ステータス
+- 未承認 / 承認済
+
+### TRK/EX
+- TRK-xxx
+
+## ゲート条件 #N 判定（日時）
+
+### 判定項目
+- [ ] 項目1
+
+### 判定結果
+- 承認 / 差戻し
+
+### 承認者
+- [開発者名]
 ```
 
-各ゲート承認（段階7, 11, 13）では `承認ステータス: 承認済` と `承認者:` を必ず記録する。
-
-#### 成果物サマリ (`_output.md`)
-
-```markdown
-## 実行概要
-
-- 日時: YYYY-MM-DD
-- 担当: @username
-- 使用 Skill: skills/<カテゴリ>/<skill-name>
-
-## 決定事項
-
-- ...
-
-## 未解決事項
-
-- ...
-
-## 次アクション
-
-- ...
-```
+各ゲート承認（段階7, 11, 13）では「承認ステータス: 承認済」と「承認者」を必ず記録する。
 
 ---
 

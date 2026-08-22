@@ -52,6 +52,7 @@
 - api-contract-design
 - refactoring-safety
 - release-readiness
+- data-model-design-unified
 
 **phase1 名前**: discovery / planning / refinement
 **phase2 名前**: design-implementation
@@ -95,6 +96,17 @@
 - 運用手順書
 - 改善提案書
 - lessons learned レポート
+
+---
+
+### パターン外: 構造例外（サンクション済み）
+
+以下の2スキルは Phase1-4/段階1-14/ゲート3つの標準形に該当しません。スキルの性質上、標準形へ当てはめると実用性を損なうため、意図的な逸脱として扱います。新規スキルの雛形として参照しないでください。
+
+- **known-how-ingestion**（`050_learning-and-improvement/030_known-how-ingestion/`）: Intake→Structuring→Codification→Publishing→Improvement Loop の5段階・承認ポイント2箇所。Improvement Loop（月次/四半期の棚卸し）が継続運用ループであり、一度きりの Phase1-4 に収まらないため。sub-skills は phase1-4 命名でなく `intake-collection.md` 等の役割名を使う。承認主体も開発者限定ではなく「ユーザ」（誰でもノウハウを持ち込める前提のため）。
+- **ddd-ai-responsibility**（`060_development-method/010_ddd-ai-responsibility/`）: DDD の6フェーズ（要件定義〜運用・進化）ごとに AI/人間の役割分担を示す参照ガイドであり、単一の実行フロー・ゲート・成果物を持たない。実行結果は他スキル（architecture-decision-record, data-model-design-unified, feature-implementation-unified 等）の成果物に反映されるため、sub-skills/assets を持たず runbook.md に内容を集約する。
+
+両スキルとも `VALIDATION_CHECKLIST.md` の一部項目（Phase1-4構成、sub-skills phase命名、成果物文書テンプレート参照）は対象外として判定してください。
 
 ---
 
@@ -249,9 +261,9 @@ Gate_1_Condition_C: 対策案が既知のセキュリティベストプラクテ
 
 ## 注意事項
 
-- **Phase・段階の順序は固定**: 全スキルで Phase 1～4、段階1～14の構造を保つ
-- **ゲート条件は3つ必須**: 段階7, 11, 13 は変更不可（運用一貫性のため）
-- **sub-skills ファイル**: phase1-*.md, phase2-*.md, phase3-*.md, phase4-*.md の4ファイルは必須
+- **Phase・段階の順序は固定**: 新規スキルは Phase 1～4、段階1～14の構造を保つ（既存の構造例外2件は上記「パターン外」参照。新規追加は原則不可）
+- **ゲート条件は3つ必須**: 段階7, 11, 13 は変更不可（運用一貫性のため。構造例外を除く）
+- **sub-skills ファイル**: phase1-*.md, phase2-*.md, phase3-*.md, phase4-*.md の4ファイルは必須（構造例外を除く）
 - **配置カテゴリ**: category は frontmatter に書かず、親ディレクトリで管理する
 - **argument-hint**: ユーザーが何を入力すべきか明確に（日本語推奨）
 

@@ -46,9 +46,8 @@
 ### ログ保存規約
 
 - 実行ログは append-only で記録する
-- 推奨保存先（作業リポジトリ側）:
-  - `docs/skill-logs/<category>/<skill-name>/YYYY-MM-DD_log.md`
-  - `docs/skill-logs/<category>/<skill-name>/YYYY-MM-DD_output.md`
+- 保存先（作業リポジトリ側）: `docs/skill-logs/<skill_name>_${DATE}.md`（例: `docs/skill-logs/defect_repair_${CATEGORY}_${DATE}.md`）
+- ファイル名の `<skill_name>` はスキルフォルダ名（kebab-case）を snake_case に変換した文字列とし、各 Skill の SKILL.md「記録・証跡」節で確定名を明記する
 
 ## Skill 体系マップ
 

@@ -32,3 +32,4 @@ Skill を追加・更新したときの共通検証チェックリストです�
 - `Fail` の項目は修正 PR 番号を記録してから再判定する
 - 一時的な例外は `skills/shared-governance/exception-log.md` に EX 採番で記録する
 - 参照切れ判定は「リンク先ファイルの実在確認」で行う
+- known-how-ingestion, ddd-ai-responsibility は構造例外としてサンクション済み（[shared-templates/PATTERN-SELECTION-GUIDE.md](shared-templates/PATTERN-SELECTION-GUIDE.md) の「パターン外: 構造例外」参照）。Layer A の Phase1-4構成・sub-skills phase命名・成果物文書テンプレート参照の各項目は、この2スキルに限り対象外として判定する

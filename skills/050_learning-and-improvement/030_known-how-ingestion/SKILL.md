@@ -168,7 +168,8 @@ flowchart TD
 - Codification 手順: [sub-skills/codification.md](./sub-skills/codification.md)
 - Improvement Loop 手順: [sub-skills/improvement-loop.md](./sub-skills/improvement-loop.md)
 - 実行ログテンプレート: [assets/known-how-ingestion-log-template.md](./assets/known-how-ingestion-log-template.md)
-- 知識棚卸しテンプレート: [assets/known-how-inventory-template.md](./assets/known-how-inventory-template.md)
+- 知識棚卸しテンプレート: [assets/known-how-inventory-template.md](./assets/known-how-inventory-template.md)（本Skillの成果物文書テンプレートに相当。`shared-templates/document-templates/` 配下は使用しない）
+- 構造例外の位置づけ: [shared-templates/PATTERN-SELECTION-GUIDE.md](../../shared-templates/PATTERN-SELECTION-GUIDE.md) の「パターン外: 構造例外」参照
 
 ## 完了条件
 
