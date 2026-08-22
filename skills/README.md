@@ -197,6 +197,7 @@ Skill を追加・更新した場合は、必ず [VALIDATION_CHECKLIST.md](VALID
 
 ### 成果物文書テンプレート
 
+- なぜこの形で体系化しているかの原則は [shared-references/document-architecture-principles.md](shared-references/document-architecture-principles.md) を参照
 - 各Skillは、Skill実行の記録（`assets/*-log-template.md`）とは別に、対象プロジェクトに配置する
   成果物文書（要件定義書、設計仕様書、テスト戦略書 等）を持つ
 - 成果物文書の型は [shared-templates/document-templates/README.md](shared-templates/document-templates/README.md)
