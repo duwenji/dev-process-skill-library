@@ -156,6 +156,7 @@ flowchart TD
 - アクション一覧に担当と期限が付いている
 - 機密情報が適切に扱われている
 - 最終報告書が組織学習として共有可能な形になっている
+- 成果物文書が postmortem-report-template.md の必須章（文書情報／目的・背景／対応元ID／方針・決定事項／未決事項・リスク／関連ドキュメント）を満たしている
 
 ## 記録・証跡
 - 各段階の内容を `docs/skill-logs/incident_postmortem_${DATE}.md` に append-only で記録する
@@ -176,3 +177,5 @@ flowchart TD
 - Phase 3 サブタスク: sub-skills/phase3-feedback-and-adjustment.md
 - Phase 4 サブタスク: sub-skills/phase4-continuous-improvement.md
 - 記録テンプレート: assets/incident-postmortem-log-template.md
+- 成果物文書テンプレート: ../../shared-templates/document-templates/postmortem-report-template.md
+- トレーサビリティID規約: ../../shared-references/traceability-id-convention.md（本Skillは `PMR-xxx`）
