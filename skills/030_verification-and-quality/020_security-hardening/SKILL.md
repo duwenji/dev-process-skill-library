@@ -186,6 +186,7 @@ flowchart TD
 - 残余リスクに監視または緩和策が付いている
 - 秘密情報がログに含まれていない
 - 最終報告書が作成済みで、判定根拠が追跡可能
+- 成果物文書が security-hardening-policy-template.md の必須章（文書情報／目的・背景／対応元ID／方針・決定事項／未決事項・リスク／関連ドキュメント）を満たしている
 
 ## 実行前の自己確認（開発者向け）（教育）
 
@@ -202,3 +203,5 @@ flowchart TD
 - Phase 3 サブタスク: sub-skills/phase3-verification.md
 - Phase 4 サブタスク: sub-skills/phase4-reporting.md
 - 記録テンプレート: assets/security-hardening-log-template.md
+- 成果物文書テンプレート: ../../shared-templates/document-templates/security-hardening-policy-template.md
+- トレーサビリティID規約: ../../shared-references/traceability-id-convention.md（本Skillは `SEC-xxx`）
