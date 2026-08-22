@@ -156,6 +156,7 @@ flowchart TD
 - API 契約書と互換性方針が承認されている
 - 破壊的変更の扱いと利用者への影響が説明可能
 - 最終報告書が作成済みで、判定根拠が追跡可能
+- 成果物文書が api-contract-document-template.md の必須章（文書情報／目的・背景／対応元ID／方針・決定事項／未決事項・リスク／関連ドキュメント）を満たしている
 
 ## 記録・証跡
 - 各段階の内容を `docs/skill-logs/api_contract_design_${DATE}.md` に append-only で記録する
@@ -179,3 +180,5 @@ flowchart TD
 - ERD 作成ガイド: ../../shared-references/erd-best-practices.md
 - データ辞書テンプレート: ../../shared-templates/data-dictionary-template.md
 - 記録テンプレート: assets/api-contract-design-log-template.md
+- 成果物文書テンプレート: ../../shared-templates/document-templates/api-contract-document-template.md
+- トレーサビリティID規約: ../../shared-references/traceability-id-convention.md（本Skillは `API-xxx`）
