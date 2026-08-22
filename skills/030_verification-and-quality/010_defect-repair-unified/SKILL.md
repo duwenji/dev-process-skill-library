@@ -206,6 +206,8 @@ flowchart TD
 - テストケーステンプレート: ../../shared-references/testcase-template.md
 - Mermaid 図作成ガイド: ../../shared-references/flowchart-best-practices.md
 - 記録テンプレート: assets/defect-log-template.md
+- 成果物文書テンプレート: ../../shared-templates/document-templates/defect-investigation-report-template.md
+- トレーサビリティID規約: ../../shared-references/traceability-id-convention.md（本Skillは `DEF-xxx`）
 
 ## 開始クイックパス
 
@@ -234,6 +236,7 @@ flowchart TD
 - テスト結果で不合格項目がない、または承認・例外記録済み
 - 最終報告書が作成されている
 - 決定・判定根拠がすべて追跡可能である
+- 成果物文書が defect-investigation-report-template.md の必須章（文書情報／目的・背景／対応元ID／方針・決定事項／未決事項・リスク／関連ドキュメント）を満たしている
 
 ## 運用上の判断原則
 
