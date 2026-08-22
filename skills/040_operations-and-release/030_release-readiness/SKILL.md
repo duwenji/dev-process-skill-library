@@ -159,6 +159,7 @@ flowchart TD
 - ロールバック条件と監視ポイントが定義されている
 - 未完了項目と受容条件が管理されている
 - 最終報告書が作成済みで、判定根拠が追跡可能
+- 成果物文書が release-plan-document-template.md の必須章（文書情報／目的・背景／対応元ID／方針・決定事項／未決事項・リスク／関連ドキュメント）を満たしている
 
 ## 記録・証跡
 - 各段階の内容を `docs/skill-logs/release_readiness_${DATE}.md` に append-only で記録する
@@ -179,3 +180,5 @@ flowchart TD
 - Phase 3 サブタスク: sub-skills/phase3-go-live-validation.md
 - Phase 4 サブタスク: sub-skills/phase4-reporting.md
 - 記録テンプレート: assets/release-readiness-log-template.md
+- 成果物文書テンプレート: ../../shared-templates/document-templates/release-plan-document-template.md
+- トレーサビリティID規約: ../../shared-references/traceability-id-convention.md（本Skillは `REL-xxx`）
