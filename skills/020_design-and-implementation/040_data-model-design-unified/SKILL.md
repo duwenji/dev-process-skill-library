@@ -191,6 +191,6 @@ flowchart TD
 - ERD 作成ガイド: ../../shared-references/erd-best-practices.md
 - 調査チェックリスト: ../../shared-references/investigation-checklist.md
 - データ辞書テンプレート: ../../shared-templates/data-dictionary-template.md
-- 記録テンプレート: assets/model-design-log-template.md
+- 記録テンプレート: assets/data-model-design-unified-log-template.md
 - 成果物文書テンプレート: ../../shared-templates/document-templates/data-model-design-document-template.md
 - トレーサビリティID規約: ../../shared-references/traceability-id-convention.md（本Skillは `DM-xxx`）

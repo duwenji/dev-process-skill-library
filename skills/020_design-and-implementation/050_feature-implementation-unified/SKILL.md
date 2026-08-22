@@ -1,7 +1,7 @@
 ---
 name: feature-implementation-unified
 description: '新規機能を追加するとき、または既存機能の仕様変更が必要なときに使う。'
-argument-hint: '[必須] title, 背景, スコープ, 受入条件。[推奨] 非機能要件, 制約, 関連仕様/リンク, 既知リスク。承認主体は開発者です。'
+argument-hint: 'title、背景、スコープ、受入条件を記述してください（非機能要件、制約、関連仕様/リンク、既知リスクがあれば併記）。開発者が承認判断を行います。'
 user-invocable: true
 disable-model-invocation: false
 ---

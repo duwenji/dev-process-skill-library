@@ -142,7 +142,7 @@
 | --- | --- | --- |
 | SKILL.md | 固定 | SKILL.md |
 | Sub-skills | phase1-[KEY].md, phase2-[KEY].md, phase3-[KEY].md, phase4-reporting.md | phase1-discovery.md |
-| Assets | [SKILL_NAME]-log-template.md | test-strategy-log-template.md |
+| Assets | [SKILL_NAME]-log-template.md | test-strategy-unified-log-template.md |
 | References | {flowchart-best-practices, investigation-checklist, testcase-template}.md | flowchart-best-practices.md |
 | Runbook | runbook.md | runbook.md |
 | Category README | 固定 | README.md（カテゴリディレクトリ直下） |

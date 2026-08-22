@@ -1,7 +1,7 @@
 ---
 name: defect-repair-unified
 description: '機能不具合が発生したときに使う。DB系・IPC系・パフォーマンス系・ビジネスロジック系など、不具合カテゴリは問わない。'
-argument-hint: '[必須] title, 症状, 影響範囲。[推奨] 発生条件, 環境情報, 再現手順, 関連ログ/チケット。承認主体は開発者です。'
+argument-hint: 'title、症状、影響範囲を記述してください（発生条件、環境情報、再現手順、関連ログ/チケットがあれば併記）。開発者が承認判断を行います。'
 user-invocable: true
 disable-model-invocation: false
 ---
@@ -206,6 +206,7 @@ flowchart TD
 - テストケーステンプレート: ../../shared-references/testcase-template.md
 - Mermaid 図作成ガイド: ../../shared-references/flowchart-best-practices.md
 - 記録テンプレート: assets/defect-log-template.md
+- 記入例（架空シナリオ）: example.md
 - 成果物文書テンプレート: ../../shared-templates/document-templates/defect-investigation-report-template.md
 - トレーサビリティID規約: ../../shared-references/traceability-id-convention.md（本Skillは `DEF-xxx`）
 

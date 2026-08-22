@@ -1,4 +1,4 @@
-# test-strategy Log Template
+# test-strategy-unified Log Template
 
 ## 基本情報
 | 項目 | 内容 |
