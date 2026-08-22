@@ -165,6 +165,7 @@ flowchart TD
 - 受入条件が判定可能な文で記述されている
 - スコープと非スコープが明示されている
 - 最終報告書が作成済みで、判定根拠が追跡可能
+- 成果物文書が requirements-definition-document-template.md の必須章（文書情報／目的・背景／対応元ID／方針・決定事項／未決事項・リスク／関連ドキュメント）を満たしている
 
 ## 記録・証跡
 - 各段階の内容を `docs/skill-logs/requirements_refinement_${DATE}.md` に append-only で記録する
@@ -187,3 +188,5 @@ flowchart TD
 - Phase 4 サブタスク: sub-skills/phase4-reporting.md
 - 後続モデル設計: ../../020_design-and-implementation/040_data-model-design-unified/SKILL.md
 - 記録テンプレート: assets/requirements-refinement-log-template.md
+- 成果物文書テンプレート: ../../shared-templates/document-templates/requirements-definition-document-template.md
+- トレーサビリティID規約: ../../shared-references/traceability-id-convention.md（本Skillは `REQ-xxx`）
