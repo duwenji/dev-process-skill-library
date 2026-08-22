@@ -158,6 +158,7 @@ flowchart TD
 - アラート条件と初動手順が整備されている
 - 未整備項目と対応期限が管理されている
 - 最終報告書が作成済みで引き継ぎ可能な状態である
+- 成果物文書が operability-design-document-template.md の必須章（文書情報／目的・背景／対応元ID／方針・決定事項／未決事項・リスク／関連ドキュメント）を満たしている
 
 ## 記録・証跡
 - 各段階の内容を `docs/skill-logs/observability_ops_${DATE}.md` に append-only で記録する
@@ -178,3 +179,5 @@ flowchart TD
 - Phase 3 サブタスク: sub-skills/phase3-feedback-and-adjustment.md
 - Phase 4 サブタスク: sub-skills/phase4-continuous-improvement.md
 - 記録テンプレート: assets/observability-and-ops-readiness-log-template.md
+- 成果物文書テンプレート: ../../shared-templates/document-templates/operability-design-document-template.md
+- トレーサビリティID規約: ../../shared-references/traceability-id-convention.md（本Skillは `OPS-xxx`）
