@@ -161,6 +161,7 @@ flowchart TD
 - ADR が第三者に理解可能な内容で承認されている
 - 追従タスクと将来の見直しポイントが示されている
 - 最終報告書が作成済みで、判定根拠が追跡可能
+- 成果物文書が adr-template.md の必須章（文書情報／目的・背景／対応元ID／方針・決定事項／未決事項・リスク／関連ドキュメント）を満たしている
 
 ## 記録・証跡
 - 各段階の内容を `docs/skill-logs/adr_${DATE}.md` に append-only で記録する
@@ -181,3 +182,5 @@ flowchart TD
 - Phase 3 サブタスク: sub-skills/phase3-impact-validation.md
 - Phase 4 サブタスク: sub-skills/phase4-reporting.md
 - 記録テンプレート: assets/architecture-decision-record-log-template.md
+- 成果物文書テンプレート: ../../shared-templates/document-templates/adr-template.md
+- トレーサビリティID規約: ../../shared-references/traceability-id-convention.md（本Skillは `ADR-xxx`）
