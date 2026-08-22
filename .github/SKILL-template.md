@@ -207,6 +207,8 @@ flowchart TD
 - **テストケーステンプレート（共通）**: ../../shared-references/testcase-template.md
 - **フロー図ガイド（共通）**: ../../shared-references/flowchart-best-practices.md
 - **記録テンプレート**: [[SKILL_NAME]-log-template.md](./assets/[SKILL_NAME]-log-template.md)
+- **成果物文書テンプレート**: [../../shared-templates/document-templates/README.md](../../shared-templates/document-templates/README.md) から該当種別を選び、`shared-templates/document-templates/[DOCUMENT_TEMPLATE_NAME].md` として追加する
+- **トレーサビリティID規約**: ../../shared-references/traceability-id-convention.md（本Skillのプレフィックスは規約に追記する）
 
 ## 開始クイックパス
 
@@ -229,6 +231,7 @@ flowchart TD
 - 結果で不合格項目がない、または承認・例外記録済み
 - 最終報告書が作成されている
 - 決定・判定根拠がすべて追跡可能である
+- 成果物文書が該当テンプレートの必須章（文書情報／目的・背景／対応元ID／方針・決定事項／未決事項・リスク／関連ドキュメント）を満たしている
 
 ---
 
