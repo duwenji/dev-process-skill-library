@@ -195,6 +195,16 @@ Skill を追加・更新した場合は、必ず [VALIDATION_CHECKLIST.md](VALID
 - 例外事項は識別子（例: [TRK](shared-references/glossary.md#trk) / [EX](shared-references/glossary.md#ex)）で紐付ける
 - 段階完了時に、要約・決定事項・未解決事項を残す
 
+### 成果物文書テンプレート
+
+- 各Skillは、Skill実行の記録（`assets/*-log-template.md`）とは別に、対象プロジェクトに配置する
+  成果物文書（要件定義書、設計仕様書、テスト戦略書 等）を持つ
+- 成果物文書の型は [shared-templates/document-templates/README.md](shared-templates/document-templates/README.md)
+  に15種類を索引化している
+- 各文書は文書ID（例: `REQ-001`）を持ち、下流の文書は「対応元ID」セクションで上流IDを逆参照する。
+  規約は [shared-references/traceability-id-convention.md](shared-references/traceability-id-convention.md) を参照
+- 中心集約のトレーサビリティマトリクスは作らない。追跡は各文書の逆リンクを辿って行う
+
 ### 参照優先順位（競合時）
 
 1. 実装実体（ソースコード、設定、[DDL](shared-references/glossary.md#ddl)）
