@@ -173,6 +173,12 @@ disable-model-invocation: false
 **日本語**：例外識別子  
 **用途**：優先度例外などの運用例外を一意に管理するための ID（例：`EX-YYYY-MM-DD-NNN`）。
 
+### 成果物文書トレーサビリティID
+
+`REQ, DES, DM, ADR, API, REV, RFC, DEF, SEC, TS, OPS, PERF, REL, DOC, PMR` は成果物文書の
+トレーサビリティID規約です。詳細は [traceability-id-convention.md](./traceability-id-convention.md)
+を参照してください。`PM`（プロジェクトマネージャー）とは異なる用法です。
+
 ---
 
 ## 凡例・記号
