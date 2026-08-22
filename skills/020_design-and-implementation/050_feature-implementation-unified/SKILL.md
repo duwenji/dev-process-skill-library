@@ -207,6 +207,8 @@ flowchart TD
 - ERD 作成ガイド: ../../shared-references/erd-best-practices.md
 - データ辞書テンプレート: ../../shared-templates/data-dictionary-template.md
 - 記録テンプレート: assets/implementation-log-template.md
+- 成果物文書テンプレート: ../../shared-templates/document-templates/feature-design-document-template.md
+- トレーサビリティID規約: ../../shared-references/traceability-id-convention.md（本Skillは `DES-xxx`）
 
 ## 開始クイックパス
 
@@ -229,6 +231,8 @@ flowchart TD
 - 全段階ログがテンプレート形式で docs/skill-logs 配下に記録されている
 - 検証で不合格項目がない、または承認済み例外として記録されている
 - 最終報告書が作成済みで、判定根拠が追跡可能
+- 成果物文書が feature-design-document-template.md の必須章（文書情報／目的・背景／対応元ID／方針・決定事項／未決事項・リスク／関連ドキュメント）を満たしている
+- 対応元IDが上流の要件定義書のIDで埋まっている
 
 ---
 
