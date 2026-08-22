@@ -196,12 +196,13 @@ skills/shared-templates/document-templates/
 
 ## 各スキルへの配線（15スキル共通の変更パターン）
 
-前身specと異なり、**段階番号・ゲート・mermaid図は一切変更しない**。以下3箇所の追記のみ。
+前身specと異なり、**段階番号・ゲート・mermaid図は一切変更しない**。以下2箇所の追記のみ。
+（当初はPhase概要の「出力」行にも `（<file>.md 形式で作成）` を追記する3点構成を検討したが、
+既存の「出力」行の書式がスキルごとに揺れており、完了条件の文言が実質的に同じ内容をカバーするため、
+実装計画では入力リファレンス・完了条件の2箇所に簡略化した）
 
 1. **SKILL.md 入力リファレンス**: `成果物文書テンプレート: ../../shared-templates/document-templates/<file>.md` を追加
-2. **SKILL.md Phase概要の該当「出力」行**: 既存の記述はそのまま維持し、末尾に
-   `（<file>.md 形式で作成）` を追記
-3. **SKILL.md 完了条件**: `成果物文書が <file>.md の必須章（文書情報／目的・背景／対応元ID／方針・決定事項／未決事項・リスク／関連ドキュメント）を満たしている` を追加。上流を持つSkillは
+2. **SKILL.md 完了条件**: `成果物文書が <file>.md の必須章（文書情報／目的・背景／対応元ID／方針・決定事項／未決事項・リスク／関連ドキュメント）を満たしている` を追加。上流を持つSkillは
    `対応元IDが上流文書のIDで埋まっている（最上流のSkillを除く）` も追加
 
 sub-skills/runbook/assets は変更不要（ログと文書テンプレートの役割分担を維持するため）。
@@ -232,6 +233,6 @@ sub-skills/runbook/assets は変更不要（ログと文書テンプレートの
 - `shared-templates/document-templates/` に15テンプレート + README(索引)が作成されている
 - 各テンプレートが共通スケルトン（文書ID・対応元ID含む）+ 該当する種別固有の詳細章を満たしている
 - `shared-references/traceability-id-convention.md` が作成され、15種類のIDプレフィックスが定義されている
-- 対象15スキルすべてで、SKILL.mdの入力リファレンス・該当出力行・完了条件が更新されている
+- 対象15スキルすべてで、SKILL.mdの入力リファレンス・完了条件が更新されている
 - `.github/SKILL-template.md`, `skills/README.md`, `skills/VALIDATION_CHECKLIST.md`, `glossary.md` が更新されている
 - 前身spec（inter-phase-handoff-contract-design.md）が superseded として明記されている
