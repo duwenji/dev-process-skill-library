@@ -156,6 +156,7 @@ flowchart TD
 - 更新対象文書と更新内容が承認されている
 - 未更新リスクと例外が管理されている
 - 最終報告書が作成済みで、読者への影響が説明可能
+- 成果物文書が documentation-update-plan-template.md の必須章（文書情報／目的・背景／対応元ID／方針・決定事項／未決事項・リスク／関連ドキュメント）を満たしている
 
 ## 記録・証跡
 - 各段階の内容を `docs/skill-logs/documentation_sync_${DATE}.md` に append-only で記録する
@@ -176,3 +177,5 @@ flowchart TD
 - Phase 3 サブタスク: sub-skills/phase3-feedback-and-adjustment.md
 - Phase 4 サブタスク: sub-skills/phase4-continuous-improvement.md
 - 記録テンプレート: assets/documentation-sync-log-template.md
+- 成果物文書テンプレート: ../../shared-templates/document-templates/documentation-update-plan-template.md
+- トレーサビリティID規約: ../../shared-references/traceability-id-convention.md（本Skillは `DOC-xxx`）
