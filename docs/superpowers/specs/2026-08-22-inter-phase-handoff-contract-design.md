@@ -1,5 +1,10 @@
 # 工程間 受け渡し契約（Handoff Contract）設計
 
+> **⚠️ Superseded**: 本specは段階1〜14のリナンバリングと新ゲート追加という「プロセス」寄りの案だったが、
+> ユーザーフィードバックにより本質は「ドキュメントの体系化」であると判明したため、
+> [2026-08-22-deliverable-document-templates-design.md](./2026-08-22-deliverable-document-templates-design.md)
+> に置き換えられた。段階番号・ゲートは変更しない方針となったため、本specの内容は実装しない。
+
 - 日付: 2026-08-22
 - 対象リポジトリ: dev-process-skill-library
 - 種別: architectural（全16スキル横断のインターフェース変更）
