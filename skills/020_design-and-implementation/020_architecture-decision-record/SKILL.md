@@ -188,6 +188,7 @@ flowchart TD
 - Phase 2 サブタスク: sub-skills/phase2-adr-drafting.md
 - Phase 3 サブタスク: sub-skills/phase3-impact-validation.md
 - Phase 4 サブタスク: sub-skills/phase4-reporting.md
+- 図種選定ガイド（システム構成図等のフェーズ×成果物マッピング）: ../../shared-references/diagram-catalog-guide.md
 - 記録テンプレート: assets/architecture-decision-record-log-template.md
 - 成果物文書テンプレート: ../../shared-templates/document-templates/adr-template.md
 - トレーサビリティID規約: ../../shared-references/traceability-id-convention.md（本Skillは `ADR-xxx`）

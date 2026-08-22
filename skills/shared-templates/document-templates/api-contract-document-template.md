@@ -34,6 +34,12 @@ IDプレフィックス規約: [traceability-id-convention.md](../../shared-refe
 
 ## リクエスト・レスポンス仕様
 
+## 呼び出しシーケンス（任意）
+
+クライアント/API/バックエンド/外部サービス間の呼び出し順序が複雑な場合、
+Mermaid `sequenceDiagram` を用いて記載する。作成基準は
+[sequence-diagram-best-practices.md](../../shared-references/sequence-diagram-best-practices.md) を参照。
+
 ## エラー表
 | エラーコード | 発生条件 | レスポンス内容 |
 |---|---|---|

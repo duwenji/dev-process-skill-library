@@ -220,6 +220,8 @@
 - [ ] references/ 配下の共通ファイルを確認:
 
   - [ ] flowchart-best-practices.md
+  - [ ] sequence-diagram-best-practices.md
+  - [ ] diagram-catalog-guide.md
   - [ ] investigation-checklist.md
   - [ ] testcase-template.md
 

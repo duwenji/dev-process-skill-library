@@ -187,6 +187,7 @@ flowchart TD
 - Phase 4 サブタスク: sub-skills/phase4-reporting.md
 - モデル設計成果物: ../data-model-design-unified/SKILL.md
 - ERD 作成ガイド: ../../shared-references/erd-best-practices.md
+- シーケンス図作成ガイド（呼び出し順序の可視化）: ../../shared-references/sequence-diagram-best-practices.md
 - データ辞書テンプレート: ../../shared-templates/data-dictionary-template.md
 - 記録テンプレート: assets/api-contract-design-log-template.md
 - 成果物文書テンプレート: ../../shared-templates/document-templates/api-contract-document-template.md

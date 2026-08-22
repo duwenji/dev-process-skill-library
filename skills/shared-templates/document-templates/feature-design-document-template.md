@@ -36,6 +36,14 @@ IDプレフィックス規約: [traceability-id-convention.md](../../shared-refe
 
 ## 実装方針
 
+## 処理シーケンス（任意）
+
+複数コンポーネント（画面/API/バッチ/外部サービス等）間の時系列のやり取りが主眼の場合、
+Mermaid `sequenceDiagram` を用いて記載する。作成基準は
+[sequence-diagram-best-practices.md](../../shared-references/sequence-diagram-best-practices.md) を参照。
+単一処理内の分岐・ループが主眼の場合は、上記「方式案比較」等に
+[flowchart-best-practices.md](../../shared-references/flowchart-best-practices.md) 準拠のフロー図を用いる。
+
 ## 変更ファイル一覧・実装根拠
 | ファイル | 変更内容 | 根拠 |
 |---|---|---|

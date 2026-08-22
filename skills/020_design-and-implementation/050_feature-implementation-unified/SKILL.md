@@ -100,7 +100,7 @@ flowchart TD
 ### Phase 1: 要求整理・方式候補化（段階1-6）
 - 段階3: 開発者が要求を入力（title, 背景, スコープ, 非機能要件, 受入条件）
 - 段階4: AI が現行実装と仕様差分を調査（コード、DB、運用制約、既存モデル成果物）
-- 段階5: AI が方式候補ごとのフロー図を生成
+- 段階5: AI が方式候補ごとのフロー図（複数コンポーネント間のやり取りが主眼の場合はシーケンス図）を生成
 - 段階6: AI が方式案を3案以上提示（メリット/デメリット付き）
 
 出力: 要求整理シート、差分分析、フロー図、方式案一覧  
@@ -204,6 +204,8 @@ flowchart TD
 - 調査チェックリスト: ../../shared-references/investigation-checklist.md
 - テストケーステンプレート: ../../shared-references/testcase-template.md
 - フロー図作成ガイド: ../../shared-references/flowchart-best-practices.md
+- シーケンス図作成ガイド: ../../shared-references/sequence-diagram-best-practices.md
+- 図種選定ガイド（フェーズ×成果物マッピング）: ../../shared-references/diagram-catalog-guide.md
 - ERD 作成ガイド: ../../shared-references/erd-best-practices.md
 - データ辞書テンプレート: ../../shared-templates/data-dictionary-template.md
 - 記録テンプレート: assets/implementation-log-template.md

@@ -194,6 +194,7 @@ flowchart TD
 - Phase 3 サブタスク: sub-skills/phase3-validation.md
 - Phase 4 サブタスク: sub-skills/phase4-reporting.md
 - 後続モデル設計: ../../020_design-and-implementation/040_data-model-design-unified/SKILL.md
+- 図種選定ガイド（業務フロー図・要件トレーサビリティ等のフェーズ×成果物マッピング）: ../../shared-references/diagram-catalog-guide.md
 - 記録テンプレート: assets/requirements-refinement-log-template.md
 - 成果物文書テンプレート: ../../shared-templates/document-templates/requirements-definition-document-template.md
 - トレーサビリティID規約: ../../shared-references/traceability-id-convention.md（本Skillは `REQ-xxx`）

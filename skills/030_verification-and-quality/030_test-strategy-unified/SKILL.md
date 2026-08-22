@@ -209,6 +209,7 @@ flowchart TD
 - Phase 2 サブタスク: sub-skills/phase2-test-design.md
 - Phase 3 サブタスク: sub-skills/phase3-readiness.md
 - Phase 4 サブタスク: sub-skills/phase4-reporting.md
+- 図種選定ガイド（テストケース分岐図・テストスケジュール等のフェーズ×成果物マッピング）: ../../shared-references/diagram-catalog-guide.md
 - 記録テンプレート: assets/test-strategy-unified-log-template.md
 - 成果物文書テンプレート: ../../shared-templates/document-templates/test-strategy-document-template.md
 - トレーサビリティID規約: ../../shared-references/traceability-id-convention.md（本Skillは `TS-xxx`）

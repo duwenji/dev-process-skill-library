@@ -186,6 +186,7 @@ flowchart TD
 - Phase 2 サブタスク: sub-skills/phase2-execution-planning.md
 - Phase 3 サブタスク: sub-skills/phase3-go-live-validation.md
 - Phase 4 サブタスク: sub-skills/phase4-reporting.md
+- 図種選定ガイド（デプロイフロー図・インフラ構成図・ブランチ戦略図等のフェーズ×成果物マッピング）: ../../shared-references/diagram-catalog-guide.md
 - 記録テンプレート: assets/release-readiness-log-template.md
 - 成果物文書テンプレート: ../../shared-templates/document-templates/release-plan-document-template.md
 - トレーサビリティID規約: ../../shared-references/traceability-id-convention.md（本Skillは `REL-xxx`）

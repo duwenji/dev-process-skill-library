@@ -187,6 +187,7 @@ flowchart TD
 - Phase 2 サブタスク: sub-skills/phase2-execution-planning.md
 - Phase 3 サブタスク: sub-skills/phase3-feedback-and-adjustment.md
 - Phase 4 サブタスク: sub-skills/phase4-continuous-improvement.md
+- 図種選定ガイド（障害対応フロー等のフェーズ×成果物マッピング）: ../../shared-references/diagram-catalog-guide.md
 - 記録テンプレート: assets/observability-and-ops-readiness-log-template.md
 - 成果物文書テンプレート: ../../shared-templates/document-templates/operability-design-document-template.md
 - トレーサビリティID規約: ../../shared-references/traceability-id-convention.md（本Skillは `OPS-xxx`）

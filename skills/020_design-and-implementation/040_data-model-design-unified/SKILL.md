@@ -189,6 +189,7 @@ flowchart TD
 - Phase 3 サブタスク: sub-skills/phase3-validation.md
 - Phase 4 サブタスク: sub-skills/phase4-reporting.md
 - ERD 作成ガイド: ../../shared-references/erd-best-practices.md
+- 図種選定ガイド（フェーズ×成果物マッピング）: ../../shared-references/diagram-catalog-guide.md
 - 調査チェックリスト: ../../shared-references/investigation-checklist.md
 - データ辞書テンプレート: ../../shared-templates/data-dictionary-template.md
 - 記録テンプレート: assets/data-model-design-unified-log-template.md
