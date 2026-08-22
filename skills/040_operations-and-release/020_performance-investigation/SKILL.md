@@ -156,6 +156,7 @@ flowchart TD
 - 計測計画が実施可能な状態で承認されている
 - 期待効果と計測コストが説明可能
 - 最終報告書が作成済みで、改善根拠が追跡可能
+- 成果物文書が performance-investigation-report-template.md の必須章（文書情報／目的・背景／対応元ID／方針・決定事項／未決事項・リスク／関連ドキュメント）を満たしている
 
 ## 記録・証跡
 - 各段階の内容を `docs/skill-logs/performance_investigation_${DATE}.md` に append-only で記録する
@@ -176,3 +177,5 @@ flowchart TD
 - Phase 3 サブタスク: sub-skills/phase3-comparison-validation.md
 - Phase 4 サブタスク: sub-skills/phase4-reporting.md
 - 記録テンプレート: assets/performance-investigation-log-template.md
+- 成果物文書テンプレート: ../../shared-templates/document-templates/performance-investigation-report-template.md
+- トレーサビリティID規約: ../../shared-references/traceability-id-convention.md（本Skillは `PERF-xxx`）
