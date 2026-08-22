@@ -156,6 +156,7 @@ flowchart TD
 - レビュー手順書と観点一覧が作成されている
 - 差戻し基準と例外方針が明記されている
 - 最終報告書が作成済みで、判定根拠が追跡可能
+- 成果物文書が code-review-standard-document-template.md の必須章（文書情報／目的・背景／対応元ID／方針・決定事項／未決事項・リスク／関連ドキュメント）を満たしている
 
 ## 記録・証跡
 - 各段階の内容を `docs/skill-logs/code_review_assistant_${DATE}.md` に append-only で記録する
@@ -176,3 +177,5 @@ flowchart TD
 - Phase 3 サブタスク: sub-skills/phase3-feedback-and-adjustment.md
 - Phase 4 サブタスク: sub-skills/phase4-continuous-improvement.md
 - 記録テンプレート: assets/code-review-assistant-log-template.md
+- 成果物文書テンプレート: ../../shared-templates/document-templates/code-review-standard-document-template.md
+- トレーサビリティID規約: ../../shared-references/traceability-id-convention.md（本Skillは `REV-xxx`）
